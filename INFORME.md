@@ -8,8 +8,8 @@ Académico: Sebastián Salazar Molina. Fecha de entrega: 13 de noviembre de 2026
 | Nombre completo | Usuario de GitHub |
 |---|---|
 | Sergio Rubio Gutiérrez | Sergio-R5 |
-| | |
-| | |
+| Fabián Vargas Vilos | Fabianvv2123 |
+| Diego Román | Venurior |
 
 ## 1. Resumen
 
