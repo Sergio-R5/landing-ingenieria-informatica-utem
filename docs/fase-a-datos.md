@@ -105,3 +105,39 @@ Según la malla oficial de F02. Los requisitos usan el número de la asignatura:
 - **Mi Futuro muestra un dato anterior.** El buscador de empleabilidad (F05) indica "4 años" de acreditación institucional, probablemente previo a la decisión de octubre de 2026. No se debe usar.
 - **Certificación no es lo mismo que acreditación CNA.** La UTEM informa que la carrera está *certificada* por agencias externas. En el sitio debemos escribirlo así, sin presentarlo como acreditación de CNA.
 - **Cuerpo académico y laboratorios:** las fuentes consultadas no traen datos de la carrera. Queda pendiente buscarlos en el sitio de la Escuela de Informática o pedirlos a la Escuela.
+
+## Empleabilidad, ingresos y estadísticas (#6)
+
+### Mi Futuro: empleabilidad e ingresos
+
+Datos de Ingeniería en Informática en la UTEM, según el buscador 2025-2026 de Mi Futuro, del Servicio de Información de Educación Superior (SIES) (F05). Los períodos salen de su metodología (F06).
+
+| Indicador | Valor | Período que mide | Fuente |
+|---|---|---|---|
+| Empleabilidad al 1er año | 87,1 % | Titulados 2021, 2022 y 2023, con ingresos de 2022, 2023 y 2024 | F05, F06 |
+| Empleabilidad al 2.° año | 96,5 % | Titulados 2020, 2021 y 2022, con ingresos de 2022, 2023 y 2024 | F05, F06 |
+| Ingreso promedio al 4.° año | De $2.200.000 a $2.300.000 brutos mensuales | Titulados 2018, 2019 y 2020, con ingresos de 2022, 2023 y 2024 | F05, F06 |
+| Retención de 1er año | 90,1 % | Estudiantes de 1er año en 2024 que siguieron en 2025 | F05, F06 |
+| Duración real | 12,9 semestres | Titulados de 2024 | F05, F06 |
+| Titulados que siguen estudiando | 0,0 % | Titulados 2021 a 2023 | F05, F06 |
+
+**Cómo se miden:** "empleabilidad" es el porcentaje de titulados con ingresos iguales o superiores al sueldo mínimo. El ingreso considera solo a quienes superan ese mínimo (F06).
+
+### Mi Futuro: ficha de la carrera
+
+| Indicador | Valor | Año | Fuente |
+|---|---|---|---|
+| Matrícula total | 539 (46 mujeres y 493 hombres) | 2025 | F07 |
+| Matrícula de 1er año | 158 (9 mujeres y 149 hombres) | 2025 | F07 |
+| Promedio PAES de la matrícula de 1er año | 615,3 puntos | 2025 | F07 |
+| Promedio NEM de la matrícula | 6,1 | 2025 | F07 |
+| Titulados | 0 | 2024 | F07 |
+| Origen escolar de la matrícula | 60,3 % particular subvencionado, 29,2 % municipal y servicios locales, 8,5 % administración delegada, 2,1 % particular pagado | 2025 | F07 |
+| Arancel anual | $4.763.300 | 2026 | F01, F07 |
+| Matrícula (derecho básico) | $90.000 | Admisión 2027 | F01 |
+
+### Advertencias
+
+- **La duración real (12,9 semestres) supera la formal (8 semestres).** Es un dato relevante para el público, y debe mostrarse con contexto y sin ocultarlo.
+- **"0 titulados en 2024" contrasta con los datos de empleabilidad.** El plan vigente es de 2022 (F02), y Mi Futuro agrupa los titulados por "carrera genérica" (F06). Antes de publicar ambos datos juntos, el equipo debe entender esta diferencia.
+- **El folleto 2026 (F04) da otras cifras de empleabilidad:** 89,6 % al 1er año y 95,3 % al 2.° año, sin indicar el año. Usamos Mi Futuro porque declara su período y su método.
