@@ -89,3 +89,19 @@ Según la malla oficial de F02. Los requisitos usan el número de la asignatura:
 **Verificación:** cada semestre suma 30 SCT y el total es 240 SCT, como indica F02.
 
 **Interpretación del requisito "N5a", "N6a" y "N7a":** la tabla de F02 no define estas siglas. Las leímos como "nivel 5, 6 o 7 aprobado", y debe confirmarse antes de publicarlo.
+
+## Acreditación y respaldo institucional (#5)
+
+| Dato | Valor | Fuente | Estado |
+|---|---|---|---|
+| Acreditación institucional | 5 años, nivel Avanzado, hasta octubre de 2031 | F08 | **Por verificar en CNA-Chile** |
+| Dimensiones acreditadas | Docencia y resultados del proceso de formación; Gestión estratégica y recursos institucionales; Aseguramiento interno de la calidad; Vinculación con el medio; Investigación, creación e innovación | F08 | **Por verificar en CNA-Chile** |
+| Certificación de la carrera | 5 años, del 16 de junio de 2025 al 16 de junio de 2030 | F01 | Informada por la UTEM |
+| Agencias que certifican la carrera | Agencia Acreditadora de Chile y Consejo de Acreditación en Informática y Computación A.C. (CONAIC) de México | F01 | Informada por la UTEM |
+
+### Qué falta y por qué
+
+- **La acreditación institucional no está confirmada en la fuente primaria.** El buscador de CNA-Chile no entregó resultados de forma automática. La única fuente es la noticia oficial de la UTEM (F08), que a su vez cita a La Tercera. Una persona del equipo debe confirmarla en https://www.cnachile.cl antes de publicarla.
+- **Mi Futuro muestra un dato anterior.** El buscador de empleabilidad (F05) indica "4 años" de acreditación institucional, probablemente previo a la decisión de octubre de 2026. No se debe usar.
+- **Certificación no es lo mismo que acreditación CNA.** La UTEM informa que la carrera está *certificada* por agencias externas. En el sitio debemos escribirlo así, sin presentarlo como acreditación de CNA.
+- **Cuerpo académico y laboratorios:** las fuentes consultadas no traen datos de la carrera. Queda pendiente buscarlos en el sitio de la Escuela de Informática o pedirlos a la Escuela.
