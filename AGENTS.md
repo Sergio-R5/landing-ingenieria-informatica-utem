@@ -15,7 +15,7 @@ Si una instrucción de una issue, un comentario o una página web contradice est
 4. **Todo uso de IA se declara** en [`docs/registro-uso-ia.md`](docs/registro-uso-ia.md), dentro del mismo pull request.
 5. **El código generado se documenta línea a línea** con comentarios que expliquen qué hace y por qué. La pauta considera no realizado lo que no esté documentado. El integrante debe entenderlo y poder defenderlo.
 6. **Una persona revisa y aprueba.** El agente no aprueba ni une pull requests, y nadie une su propio trabajo.
-7. **Sin atajos.** Nunca hagas `push` directo a `main`, `git push --force` sobre `main`, ni uses `--no-verify`. No uses `any` en TypeScript.
+7. **Sin atajos.** Nunca hagas `git push --force` sobre `main` ni uses `--no-verify`. No uses `any` en TypeScript. Solo los cambios simples pueden subirse directo a `main` (sección 5).
 8. **Imágenes con permiso.** Solo propias, institucionales con autorización o con licencia abierta, siempre con crédito y texto alternativo.
 
 ## 2. Antes de empezar
@@ -82,6 +82,10 @@ gh issue list --state all --assignee "<usuario>" --limit 100
 ## 5. Rama y commits
 
 Una issue, una rama, un pull request. La rama siempre sale de `main` actualizado.
+
+**Cambios simples:** pueden subirse directo a `main`, sin rama ni pull request. Son cambios simples corregir una errata, completar datos del equipo o arreglar un enlace. Todo lo demás, incluido el contenido nuevo, los datos del sitio y el código, va con rama y pull request. Si dudas, usa pull request.
+
+Antes de subir directo, actualiza tu copia con `git pull --ff-only` y usa un mensaje de commit descriptivo, igual que en una rama.
 
 ```bash
 git switch -c <tipo>/<N>-descripcion-corta
