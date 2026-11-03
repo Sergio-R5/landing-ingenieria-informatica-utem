@@ -141,3 +141,54 @@ Datos de Ingeniería en Informática en la UTEM, según el buscador 2025-2026 de
 - **La duración real (12,9 semestres) supera la formal (8 semestres).** Es un dato relevante para el público, y debe mostrarse con contexto y sin ocultarlo.
 - **"0 titulados en 2024" contrasta con los datos de empleabilidad.** El plan vigente es de 2022 (F02), y Mi Futuro agrupa los titulados por "carrera genérica" (F06). Antes de publicar ambos datos juntos, el equipo debe entender esta diferencia.
 - **El folleto 2026 (F04) da otras cifras de empleabilidad:** 89,6 % al 1er año y 95,3 % al 2.° año, sin indicar el año. Usamos Mi Futuro porque declara su período y su método.
+
+## Admisión (#7)
+
+Datos para el proceso de **Admisión 2027**, el que se rinde a fines de 2026.
+
+### Vías de ingreso
+
+| Vía | Para quién | Fuente |
+|---|---|---|
+| PAES (Prueba de Acceso a la Educación Superior) | Egresados de enseñanza media que rindieron la PAES, y extranjeros con estudios secundarios reconocidos en Chile | F10 |
+| Cupo PACE (Programa de Acceso a la Educación Superior) | Estudiantes de liceos PACE en el 25 % superior de su ranking, o con ranking de 851 puntos o más; no considera el puntaje PAES, pero exige rendirla | F11 |
+| Propedéutico UTEM | Estudiantes destacados de los liceos que participan del programa | F11 |
+
+La carrera ofrece **21 cupos PACE** (F11).
+
+**Público secundario:** la UTEM no publica una vía especial para personas de 20 años o más ni para quienes cambian de carrera. Pueden postular por PAES si cumplen sus requisitos (F09, F10). Cambiarse de una carrera a otra (transferencia) no fue revisado y queda pendiente.
+
+### Ponderaciones y requisitos
+
+| Componente | Ponderación | Fuente |
+|---|---|---|
+| NEM (Notas de Enseñanza Media) | 10 % | F01, F07 |
+| Ranking de notas | 25 % | F01, F07 |
+| Competencia Lectora | 20 % | F01, F07 |
+| Competencia Matemática 1 (M1) | 30 % | F01, F07 |
+| Competencia Matemática 2 (M2) | 5 % | F01, F07 |
+| Electiva de Ciencias | 10 % | F01, F07 |
+| Electiva de Historia y Ciencias Sociales | 10 % | F01, F07 |
+
+- **Puntaje mínimo:** promedio de 458 puntos entre Competencia Lectora y M1 (F01).
+- **Vacantes:** 150 (F01, F07).
+- **Postulación:** hasta 20 carreras, en orden de preferencia (F01).
+- **PAES de invierno y regular:** se usa automáticamente el mejor puntaje vigente (F01).
+- **Puntaje de corte:** no lo encontramos en las fuentes consultadas. Como referencia, el promedio PAES de quienes se matricularon en 2025 fue 615,3 (F07).
+
+Las ponderaciones cuentan una vez cada electiva: el sistema usa la mejor de las dos. Esta lectura es nuestra y debe confirmarse en DEMRE.
+
+### Fechas clave de Admisión 2027
+
+| Etapa | Fecha | Fuente |
+|---|---|---|
+| Inscripción a la PAES Regular | 1 de junio al 22 de julio de 2026 (cerrada) | F09 |
+| Rendición de la PAES Regular | 30 de noviembre, 1 y 2 de diciembre de 2026 | F09 |
+| Postulación | 4 al 7 de enero de 2027 | F11 |
+| Resultados de la postulación | 18 de enero de 2027 | F11 |
+| Primer período de matrícula | 19 al 21 de enero de 2027 | F11 |
+| Segundo período de matrícula | 22 al 28 de enero de 2027 | F11 |
+
+**Qué cambiará el próximo año:** fechas, vacantes, ponderaciones, puntaje mínimo y arancel. En el sitio deben estar en archivos de contenido fáciles de editar.
+
+**Pendiente:** las fechas de postulación y matrícula vienen de la página de la UTEM (F11). Conviene confirmarlas también en el calendario oficial de DEMRE.
