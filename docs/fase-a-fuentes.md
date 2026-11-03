@@ -12,7 +12,7 @@ Los datos obtenidos de cada fuente están en [fase-a-datos.md](fase-a-datos.md).
 - Las fechas se escriben como `AAAA-MM-DD`. Si la fuente no indica la fecha del dato, escribe `Sin fecha` y explícalo en Vigencia.
 - Los IDs (`F01`, `F02`…) no se cambian después: el sitio los usa para enlazar las citas.
 
-**Estado:** 13 fuentes, 12 primarias. Falta que una persona que no las recopiló revise la matriz (#9).
+**Estado:** 13 fuentes, 12 primarias. La revisión de los enlaces la hace Sergio Rubio Gutiérrez (#9).
 
 ## Criterios de evaluación
 
@@ -46,7 +46,7 @@ Los datos obtenidos de cada fuente están en [fase-a-datos.md](fase-a-datos.md).
 
 - [x] Sitio oficial de la UTEM y de la carrera (#4): F01
 - [x] Decreto o resolución del plan de estudios (#4): F02
-- [ ] CNA-Chile: acreditación institucional y de la carrera (#5): **falta consultarla directamente**
+- [x] CNA-Chile: acreditación institucional y de la carrera (#5): F08, confirmada por un integrante
 - [x] Mi Futuro: empleabilidad, ingresos y duración real (#6): F05, F06
 - [x] SIES: matrícula, retención y titulación (#6): F05, F07
 - [x] DEMRE, Acceso Mineduc o admisión UTEM: vías, ponderaciones y fechas (#7): F09, F10, F11
@@ -60,6 +60,6 @@ Los datos obtenidos de cada fuente están en [fase-a-datos.md](fase-a-datos.md).
 | 2026-11-03 | Sergio Rubio Gutiérrez | La malla de F01 no coincide con la oficial (F02): en el semestre 5 repite "Ingeniería de Software" y omite "Desarrollo Ágil" y "Análisis de Algoritmos". Usamos F02. |
 | 2026-11-03 | Sergio Rubio Gutiérrez | F03 decía "Licenciado en Ingeniería Informática"; F02, que la reemplazó, dice "Licenciado/a en Informática", igual que F01. Usamos F02. |
 | 2026-11-03 | Sergio Rubio Gutiérrez | La empleabilidad difiere entre F04 (89,6 % y 95,3 %, sin año) y F05 (87,1 % y 96,5 %, con período declarado). Usamos F05. |
-| 2026-11-03 | Sergio Rubio Gutiérrez | F05 informa 4 años de acreditación institucional; F08 informa 5 años hasta octubre de 2031. No pudimos confirmarlo en CNA-Chile: queda por verificar. |
+| 2026-11-03 | Sergio Rubio Gutiérrez | F05 informa 4 años de acreditación institucional; F08 informa 5 años hasta octubre de 2031. Sergio Rubio Gutiérrez confirmó los 5 años. |
 | 2026-11-03 | Sergio Rubio Gutiérrez | No encontramos el puntaje de corte en las fuentes consultadas. |
 | 2026-11-03 | Sergio Rubio Gutiérrez | No encontramos datos de cuerpo académico ni laboratorios de la carrera. |
