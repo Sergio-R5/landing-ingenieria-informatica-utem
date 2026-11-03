@@ -192,3 +192,36 @@ Las ponderaciones cuentan una vez cada electiva: el sistema usa la mejor de las 
 **Qué cambiará el próximo año:** fechas, vacantes, ponderaciones, puntaje mínimo y arancel. En el sitio deben estar en archivos de contenido fáciles de editar.
 
 **Pendiente:** las fechas de postulación y matrícula vienen de la página de la UTEM (F11). Conviene confirmarlas también en el calendario oficial de DEMRE.
+
+## Carreras afines (#8)
+
+### Por qué estas dos
+
+Elegimos dos carreras de la misma universidad, porque son las alternativas que un postulante encontrará al lado de Ingeniería en Informática:
+
+- **Ingeniería Civil en Computación mención Informática:** comparte el área de la computación, pero es una ingeniería civil.
+- **Ingeniería Civil en Ciencia de Datos:** comparte la programación y los datos, con otro foco.
+
+### Datos oficiales
+
+| Dato | Ingeniería en Informática | Ing. Civil en Computación mención Informática | Ing. Civil en Ciencia de Datos |
+|---|---|---|---|
+| Duración | 8 semestres | 11 semestres | 11 semestres |
+| Grado académico | Licenciado/a en Informática | Licenciado/a en Ciencias de la Ingeniería | Licenciado/a en Ciencias de la Ingeniería |
+| Código DEMRE | 21030 | 21041 | 21049 |
+| Jornada | Diurna | Diurna | Diurna |
+| Certificación | 5 años, hasta el 16 de junio de 2030 | 5 años, hasta el 26 de mayo de 2030 | No certificable aún: no tiene egresados de su primera cohorte |
+| Foco declarado en el perfil de egreso | Diseñar, desarrollar e integrar software y sistemas de información; gestionar redes y recursos computacionales | Formular, planificar, dirigir y evaluar proyectos informáticos, con base en ciencias básicas e ingeniería | Usar matemática, estadística y computación para analizar, modelar y procesar datos |
+| Fuente | F01 | F12 | F13 |
+
+### Comparación preliminar (interpretación del equipo)
+
+Esta comparación es **nuestra lectura** de los documentos, no un dato institucional. En el sitio debe marcarse como interpretación.
+
+- **Ingeniería en Informática** es la opción más corta (4 años) y se centra en construir y operar soluciones de software, sistemas y redes.
+- **Ingeniería Civil en Computación** dura casi 2 años más. Su perfil destaca las ciencias básicas y la dirección de proyectos.
+- **Ingeniería Civil en Ciencia de Datos** también dura 11 semestres. Su perfil se centra en el análisis y modelamiento de datos más que en el desarrollo de software.
+
+### Contexto laboral de fuentes secundarias
+
+No lo incluimos. Los datos de Mi Futuro (F05) responden a la pregunta del campo laboral con fuentes primarias, así que la prensa no aportaba información nueva.
