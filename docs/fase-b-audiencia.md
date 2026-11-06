@@ -21,17 +21,49 @@ El cuestionario y el consentimiento están en [fase-b-instrumento.md](fase-b-ins
 
 Mínimo 5 personas (#11).
 
+**Estado:** 5 participaciones, todas del público principal. Ninguna es del público secundario.
+
 | Código | Público | Fecha | Medio | Consentimiento guardado | Registró |
 |---|---|---|---|---|---|
-| P1 | | | | | |
+| P1 | Estudiante de 3.° medio | Por completar | Por completar | Por confirmar | Por completar |
+| P2 | Familiar de un estudiante de enseñanza media | Por completar | Por completar | Por confirmar | Por completar |
+| P3 | Estudiante de 3.° medio | Por completar | Por completar | Por confirmar | Por completar |
+| P4 | Estudiante de 4.° medio | Por completar | Por completar | Por confirmar | Por completar |
+| P5 | Estudiante de 4.° medio | Por completar | Por completar | Por confirmar | Por completar |
 
 ## Respuestas anonimizadas
 
-Resume aquí lo que respondió cada persona, sin datos que la identifiquen.
+Respuestas tal como las dio cada persona, con ortografía corregida. Las preguntas 6 y 7 se resumen en las tablas siguientes.
 
-| Código | P1 | P2 | P3 | P4 | P5 | P6 | P7 |
-|---|---|---|---|---|---|---|---|
-| | | | | | | | |
+| Pregunta | P1 | P2 | P3 | P4 | P5 |
+|---|---|---|---|---|---|
+| 2. Lo primero que quiere saber | Cuánto dura la carrera | Qué tanta empleabilidad tiene | Cuánto dinero podría ganar | Si la carrera tiene buena empleabilidad | Cuántos años son y dónde se puede estudiar |
+| 3. Qué sabe y qué dudas tiene | No mucho, solo sé que usan mucho el computador | Que pueden crear programas en el computador y ese tipo de cosas | Sé que tiene que ver con programar y tecnología, pero no cacho bien cuánto dura la carrera | Sé que es una carrera relacionada con la tecnología; mi duda es si las mujeres tenemos las mismas oportunidades en el área | Sé que hoy en día es importante porque todo se maneja con tecnología e IA |
+| 4. Qué la haría decidir | Qué tan difíciles son los ramos | Qué tan fácil es encontrar empleo, porque está difícil la cosa | Saber si la universidad tiene buenas reseñas | Conocer las experiencias de otros estudiantes y egresados | Ver de qué se trata y si me gusta o interesa realmente |
+| 5. Qué le dificultaría estudiar | La dificultad de los ramos | Si la carrera es de un área que no entiendo o no me llama | El costo de la carrera | Si la universidad queda muy lejos de mi casa | Encontrar compañeros con quien arrendar, y no quedar en la opción que quería |
+| 8. Su única pregunta a la carrera | ¿Necesito ser bueno con los computadores para estudiar esto? | ¿Se puede estudiar sabiendo poco de tecnología? | ¿Qué tan difícil es la carrera en general? | ¿Los estudiantes tienen suficiente apoyo? | ¿Qué se puede aprender y qué porcentaje de empleabilidad tiene? |
+
+### Dónde busca información (pregunta 6)
+
+Cada persona podía elegir varias opciones.
+
+| Canal | Personas | Quiénes |
+|---|---|---|
+| Sitio web de la universidad | 4 de 5 | P1, P3, P4, P5 |
+| Buscador, como Google | 3 de 5 | P1, P2, P5 |
+| Familia o amigos | 3 de 5 | P2, P3, P5 |
+| Colegio u orientador | 2 de 5 | P3, P4 |
+| Redes sociales | 1 de 5 | P3 |
+| Sitios oficiales, como Mi Futuro o DEMRE | 1 de 5 | P4 |
+| Ferias o charlas | 1 de 5 | P4 |
+
+### Aparato que usaría (pregunta 7)
+
+| Aparato | Personas | Quiénes |
+|---|---|---|
+| Computador | 4 de 5 | P1, P2, P3, P5 |
+| Celular | 1 de 5 | P4 |
+| Tablet | 0 de 5 | |
 
 ## Frecuencia de preguntas y dudas
 
