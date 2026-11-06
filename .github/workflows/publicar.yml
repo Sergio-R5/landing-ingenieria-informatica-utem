@@ -1,0 +1,49 @@
+# Publica el sitio en GitHub Pages cada vez que cambia main.
+name: Publicar
+
+on:
+  # Se ejecuta con cada cambio que llega a main.
+  push:
+    branches: [main]
+  # Permite ejecutarlo a mano desde la pestaña Actions.
+  workflow_dispatch:
+
+# Permisos mínimos: leer el código, publicar en Pages y validar la identidad
+# del flujo ante GitHub Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si llegan dos cambios seguidos, espera a que termine la publicación en curso
+# en vez de cancelarla, para no dejar el sitio a medio publicar.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      # Descarga el código de main.
+      - uses: actions/checkout@v7
+
+      # Acción oficial de Astro: instala las dependencias, ejecuta npm run build
+      # (que incluye astro check) y prepara la carpeta dist para Pages.
+      - uses: withastro/action@v6
+        with:
+          node-version: 24
+
+  publicar:
+    # Solo publica si la compilación terminó bien.
+    needs: compilar
+    runs-on: ubuntu-latest
+    # Entorno de GitHub Pages; su URL aparece en la pestaña Actions.
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacion.outputs.page_url }}
+    steps:
+      # Sube el sitio compilado a GitHub Pages.
+      - name: Publicar en GitHub Pages
+        id: publicacion
+        uses: actions/deploy-pages@v5

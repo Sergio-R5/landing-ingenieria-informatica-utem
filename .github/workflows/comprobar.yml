@@ -1,0 +1,33 @@
+# Revisa cada pull request antes de unirlo a main.
+name: Comprobar
+
+# Se ejecuta cuando alguien abre o actualiza un pull request hacia main.
+on:
+  pull_request:
+    branches: [main]
+
+# Solo necesita leer el código; no puede modificar el repositorio.
+permissions:
+  contents: read
+
+jobs:
+  comprobar:
+    # Máquina virtual de GitHub con Linux.
+    runs-on: ubuntu-latest
+    steps:
+      # Descarga el código del pull request.
+      - uses: actions/checkout@v7
+
+      # Instala Node.js 24, la versión que exige la pauta, y guarda en caché
+      # las dependencias de npm para que las próximas ejecuciones sean rápidas.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      # Instala exactamente las versiones de package-lock.json.
+      - run: npm ci
+
+      # Revisa los tipos y compila el sitio. Si cualquiera de los dos falla,
+      # el pull request queda marcado con error.
+      - run: npm run build
