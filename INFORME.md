@@ -15,7 +15,7 @@ Académico: Sebastián Salazar Molina. Fecha de entrega: 13 de noviembre de 2026
 
 Qué construimos, para quién, dónde está publicado y qué decisiones lo definen.
 
-- **Sitio publicado:**
+- **Sitio publicado:** https://sergio-r5.github.io/landing-ingenieria-informatica-utem/
 - **Repositorio:** https://github.com/Sergio-R5/landing-ingenieria-informatica-utem
 
 ## 2. Fuentes del contenido (Fase A)
