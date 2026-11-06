@@ -25,11 +25,11 @@ Mínimo 5 personas (#11).
 
 | Código | Público | Fecha | Medio | Consentimiento guardado | Registró |
 |---|---|---|---|---|---|
-| P1 | Estudiante de 3.° medio | Por completar | Por completar | Por confirmar | Por completar |
-| P2 | Familiar de un estudiante de enseñanza media | Por completar | Por completar | Por confirmar | Por completar |
-| P3 | Estudiante de 3.° medio | Por completar | Por completar | Por confirmar | Por completar |
-| P4 | Estudiante de 4.° medio | Por completar | Por completar | Por confirmar | Por completar |
-| P5 | Estudiante de 4.° medio | Por completar | Por completar | Por confirmar | Por completar |
+| P1 | Estudiante de 3.° medio | Por completar | Por completar | Sí, guardado por el equipo fuera del repositorio | Por completar |
+| P2 | Familiar de un estudiante de enseñanza media | Por completar | Por completar | Sí, guardado por el equipo fuera del repositorio | Por completar |
+| P3 | Estudiante de 3.° medio | Por completar | Por completar | Sí, guardado por el equipo fuera del repositorio | Por completar |
+| P4 | Estudiante de 4.° medio | Por completar | Por completar | Sí, guardado por el equipo fuera del repositorio | Por completar |
+| P5 | Estudiante de 4.° medio | Por completar | Por completar | Sí, guardado por el equipo fuera del repositorio | Por completar |
 
 ## Respuestas anonimizadas
 
