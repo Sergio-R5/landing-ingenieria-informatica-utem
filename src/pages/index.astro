@@ -1,0 +1,32 @@
+---
+// Página única del sitio. Por ahora es una página provisional que comprueba
+// que el proyecto compila y se publica. Las secciones reales y BaseLayout
+// llegarán en las issues #20 y #28 a #33.
+
+// Importa los estilos globales para que Tailwind CSS se incluya en el build.
+import '../styles/global.css';
+
+// Título provisional. Se define aquí una sola vez y se usa en <title> y <h1>.
+const titulo: string = 'Ingeniería en Informática UTEM';
+---
+
+<!-- lang="es-CL" declara el idioma de la página, como exige la pauta. -->
+<html lang="es-CL">
+  <head>
+    <!-- Codificación de caracteres, necesaria para tildes y eñes. -->
+    <meta charset="utf-8" />
+    <!-- Ajusta el ancho al dispositivo, para que el sitio sea responsivo. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Título que aparece en la pestaña del navegador. -->
+    <title>{titulo}</title>
+  </head>
+  <body class="p-4">
+    <!-- main marca el contenido principal para los lectores de pantalla. -->
+    <main>
+      <!-- Único encabezado de nivel 1 de la página. -->
+      <h1 class="text-2xl font-bold">{titulo}</h1>
+      <!-- Aviso de que el sitio todavía no tiene contenido. -->
+      <p>Sitio en construcción.</p>
+    </main>
+  </body>
+</html>

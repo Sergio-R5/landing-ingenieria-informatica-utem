@@ -1,0 +1,13 @@
+// Configuración de TypeScript. Astro lee este archivo como JSON con comentarios.
+{
+  // Hereda la configuración estricta oficial de Astro: activa "strict",
+  // prohíbe el "any" implícito y obliga a revisar null y undefined.
+  "extends": "astro/tsconfigs/strict",
+
+  // Archivos que TypeScript revisa: los tipos que genera Astro para las
+  // colecciones de contenido (.astro/types.d.ts) y todo el proyecto.
+  "include": [".astro/types.d.ts", "**/*"],
+
+  // "dist" es el resultado de la compilación, no código fuente: no se revisa.
+  "exclude": ["dist"]
+}

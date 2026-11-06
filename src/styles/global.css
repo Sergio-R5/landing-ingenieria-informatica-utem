@@ -1,0 +1,5 @@
+/* Estilos globales del sitio. */
+
+/* Carga Tailwind CSS 4: sus utilidades quedan disponibles en todo el proyecto.
+   Los colores y tipografías propios se definirán con la identidad visual (#15). */
+@import "tailwindcss";
