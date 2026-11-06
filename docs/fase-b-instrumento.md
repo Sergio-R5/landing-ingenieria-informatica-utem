@@ -1,6 +1,6 @@
 # Fase B: instrumento y consentimiento
 
-**Estado:** borrador. Falta probarlo con una persona y que el equipo lo apruebe (#10).
+**Estado:** aplicado por el equipo a 5 personas (#11). Las respuestas anonimizadas están en [fase-b-audiencia.md](fase-b-audiencia.md).
 
 Este cuestionario busca conocer qué necesita saber el público antes de postular, en vez de suponerlo. Tiene 8 preguntas y toma unos 5 minutos.
 
@@ -92,4 +92,4 @@ Antes de aplicarlo, pruébalo con una persona y anota lo que no se entendió.
 
 | Fecha | Quién lo aplicó | Qué no se entendió | Cambio realizado |
 |---|---|---|---|
-| | | | |
+| 2026-11-06 | El equipo | No se hizo un piloto aparte: el cuestionario se aplicó directamente a 5 personas. Las 5 respondieron las 8 preguntas, sin respuestas vacías ni fuera de tema | Ninguno |
