@@ -61,3 +61,9 @@ Todas las secciones obligatorias tienen fuente para su contenido mínimo. Faltan
 | Preguntas frecuentes | Oportunidades laborales para mujeres | Mostrar solo la matrícula por sexo (F07), sin conclusiones que no estén respaldadas |
 | Admisión | Becas y beneficios | Buscar la página oficial de becas de la UTEM, o enlazar a ella sin dar cifras |
 | Portada | Vivienda cerca del campus | Fuera del alcance del sitio: se omite |
+
+## Wireframes de baja fidelidad (Fase C)
+
+Se han elaborado los bocetos de baja fidelidad para el sitio web, asegurando el contraste y adaptación entre la versión móvil y de escritorio.
+
+![Boceto de wireframes de baja fidelidad que muestra el contraste de la versión móvil (vertical) y la versión de escritorio (horizontal), con anotaciones sobre el orden de las 9 secciones, el llamado a la acción (botón de postular) en la portada y el selector de semestres interactivo para el plan de estudios.](wireframes/Wireframe.jpg)
