@@ -8,6 +8,9 @@ import '../styles/global.css';
 
 // Título provisional. Se define aquí una sola vez y se usa en <title> y <h1>.
 const titulo: string = 'Ingeniería en Informática UTEM';
+
+import { getCollection } from 'astro:content';
+const campo = await getCollection('campo-laboral');
 ---
 
 <!-- lang="es-CL" declara el idioma de la página, como exige la pauta. -->
