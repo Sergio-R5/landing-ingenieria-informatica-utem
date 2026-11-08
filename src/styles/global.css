@@ -1,5 +1,16 @@
 /* Estilos globales del sitio. */
+/* src/styles/global.css */
+@font-face {
+  font-family: 'FuenteUTEM';
+  src: url('/fonts/fuente-oficial.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
+body {
+  font-family: 'FuenteUTEM', sans-serif;
+}
 /* Carga Tailwind CSS 4: sus utilidades quedan disponibles en todo el proyecto.
    Los colores y tipografías propios se definirán con la identidad visual (#15). */
 @import "tailwindcss";

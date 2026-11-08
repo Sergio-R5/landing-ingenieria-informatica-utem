@@ -1,0 +1,85 @@
+---
+// src/layouts/BaseLayout.astro
+
+// Tipamos estrictamente las propiedades que este Layout debe recibir
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { 
+  title, 
+  description, 
+  // Definimos una imagen por defecto de 1200x630px para las redes sociales
+  image = '/og-image.jpg' 
+} = Astro.props;
+
+// Construimos la URL absoluta basándonos en el dominio configurado en el proyecto
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Meta etiquetas para redes sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+
+    <!-- Enlace al Sitemap que generaremos -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <!-- Enlace oculto para navegación por teclado (Accesibilidad) -->
+    <a href="#contenido-principal" class="skip-link">
+      Saltar al contenido principal
+    </a>
+
+    <header>
+      <!-- El encabezado y menú se implementarán aquí después -->
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer>
+      <!-- El pie de página irá aquí -->
+    </footer>
+
+    <style>
+      /* Aseguramos que el enlace de salto solo sea visible al usar Tab en el teclado */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        background: #000;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        z-index: 50;
+        transition: top 0.2s ease-in-out;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+        outline: 3px solid #ffcc00; /* Foco muy visible según pauta */
+        outline-offset: 2px;
+      }
+
+      /* Evitamos el contorno predeterminado feo en el main al hacer foco */
+      main:focus {
+        outline: none;
+      }
+    </style>
+  </body>
+</html>
