@@ -1,85 +1,85 @@
 ---
-// src/layouts/BaseLayout.astro
+// Layout base: concentra el <head>, los metadatos y la estructura común
+// (enlace para saltar al contenido, encabezado, contenido y pie) de la página.
 
-// Tipamos estrictamente las propiedades que este Layout debe recibir
+// Estilos globales: Tailwind CSS, colores y tipografías de la identidad visual (#15).
+// Se importan aquí para que toda página que use este layout los reciba.
+import '../styles/global.css';
+
+// Props que debe recibir el layout. Los tipos son explícitos, como pide la pauta.
 interface Props {
+  // Título único de la página, para la pestaña y las redes sociales.
   title: string;
+  // Descripción única, para buscadores y redes sociales.
   description: string;
+  // Imagen para redes sociales, relativa a la carpeta public. Es opcional:
+  // si no existe, no se agrega la etiqueta og:image.
   image?: string;
 }
 
-const { 
-  title, 
-  description, 
-  // Definimos una imagen por defecto de 1200x630px para las redes sociales
-  image = '/og-image.jpg' 
-} = Astro.props;
+// Lee las props que entrega la página.
+const { title, description, image } = Astro.props;
 
-// Construimos la URL absoluta basándonos en el dominio configurado en el proyecto
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Ruta base del sitio en GitHub Pages ("/landing-ingenieria-informatica-utem/").
+// Toda ruta a un archivo de public debe partir con ella; si no, da error 404.
+const base: string = import.meta.env.BASE_URL;
+
+// Dirección absoluta de esta página, usada como enlace canónico y en Open Graph.
+const canonicalURL: URL = new URL(Astro.url.pathname, Astro.site);
+
+// Dirección absoluta de la imagen para redes sociales, solo si se entregó una.
+const imageURL: URL | undefined = image ? new URL(`${base}${image}`, Astro.site) : undefined;
 ---
 
 <!doctype html>
+<!-- lang="es-CL" declara el idioma de la página, como exige la pauta. -->
 <html lang="es-CL">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Codificación de caracteres, necesaria para tildes y eñes. -->
+    <meta charset="utf-8" />
+    <!-- Ajusta el ancho al dispositivo, para que el sitio sea responsivo. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Título y descripción únicos de la página (SEO básico). -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <!-- Dirección oficial de la página, para que los buscadores no la dupliquen. -->
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph / Meta etiquetas para redes sociales -->
+    <!-- Open Graph: cómo se ve el enlace al compartirlo en redes sociales. -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <!-- La imagen solo se declara si existe, para no enlazar un archivo vacío. -->
+    {imageURL && <meta property="og:image" content={imageURL} />}
 
-    <!-- Enlace al Sitemap que generaremos -->
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Índice del sitemap que genera @astrojs/sitemap dentro de la ruta base. -->
+    <link rel="sitemap" href={`${base}sitemap-index.xml`} />
+    <!-- Ícono de la pestaña, guardado en public/favicon.svg. -->
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
   </head>
-  <body>
-    <!-- Enlace oculto para navegación por teclado (Accesibilidad) -->
-    <a href="#contenido-principal" class="skip-link">
+  <!-- Colores de fondo y texto, y la fuente Inter, definidos en global.css. -->
+  <body class="bg-fondo font-texto text-texto">
+    <!-- Enlace para saltar al contenido; aparece solo al navegar con teclado. -->
+    <a
+      href="#contenido-principal"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-acento focus:px-4 focus:py-2 focus:text-white"
+    >
       Saltar al contenido principal
     </a>
 
-    <header>
-      <!-- El encabezado y menú se implementarán aquí después -->
-    </header>
+    <!-- Encabezado común. El menú de navegación se agrega en la issue #33. -->
+    <header></header>
 
-    <main id="contenido-principal" tabindex="-1">
+    <!-- Contenido de cada página. tabindex="-1" permite recibir el foco al
+         usar el enlace para saltar al contenido. -->
+    <main id="contenido-principal" tabindex="-1" class="focus:outline-none">
+      <!-- Aquí se inserta lo que la página pone dentro de <BaseLayout>. -->
       <slot />
     </main>
 
-    <footer>
-      <!-- El pie de página irá aquí -->
-    </footer>
-
-    <style>
-      /* Aseguramos que el enlace de salto solo sea visible al usar Tab en el teclado */
-      .skip-link {
-        position: absolute;
-        top: -100%;
-        left: 0;
-        background: #000;
-        color: #fff;
-        padding: 0.5rem 1rem;
-        z-index: 50;
-        transition: top 0.2s ease-in-out;
-      }
-      
-      .skip-link:focus {
-        top: 0;
-        outline: 3px solid #ffcc00; /* Foco muy visible según pauta */
-        outline-offset: 2px;
-      }
-
-      /* Evitamos el contorno predeterminado feo en el main al hacer foco */
-      main:focus {
-        outline: none;
-      }
-    </style>
+    <!-- Pie de página común. Su contenido se agrega en la issue #33. -->
+    <footer></footer>
   </body>
 </html>

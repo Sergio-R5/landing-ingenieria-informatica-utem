@@ -1,17 +1,26 @@
 ---
-// Importa los estilos globales para que Tailwind CSS funcione.
-import '../styles/global.css';
+// Página única del sitio. Por ahora es provisional: comprueba que el layout,
+// los estilos y la publicación funcionan. Las secciones reales llegan en las
+// issues #28 a #33.
+
+// Layout base con el <head>, los metadatos, los estilos y la estructura común (#20).
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+// Título de la página. Se define una vez y se usa en <title> y en el <h1>.
 const titulo: string = 'Ingeniería en Informática UTEM';
+
+// Descripción única de la página para buscadores y redes sociales.
+const descripcion: string =
+  'Ingeniería en Informática de la Universidad Tecnológica Metropolitana (UTEM): duración, plan de estudios, campo laboral y admisión, con fuentes oficiales.';
 ---
 
-<BaseLayout 
-  title={titulo}
-  description="Carrera de Ingeniería Civil en Computación mención Informática de la Universidad Tecnológica Metropolitana."
->
+<!-- La página entrega su título y descripción al layout. -->
+<BaseLayout title={titulo} description={descripcion}>
+  <!-- Margen interno provisional mientras no existan las secciones. -->
   <div class="p-4">
-    <h1 class="text-2xl font-bold">{titulo}</h1>
+    <!-- Único encabezado de nivel 1, con la fuente de títulos. -->
+    <h1 class="font-titulo text-2xl font-bold">{titulo}</h1>
+    <!-- Aviso de que el sitio todavía no tiene contenido. -->
     <p>Sitio en construcción.</p>
   </div>
 </BaseLayout>
