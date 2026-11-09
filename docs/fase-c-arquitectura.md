@@ -55,7 +55,8 @@ Colores, tipografías e imágenes, con su contraste y su licencia (#15). Los con
 | Tarjetas y bordes | `#E2E8F0`, gris claro, con texto `#0F172A` encima | Separa los datos sin recargar la página | 14,48:1 para el texto |
 | Títulos | Plus Jakarta Sans | Geométrica y moderna; da carácter a los títulos con forma de pregunta | SIL Open Font License 1.1; se aloja en el propio sitio |
 | Texto | Inter | Diseñada para pantallas; se lee bien en tamaños pequeños | SIL Open Font License 1.1; se aloja en el propio sitio |
-| Imágenes | Por ahora, ninguna | Las imágenes autorizadas se eligen en la #26 | Cada imagen deberá indicar autor y licencia o permiso |
+| Imagen para redes sociales | `public/og-image.png`, 1200×630 px, con los colores de la identidad visual | Es lo que se ve al compartir el enlace (#20) | Creada por el equipo; sin fotos ni logos de terceros |
+| Otras imágenes | Por ahora, ninguna | Las imágenes autorizadas se eligen en la #26 | Cada imagen deberá indicar autor y licencia o permiso |
 
 ## Secciones sin fuente suficiente
 

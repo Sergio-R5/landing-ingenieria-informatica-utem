@@ -14,8 +14,9 @@ const descripcion: string =
   'Ingeniería en Informática de la Universidad Tecnológica Metropolitana (UTEM): duración, plan de estudios, campo laboral y admisión, con fuentes oficiales.';
 ---
 
-<!-- La página entrega su título y descripción al layout. -->
-<BaseLayout title={titulo} description={descripcion}>
+<!-- La página entrega su título, su descripción y la imagen para redes
+     sociales (public/og-image.png, de 1200×630 px) al layout. -->
+<BaseLayout title={titulo} description={descripcion} image="og-image.png">
   <!-- Margen interno provisional mientras no existan las secciones. -->
   <div class="p-4">
     <!-- Único encabezado de nivel 1, con la fuente de títulos. -->
