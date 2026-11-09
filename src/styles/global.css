@@ -1,5 +1,29 @@
 /* Estilos globales del sitio. */
 
-/* Carga Tailwind CSS 4: sus utilidades quedan disponibles en todo el proyecto.
-   Los colores y tipografías propios se definirán con la identidad visual (#15). */
+/* Carga Tailwind CSS 4. Va primero porque CSS exige que @import esté al
+   inicio del archivo; si no, el navegador lo ignora. */
 @import "tailwindcss";
+
+/* Tipografías de la identidad visual (#15), alojadas en el propio sitio con
+   Fontsource para no depender de servidores externos. Ambas usan la licencia
+   SIL Open Font License 1.1. */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+/* Colores y tipografías de la identidad visual (#15). @theme crea utilidades de
+   Tailwind con estos nombres, por ejemplo bg-fondo, text-texto o font-titulo. */
+@theme {
+  /* Fondo de la página: blanco pizarra. */
+  --color-fondo: #F8FAFC;
+  /* Texto principal: 17,06:1 sobre el fondo. */
+  --color-texto: #0F172A;
+  /* Acento para enlaces, citas y botones: 4,94:1 sobre el fondo. */
+  --color-acento: #2563EB;
+  /* Bordes y tarjetas. */
+  --color-borde: #E2E8F0;
+
+  /* Títulos con Plus Jakarta Sans; si no carga, se usa una fuente del sistema. */
+  --font-titulo: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  /* Texto corrido con Inter; si no carga, se usa una fuente del sistema. */
+  --font-texto: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}

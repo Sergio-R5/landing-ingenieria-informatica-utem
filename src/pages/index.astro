@@ -1,32 +1,26 @@
 ---
-// Página única del sitio. Por ahora es una página provisional que comprueba
-// que el proyecto compila y se publica. Las secciones reales y BaseLayout
-// llegarán en las issues #20 y #28 a #33.
+// Página única del sitio. Por ahora es provisional: comprueba que el layout,
+// los estilos y la publicación funcionan. Las secciones reales llegan en las
+// issues #28 a #33.
 
-// Importa los estilos globales para que Tailwind CSS se incluya en el build.
-import '../styles/global.css';
+// Layout base con el <head>, los metadatos, los estilos y la estructura común (#20).
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Título provisional. Se define aquí una sola vez y se usa en <title> y <h1>.
+// Título de la página. Se define una vez y se usa en <title> y en el <h1>.
 const titulo: string = 'Ingeniería en Informática UTEM';
+
+// Descripción única de la página para buscadores y redes sociales.
+const descripcion: string =
+  'Ingeniería en Informática de la Universidad Tecnológica Metropolitana (UTEM): duración, plan de estudios, campo laboral y admisión, con fuentes oficiales.';
 ---
 
-<!-- lang="es-CL" declara el idioma de la página, como exige la pauta. -->
-<html lang="es-CL">
-  <head>
-    <!-- Codificación de caracteres, necesaria para tildes y eñes. -->
-    <meta charset="utf-8" />
-    <!-- Ajusta el ancho al dispositivo, para que el sitio sea responsivo. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Título que aparece en la pestaña del navegador. -->
-    <title>{titulo}</title>
-  </head>
-  <body class="p-4">
-    <!-- main marca el contenido principal para los lectores de pantalla. -->
-    <main>
-      <!-- Único encabezado de nivel 1 de la página. -->
-      <h1 class="text-2xl font-bold">{titulo}</h1>
-      <!-- Aviso de que el sitio todavía no tiene contenido. -->
-      <p>Sitio en construcción.</p>
-    </main>
-  </body>
-</html>
+<!-- La página entrega su título y descripción al layout. -->
+<BaseLayout title={titulo} description={descripcion}>
+  <!-- Margen interno provisional mientras no existan las secciones. -->
+  <div class="p-4">
+    <!-- Único encabezado de nivel 1, con la fuente de títulos. -->
+    <h1 class="font-titulo text-2xl font-bold">{titulo}</h1>
+    <!-- Aviso de que el sitio todavía no tiene contenido. -->
+    <p>Sitio en construcción.</p>
+  </div>
+</BaseLayout>

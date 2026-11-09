@@ -10,6 +10,8 @@ import { defineConfig } from 'astro/config';
 // Plugin oficial de Tailwind CSS 4 para Vite, el empaquetador que usa Astro.
 import tailwindcss from '@tailwindcss/vite';
 
+import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
   // Dirección pública del sitio. Astro la usa para generar enlaces absolutos,
   // como los de Open Graph y el sitemap (#20).
@@ -23,4 +25,6 @@ export default defineConfig({
     // Activa Tailwind CSS en la compilación.
     plugins: [tailwindcss()],
   },
+
+  integrations: [sitemap()],
 });
