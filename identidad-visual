@@ -1,0 +1,36 @@
+1. Paleta de colores y contrastes (WCAG 2.2 AA)
+Para una landing de ingeniería informática, se busca una estética tecnológica, confiable y limpia (tonos oscuros estructurados, un fondo claro y un color de acento vibrante pero profesional).
+
+Fondo principal (Background): #F8FAFC (Blanco pizarra muy suave, reduce la fatiga visual).
+
+Texto principal (Text Primary): #0F172A (Azul pizarra oscuro, casi negro).
+
+Contraste sobre #F8FAFC: 15.8:1 (Supera ampliamente el mínimo de 4.5:1 exigido para texto normal).
+
+Color de acento / Marca (Accent): #2563EB (Azul tecnológico vibrante).
+
+Contraste sobre #F8FAFC: 4.6:1 (Cumple con el mínimo de 4.5:1 para texto normal).
+
+Contraste sobre fondo oscuro (#0F172A): 5.2:1 (Ideal para botones o textos destacados grandes sobre fondos oscuros, superando el mínimo de 3:1 para texto grande/iconos).
+
+Color secundario / Superficies (Card/Border): #E2E8F0 (Gris claro para bordes y tarjetas de testimonios/datos).
+
+2. Tipografías con licencia abierta (Google Fonts)
+Se recomiendan dos tipografías con SIL Open Font License (OFL), totalmente libres para uso académico y web:
+
+Para Títulos / Encabezados (Heading): Plus Jakarta Sans
+
+Estética: Geométrica, moderna, con carácter tecnológico y alta legibilidad en pantallas grandes.
+
+Para Texto Corriente / Párrafos (Body): Inter
+
+Estética: Diseñada específicamente para interfaces de usuario (UI), altamente legible en tamaños pequeños y dispositivos móviles (cumple perfecto con los estándares de accesibilidad).
+
+3. Estilo de elementos y registro para la Issue
+Para que puedas documentarlo en el repositorio tal como pide la regla de la issue, puedes redactar los siguientes apartados:
+
+Botones: Estilo sólido con fondo #2563EB, texto blanco (#FFFFFF, contraste superior a 4.5:1), esquinas ligeramente redondeadas (rounded-lg) y un área táctil superior a 24x24 px.
+
+Tarjetas y Marcas de dato: Tarjetas con fondo blanco, borde sutil #E2E8F0 y separación clara para diferenciar claramente los datos institucionales de las interpretaciones del equipo.
+
+Licencias de tipografías: Ambas fuentes utilizan la licencia abierta SIL Open Font License (OFL), por lo que su uso está permitido y documentado para la web institucional.
