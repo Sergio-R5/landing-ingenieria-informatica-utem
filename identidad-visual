@@ -1,5 +1,4 @@
 1. Paleta de colores y contrastes (WCAG 2.2 AA)
-Para una landing de ingeniería informática, se busca una estética tecnológica, confiable y limpia (tonos oscuros estructurados, un fondo claro y un color de acento vibrante pero profesional).
 
 Fondo principal (Background): #F8FAFC (Blanco pizarra muy suave, reduce la fatiga visual).
 
@@ -16,7 +15,6 @@ Contraste sobre fondo oscuro (#0F172A): 5.2:1 (Ideal para botones o textos desta
 Color secundario / Superficies (Card/Border): #E2E8F0 (Gris claro para bordes y tarjetas de testimonios/datos).
 
 2. Tipografías con licencia abierta (Google Fonts)
-Se recomiendan dos tipografías con SIL Open Font License (OFL), totalmente libres para uso académico y web:
 
 Para Títulos / Encabezados (Heading): Plus Jakarta Sans
 
@@ -27,10 +25,9 @@ Para Texto Corriente / Párrafos (Body): Inter
 Estética: Diseñada específicamente para interfaces de usuario (UI), altamente legible en tamaños pequeños y dispositivos móviles (cumple perfecto con los estándares de accesibilidad).
 
 3. Estilo de elementos y registro para la Issue
-Para que puedas documentarlo en el repositorio tal como pide la regla de la issue, puedes redactar los siguientes apartados:
 
 Botones: Estilo sólido con fondo #2563EB, texto blanco (#FFFFFF, contraste superior a 4.5:1), esquinas ligeramente redondeadas (rounded-lg) y un área táctil superior a 24x24 px.
 
-Tarjetas y Marcas de dato: Tarjetas con fondo blanco, borde sutil #E2E8F0 y separación clara para diferenciar claramente los datos institucionales de las interpretaciones del equipo.
+Tarjetas y Marcas de dato: Tarjetas con fondo blanco, borde sutil #E2E8F0 y separación clara 
 
 Licencias de tipografías: Ambas fuentes utilizan la licencia abierta SIL Open Font License (OFL), por lo que su uso está permitido y documentado para la web institucional.
