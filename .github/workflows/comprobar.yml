@@ -1,10 +1,14 @@
-# Revisa cada pull request antes de unirlo a main.
+# Revisa los cambios antes de que lleguen a main.
 name: Comprobar
 
-# Se ejecuta cuando alguien abre o actualiza un pull request hacia main.
 on:
+  # Se ejecuta cuando alguien abre o actualiza un pull request hacia main.
   pull_request:
     branches: [main]
+  # También se ejecuta al subir cualquier otra rama, para avisar de errores
+  # antes de abrir el pull request. main ya se compila al publicar.
+  push:
+    branches-ignore: [main]
 
 # Solo necesita leer el código; no puede modificar el repositorio.
 permissions:
