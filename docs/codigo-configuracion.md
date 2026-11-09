@@ -48,3 +48,9 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 |---|---|
 | `referencias/F05.json` | La fuente F05 de la matriz (Mi Futuro). El nombre del archivo es el ID que usan las citas |
 | `campo-laboral/empleabilidad.json` | Empleabilidad e ingresos de Mi Futuro, con su período, tal como están en `docs/fase-a-datos.md` |
+
+## Prueba de los esquemas (#19)
+
+Para comprobar que un dato mal escrito detiene la publicación, el 9 de noviembre de 2026 se subió una rama de prueba con dos errores en `campo-laboral/empleabilidad.json`: una empleabilidad de 187,1 % (el máximo es 100) y una cita a la fuente `F99`, que no existe.
+
+El build falló con el error `InvalidContentEntryDataError` de Astro: [ejecución en GitHub Actions](https://github.com/Sergio-R5/landing-ingenieria-informatica-utem/actions/runs/42645795700). La rama de prueba se borró después.
