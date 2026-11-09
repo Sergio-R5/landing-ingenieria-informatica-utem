@@ -1,0 +1,23 @@
+---
+/**
+ * Componente Cita.astro
+ * Propósito: Enlazar una afirmación o cifra directamente con su entrada en la sección de Referencias.
+ * Requisitos: Zona táctil mínima de 24x24 px y tipado estricto en TypeScript.
+ */
+
+// Definición estricta de las propiedades (Props) sin usar 'any'
+export interface Props {
+  idReferencia: string; // Identificador único de la referencia (ej: "sies-2024")
+  numeroCita: number;   // Número visual de la cita
+}
+
+const { idReferencia, numeroCita } = Astro.props;
+---
+
+<a 
+  href={`#ref-${idReferencia}`} 
+  class="inline-flex items-center justify-center min-w-[24px] min-h-[24px] px-1.5 py-0.5 text-xs font-semibold text-blue-700 bg-blue-50 rounded hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600"
+  aria-label={`Ver referencia número ${numeroCita}`}
+>
+  [{numeroCita}]
+</a>
