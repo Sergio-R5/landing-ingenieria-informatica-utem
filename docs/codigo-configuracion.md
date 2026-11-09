@@ -31,3 +31,20 @@ Contiene solo `24`. Le indica a herramientas como nvm qué versión de Node.js u
 ## Archivos .gitkeep
 
 Git no guarda carpetas vacías. Estos archivos vacíos mantienen en el repositorio las carpetas `src/components`, `src/layouts`, `src/content` y `public`, que se llenarán en las próximas issues.
+
+## Dependencias de tipografías
+
+| Paquete | Qué hace y por qué |
+|---|---|
+| `@fontsource-variable/inter` | Aloja la fuente Inter en el propio sitio, sin depender de Google Fonts. Licencia SIL Open Font License 1.1 |
+| `@fontsource-variable/plus-jakarta-sans` | Aloja la fuente Plus Jakarta Sans, usada en los títulos. Licencia SIL Open Font License 1.1 |
+| `@astrojs/sitemap` | Genera `sitemap-index.xml` al compilar, como exige el SEO básico de la pauta |
+
+## Archivos de datos (src/content)
+
+Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a línea en `src/content.config.ts`.
+
+| Archivo | Contenido |
+|---|---|
+| `referencias/F05.json` | La fuente F05 de la matriz (Mi Futuro). El nombre del archivo es el ID que usan las citas |
+| `campo-laboral/empleabilidad.json` | Empleabilidad e ingresos de Mi Futuro, con su período, tal como están en `docs/fase-a-datos.md` |
