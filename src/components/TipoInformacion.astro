@@ -1,0 +1,45 @@
+---
+/**
+ * Componente TipoInformacion.astro
+ * Propósito: Distinguir visual y textualmente entre dato, interpretación y testimonio.
+ */
+
+export interface Props {
+  tipo: 'dato' | 'interpretacion' | 'testimonio';
+}
+
+const { tipo } = Astro.props;
+
+// Configuración de textos y estilos según el tipo de información
+const configuracion = {
+  dato: {
+    etiqueta: 'Dato institucional',
+    clases: 'border-l-4 border-blue-600 bg-blue-50/50 text-blue-950',
+    badgeClases: 'bg-blue-600 text-white'
+  },
+  interpretacion: {
+    etiqueta: 'Interpretación del equipo',
+    clases: 'border-l-4 border-amber-500 bg-amber-50/50 text-amber-950',
+    badgeClases: 'bg-amber-500 text-white'
+  },
+  testimonio: {
+    etiqueta: 'Testimonio',
+    clases: 'border-l-4 border-emerald-600 bg-emerald-50/50 text-emerald-950',
+    badgeClases: 'bg-emerald-600 text-white'
+  }
+};
+
+const actual = configuracion[tipo];
+---
+
+<aside class={`p-4 rounded-r-lg my-3 ${actual.clases}`} aria-label={actual.etiqueta}>
+  <div class="flex items-center gap-2 mb-2">
+    <-- etiqueta de texto obligatoria para no depender solo del color -->
+    <span class={`text-xs font-bold uppercase px-2 py-0.5 rounded ${actual.badgeClases}`}>
+      {actual.etiqueta}
+    </span>
+  </div>
+  <div class="text-sm leading-relaxed">
+    <slot /> <-- aquí se inyecta el contenido específico que envuelve el componente -->
+  </div>
+</aside>
