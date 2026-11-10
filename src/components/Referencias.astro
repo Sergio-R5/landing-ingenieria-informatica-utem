@@ -1,0 +1,56 @@
+---
+// Lista numerada de las fuentes en APA 7, con su fecha de consulta y un ancla
+// por ID para que cada Cita lleve a su referencia exacta (#21).
+// No incluye el título de la sección: lo pone la sección Referencias (#33),
+// desde los archivos de contenido.
+
+// getCollection lee los archivos de src/content/referencias.
+import { getCollection } from 'astro:content';
+// Tipo de una entrada de la colección, para tipar la lista sin usar any.
+import type { CollectionEntry } from 'astro:content';
+
+// Mismo orden que usa Cita.astro: por ID. Así el número de cada cita coincide
+// con su posición en esta lista.
+const referencias: CollectionEntry<'referencias'>[] = (await getCollection('referencias')).sort(
+  (a, b) => a.id.localeCompare(b.id),
+);
+
+// Convierte "2026-11-03" en "3 de noviembre de 2026", como pide la guía de
+// estilo. Se usa UTC para que la fecha no cambie según la zona horaria.
+const formatoFecha: Intl.DateTimeFormat = new Intl.DateTimeFormat('es-CL', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+function fechaLegible(fecha: string): string {
+  return formatoFecha.format(new Date(`${fecha}T00:00:00Z`));
+}
+---
+
+<!-- Lista ordenada: el navegador numera cada fuente desde 1.
+     Cada elemento tiene el ancla "ref-F05", a la que apuntan las citas.
+     scroll-mt deja espacio arriba para que el menú fijo no tape la
+     referencia al saltar. -->
+<ol class="list-decimal space-y-4 pl-6">
+  {
+    referencias.map((referencia) => (
+      <li id={`ref-${referencia.id}`} class="scroll-mt-24 leading-relaxed">
+        {/* Referencia completa en APA 7, tal como está en la matriz. */}
+        <p>{referencia.data.apa}</p>
+        <p class="mt-1 text-sm">
+          {/* Fecha de consulta, que exige la pauta. */}
+          Consultada el {fechaLegible(referencia.data.fechaConsulta)}.{' '}
+          {/* Enlace a la fuente, con al menos 24 px de alto para tocarlo. Se
+              abre en la misma pestaña, como recomienda WCAG. */}
+          <a
+            href={referencia.data.url}
+            class="inline-flex min-h-6 items-center text-acento underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
+          >
+            Abrir la fuente {referencia.id}
+          </a>
+        </p>
+      </li>
+    ))
+  }
+</ol>

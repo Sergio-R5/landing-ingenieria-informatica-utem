@@ -1,0 +1,59 @@
+---
+// Bloque que marca qué tipo de información contiene: dato institucional,
+// interpretación del equipo o testimonio (#21). La pauta exige distinguirlos,
+// y WCAG exige que no se distingan solo por el color: por eso cada bloque
+// muestra su tipo en texto.
+
+// Tipo de una entrada de preguntas frecuentes, para reusar sus valores.
+import type { CollectionEntry } from 'astro:content';
+
+// Los tres tipos válidos salen del esquema de src/content.config.ts. Si el
+// esquema cambia, este componente se actualiza solo.
+type Tipo = CollectionEntry<'faq'>['data']['tipoInformacion'];
+
+interface Props {
+  tipo: Tipo;
+}
+
+const { tipo }: Props = Astro.props;
+
+// Etiqueta de texto y estilos de cada tipo. Record<Tipo, ...> obliga a
+// definir los tres: si falta uno, astro check marca error.
+const estilos: Record<Tipo, { etiqueta: string; borde: string; insignia: string }> = {
+  // Dato: borde continuo y etiqueta azul con texto blanco (contraste 5,17:1).
+  dato_institucional: {
+    etiqueta: 'Dato institucional',
+    borde: 'border-solid border-acento',
+    insignia: 'bg-acento text-white',
+  },
+  // Interpretación: borde discontinuo, para que se note aunque no se vean los
+  // colores, y etiqueta oscura con texto blanco (contraste 17,82:1).
+  interpretacion_equipo: {
+    etiqueta: 'Interpretación del equipo',
+    borde: 'border-dashed border-texto',
+    insignia: 'bg-texto text-white',
+  },
+  // Testimonio: borde punteado y etiqueta con borde, texto oscuro sobre el
+  // fondo (contraste 17,06:1).
+  testimonio: {
+    etiqueta: 'Testimonio',
+    borde: 'border-dotted border-texto',
+    insignia: 'border border-texto bg-fondo text-texto',
+  },
+};
+
+// Estilos del tipo pedido.
+const actual = estilos[tipo];
+---
+
+<!-- Borde izquierdo grueso con el estilo del tipo y margen interno. -->
+<div class:list={['my-3 border-l-4 py-2 pl-4', actual.borde]}>
+  <!-- Etiqueta visible con el tipo de información. -->
+  <p class:list={['mb-2 inline-block rounded px-2 py-0.5 text-xs font-bold', actual.insignia]}>
+    {actual.etiqueta}
+  </p>
+  <!-- Contenido que envuelve el componente, por ejemplo un párrafo con su cita. -->
+  <div class="leading-relaxed">
+    <slot />
+  </div>
+</div>
