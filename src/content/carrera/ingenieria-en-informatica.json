@@ -1,0 +1,39 @@
+{
+  "nombreOficial": "Ingeniería en Informática",
+  "tituloProfesional": "Ingeniero/a en Informática",
+  "gradoAcademico": "Licenciado/a en Informática",
+  "duracionSemestres": 8,
+  "jornada": "Diurna",
+  "sede": "Campus Macul, Ñuñoa",
+  "fuente": "F01",
+  "llamadoAccion": {
+    "texto": "Revisa cómo postular",
+    "destino": "#admision"
+  },
+  "proposito": {
+    "texto": "Forma profesionales que diseñan, desarrollan e integran software y sistemas de información. También gestionan redes y recursos computacionales, y administran tecnologías de la información.",
+    "fuente": "F01"
+  },
+  "explicacionSimple": "En palabras simples: crea y mantiene los programas y sistemas que usan empresas, servicios públicos y organizaciones. También cuida que funcionen de forma segura y confiable.",
+  "afines": [
+    {
+      "nombre": "Ingeniería Civil en Computación mención Informática",
+      "duracionSemestres": 11,
+      "gradoAcademico": "Licenciado/a en Ciencias de la Ingeniería",
+      "foco": "Formular, planificar, dirigir y evaluar proyectos informáticos, con base en ciencias básicas e ingeniería.",
+      "fuente": "F12"
+    },
+    {
+      "nombre": "Ingeniería Civil en Ciencia de Datos",
+      "duracionSemestres": 11,
+      "gradoAcademico": "Licenciado/a en Ciencias de la Ingeniería",
+      "foco": "Usar matemática, estadística y computación para analizar, modelar y procesar datos.",
+      "fuente": "F13"
+    }
+  ],
+  "comparacion": [
+    "Ingeniería en Informática es la más corta de las tres: dura 8 semestres. Se centra en construir y operar software, sistemas y redes.",
+    "Ingeniería Civil en Computación dura 3 semestres más. Su perfil destaca las ciencias básicas y la dirección de proyectos.",
+    "Ingeniería Civil en Ciencia de Datos también dura 11 semestres. Se centra en analizar y modelar datos más que en desarrollar software."
+  ]
+}
