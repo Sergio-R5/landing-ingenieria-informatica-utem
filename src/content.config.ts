@@ -16,12 +16,19 @@ const fecha = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Usa el formato AAAA-MM-DD
 // matriz de fuentes, por ejemplo F05.json, y así se cita desde otros datos.
 const referencias = defineCollection({
   // Lee cada archivo .json de src/content/referencias.
-  loader: glob({ pattern: '**/*.json', base: './src/content/referencias' }),
+  // generateId conserva el nombre del archivo tal cual ("F05"). Sin esto,
+  // Astro lo pasa a minúsculas ("f05") y las citas a "F05" no encuentran su
+  // fuente.
+  loader: glob({
+    pattern: '**/*.json',
+    base: './src/content/referencias',
+    generateId: ({ entry }) => entry.replace(/\.json$/, ''),
+  }),
   schema: z.object({
     // Referencia completa en formato APA 7, tal como está en la matriz.
     apa: z.string().min(1),
     // Dirección que un tercero puede abrir para comprobar el dato.
-    url: z.string().url(),
+    url: z.url(),
     // Primaria (emitida por quien produce el dato) o secundaria.
     tipo: z.enum(['primaria', 'secundaria']),
     // Fecha de consulta de la fuente.

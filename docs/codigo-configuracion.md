@@ -54,3 +54,8 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 Para comprobar que un dato mal escrito detiene la publicación, el 9 de noviembre de 2026 se subió una rama de prueba con dos errores en `campo-laboral/empleabilidad.json`: una empleabilidad de 187,1 % (el máximo es 100) y una cita a la fuente `F99`, que no existe.
 
 El build falló con el error `InvalidContentEntryDataError` de Astro: [ejecución en GitHub Actions](https://github.com/Sergio-R5/landing-ingenieria-informatica-utem/actions/runs/42645795700). La rama de prueba se borró después.
+
+**Corrección del 10 de noviembre de 2026 (#21).** Esa falla la causó la empleabilidad de 187,1 %. Una cita a una fuente inexistente, como `F99`, solo genera un aviso en el registro: Astro no detiene el build. Al probar los componentes también vimos que Astro guardaba el ID de `F05.json` como `f05`, así que ninguna cita encontraba su fuente. Se corrigió de dos formas:
+
+- `src/content.config.ts` conserva el nombre del archivo como ID (`generateId`).
+- `src/components/Cita.astro` detiene el build si la fuente citada no existe. Como todos los datos se muestran con su cita, una fuente rota ya no puede publicarse.
