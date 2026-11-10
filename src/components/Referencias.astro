@@ -1,0 +1,43 @@
+---
+/**
+ * Componente Referencias.astro
+ * Propósito: Listar las fuentes bibliográficas e institucionales en formato APA 7 con anclas por ID.
+ */
+
+export interface ReferenciaItem {
+  id: string;          // Identificador único (ej: "sies-2024")
+  textoAPA: string;    // Texto completo de la referencia en formato APA 7
+  fechaConsulta: string; // Fecha en que se consultó la fuente
+  enlace?: string;     // URL opcional de la fuente primaria
+}
+
+export interface Props {
+  fuentes: ReferenciaItem[];
+}
+
+const { fuentes } = Astro.props;
+---
+
+<section id="referencias" class="mt-8 pt-6 border-t border-slate-200">
+  <h2 class="text-xl font-bold text-slate-900 mb-4">Referencias</h2>
+  <ol class="space-y-3 list-decimal list-inside text-sm text-slate-700">
+    {fuentes.map((fuente) => (
+      <li id={`ref-${fuente.id}`} class="pl-1 leading-relaxed">
+        <span>{fuente.textoAPA}</span>
+        {fuente.enlace && (
+          <a 
+            href={fuente.enlace} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="ml-2 text-blue-600 hover:underline inline-flex items-center min-h-[24px]"
+          >
+            [Enlace a fuente]
+          </a>
+        )}
+        <span class="block text-xs text-slate-500 mt-0.5 sm:inline sm:ml-2">
+          (Consultado el {fuente.fechaConsulta})
+        </span>
+      </li>
+    ))}
+  </ol>
+</section>
