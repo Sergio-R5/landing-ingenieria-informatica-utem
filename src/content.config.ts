@@ -36,6 +36,52 @@ const referencias = defineCollection({
   }),
 });
 
+// Carrera afín con la que se compara, con sus datos oficiales.
+const carreraAfin = z.object({
+  nombre: z.string().min(1),
+  duracionSemestres: z.number().int().positive(),
+  gradoAcademico: z.string().min(1),
+  // Foco declarado en su perfil de egreso, resumido sin cambiar su sentido.
+  foco: z.string().min(1),
+  // Página oficial de esa carrera.
+  fuente: reference('referencias'),
+});
+
+// Carrera: datos de la Portada y de Sobre la carrera (#22).
+const carrera = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/carrera' }),
+  schema: z.object({
+    // Datos que exige la pauta para la Portada. Son datos institucionales.
+    nombreOficial: z.string().min(1),
+    tituloProfesional: z.string().min(1),
+    gradoAcademico: z.string().min(1),
+    duracionSemestres: z.number().int().positive(),
+    jornada: z.string().min(1),
+    sede: z.string().min(1),
+    // Fuente de los datos de la Portada.
+    fuente: reference('referencias'),
+    // Llamado a la acción de la Portada: un texto y la sección a la que lleva.
+    llamadoAccion: z.object({
+      texto: z.string().min(1),
+      // Debe ser un ancla de esta misma página, por ejemplo "#admision".
+      destino: z.string().regex(/^#[a-z-]+$/, 'Usa un ancla como "#admision"'),
+    }),
+    // Propósito formativo, resumido del perfil de egreso oficial. Es un dato
+    // institucional, así que lleva su fuente.
+    proposito: z.object({
+      texto: z.string().min(1),
+      fuente: reference('referencias'),
+    }),
+    // Explicación en palabras simples. Es interpretación del equipo: la Fase B
+    // mostró que nadie sabía qué hace un ingeniero en informática.
+    explicacionSimple: z.string().min(1),
+    // La pauta pide comparar con al menos 2 carreras afines.
+    afines: z.array(carreraAfin).min(2),
+    // Lectura del equipo sobre las diferencias. Se muestra como interpretación.
+    comparacion: z.array(z.string().min(1)).min(1),
+  }),
+});
+
 // Campo laboral: indicadores de empleabilidad e ingresos con su período y fuente.
 const campoLaboral = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/campo-laboral' }),
@@ -123,6 +169,7 @@ const secciones = defineCollection({
 // Colecciones disponibles para getCollection() en las páginas.
 export const collections = {
   referencias,
+  carrera,
   'campo-laboral': campoLaboral,
   malla,
   faq,

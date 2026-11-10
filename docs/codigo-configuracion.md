@@ -48,6 +48,9 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 |---|---|
 | `referencias/F05.json` | La fuente F05 de la matriz (Mi Futuro). El nombre del archivo es el ID que usan las citas |
 | `campo-laboral/empleabilidad.json` | Empleabilidad e ingresos de Mi Futuro, con su período, tal como están en `docs/fase-a-datos.md` |
+| `referencias/F01.json`, `F12.json` y `F13.json` | Páginas oficiales de la carrera y de las 2 carreras afines, que citan la Portada y Sobre la carrera |
+| `carrera/ingenieria-en-informatica.json` | Datos de la Portada (nombre, título, grado, duración, jornada y sede), el llamado a la acción, el propósito formativo, las 2 carreras afines y la comparación del equipo (#22). Cada dato sale de la sección "Datos base" y "Carreras afines" de `docs/fase-a-datos.md` |
+| `secciones/portada.md` y `secciones/sobre-la-carrera.md` | Nombre para el menú, pregunta que se usa como título y posición de cada sección |
 
 ## Prueba de los esquemas (#19)
 
