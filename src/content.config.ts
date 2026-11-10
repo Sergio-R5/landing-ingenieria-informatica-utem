@@ -4,8 +4,9 @@
 // defineCollection crea una colección; reference valida que una cita apunte a
 // una referencia que exista.
 import { defineCollection, reference } from 'astro:content';
-// z (Zod) describe las reglas de cada campo.
-import { z } from 'astro:schema';
+// z (Zod) describe las reglas de cada campo. Se importa de astro/zod, la ruta
+// que recomienda Astro; astro:schema está obsoleta.
+import { z } from 'astro/zod';
 // glob lee todos los archivos de una carpeta que calzan con un patrón.
 import { glob } from 'astro/loaders';
 
