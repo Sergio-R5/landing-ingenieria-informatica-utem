@@ -4,26 +4,59 @@
    inicio del archivo; si no, el navegador lo ignora. */
 @import "tailwindcss";
 
-/* Tipografías de la identidad visual (#15), alojadas en el propio sitio con
-   Fontsource para no depender de servidores externos. Ambas usan la licencia
-   SIL Open Font License 1.1. */
-@import "@fontsource-variable/inter";
+/* Tipografía de la identidad visual, alojada en el propio sitio con
+   Fontsource para no depender de servidores externos. Licencia SIL Open Font
+   License 1.1. Se usa una sola familia para títulos y texto: da una voz más
+   clara y la página descarga un archivo de fuente menos. */
 @import "@fontsource-variable/plus-jakarta-sans";
 
-/* Colores y tipografías de la identidad visual (#15). @theme crea utilidades de
-   Tailwind con estos nombres, por ejemplo bg-fondo, text-texto o font-titulo. */
+/* Colores y tipografía de la identidad visual (#15, rediseño del 11 de
+   noviembre de 2026). @theme crea utilidades de Tailwind con estos nombres,
+   por ejemplo bg-fondo, text-texto o font-titulo. Los contrastes están
+   calculados con la fórmula de WCAG 2.2 en docs/fase-c-arquitectura.md. */
 @theme {
   /* Fondo de la página: blanco pizarra. */
   --color-fondo: #F8FAFC;
   /* Texto principal: 17,06:1 sobre el fondo. */
   --color-texto: #0F172A;
-  /* Acento para enlaces, citas y botones: 4,94:1 sobre el fondo. */
+  /* Acento para enlaces, citas y botones sobre fondo claro: 4,94:1. */
   --color-acento: #2563EB;
-  /* Bordes y tarjetas. */
+  /* Bordes y separadores. */
   --color-borde: #E2E8F0;
+  /* Azul profundo de la portada, los semestres y el pie: el texto blanco
+     encima tiene 13,93:1. */
+  --color-profundo: #102A5C;
+  /* Amarillo de realce, solo sobre el azul profundo: 9,09:1. Marca el botón
+     para postular y las cifras de la portada. */
+  --color-resalte: #FACC15;
+  /* Azul claro para texto secundario y enlaces sobre el azul profundo: 9,80:1. */
+  --color-suave: #BFDBFE;
 
-  /* Títulos con Plus Jakarta Sans; si no carga, se usa una fuente del sistema. */
+  /* Plus Jakarta Sans para todo; si no carga, se usa una fuente del sistema. */
   --font-titulo: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
-  /* Texto corrido con Inter; si no carga, se usa una fuente del sistema. */
-  --font-texto: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-texto: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Único movimiento del sitio: las preguntas de la portada aparecen una tras
+   otra al cargar la página. Solo se aplica si la persona no pidió reducir el
+   movimiento en su sistema (WCAG 2.3.3). */
+@media (prefers-reduced-motion: no-preference) {
+  /* Cada pregunta parte transparente y un poco más abajo. */
+  .entrada {
+    animation: entrada 0.6s ease-out both;
+    /* El retraso lo fija cada pregunta con la variable --retraso. */
+    animation-delay: var(--retraso, 0s);
+  }
+}
+
+/* La animación: de invisible y 12 px abajo a visible en su lugar. */
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

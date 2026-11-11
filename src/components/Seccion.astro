@@ -10,9 +10,12 @@ interface Props {
   // Nombre del archivo en src/content/secciones, sin ".md". También es el
   // ancla de la sección, por ejemplo "admision" para "#admision".
   id: string;
+  // Fondo de la sección. Si no se indica, se alterna según su orden (las
+  // pares van en blanco), para separar las secciones sin líneas.
+  fondo?: 'claro' | 'blanco';
 }
 
-const { id }: Props = Astro.props;
+const { id, fondo }: Props = Astro.props;
 
 // Si la sección no existe, el build se detiene en vez de mostrar una sección vacía.
 const seccion = await getEntry('secciones', id);
@@ -27,30 +30,41 @@ const tieneIntroduccion: boolean = (seccion.body ?? '').trim() !== '';
 
 // id del título, para que la sección se anuncie con su pregunta.
 const idTitulo: string = `titulo-${id}`;
+
+// Fondo final: el indicado o, si no, blanco para las secciones pares.
+const fondoFinal: 'claro' | 'blanco' = fondo ?? (seccion.data.orden % 2 === 0 ? 'blanco' : 'claro');
 ---
 
 <!-- scroll-mt deja espacio para el menú fijo al saltar con un enlace.
      aria-labelledby nombra la sección con su pregunta. -->
-<section id={id} aria-labelledby={idTitulo} class="scroll-mt-24 border-t border-borde py-12 md:py-16">
+<section
+  id={id}
+  aria-labelledby={idTitulo}
+  class:list={['scroll-mt-24 py-16 md:py-24', fondoFinal === 'blanco' ? 'bg-white' : 'bg-fondo']}
+>
   <!-- Ancho máximo legible y margen lateral en celulares. -->
-  <div class="mx-auto max-w-5xl px-4">
-    <!-- Nombre corto de la sección, sobre la pregunta. -->
-    <p class="text-sm font-semibold tracking-wide text-acento uppercase">{seccion.data.titulo}</p>
+  <div class="mx-auto max-w-6xl px-4">
+    <!-- Nombre corto de la sección, sobre la pregunta, con una barra amarilla
+         que la une visualmente con la portada. -->
+    <p class="flex items-center gap-3 font-semibold text-acento">
+      <span class="h-1 w-8 rounded-full bg-resalte" aria-hidden="true"></span>
+      {seccion.data.titulo}
+    </p>
     <!-- La pregunta es el título de nivel 2 de la sección. -->
-    <h2 id={idTitulo} class="mt-1 font-titulo text-2xl font-bold text-balance md:text-3xl">
+    <h2 id={idTitulo} class="mt-3 max-w-3xl font-titulo text-3xl leading-tight font-extrabold text-balance md:text-5xl">
       {seccion.data.pregunta}
     </h2>
     <!-- Introducción en Markdown, solo si el archivo tiene texto bajo sus datos.
          space-y separa los párrafos. -->
     {
       tieneIntroduccion && (
-        <div class="mt-4 max-w-3xl space-y-3 leading-relaxed">
+        <div class="mt-5 max-w-2xl space-y-3 text-lg leading-relaxed text-texto/80">
           <Content />
         </div>
       )
     }
     <!-- Contenido propio de cada sección. -->
-    <div class="mt-8">
+    <div class="mt-10">
       <slot />
     </div>
   </div>

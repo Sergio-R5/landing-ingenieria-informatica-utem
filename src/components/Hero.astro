@@ -1,31 +1,91 @@
 ---
-// Portada (#28): responde "¿Qué es la carrera y cuánto dura?", la pregunta más
-// repetida en la Fase B. Muestra los datos que exige la pauta, una franja de
-// datos clave con año y cita, y el llamado a postular. No usa imágenes, así
-// que el elemento más grande es texto y el LCP no depende de una descarga.
+// Portada (#28, rediseño del 11 de noviembre de 2026). Su elemento central son
+// las preguntas reales de la encuesta de la Fase B, cada una respondida con
+// una cifra oficial y su cita: es la propuesta creativa de la Fase C. Debajo
+// va la ficha con los datos que exige la pauta. No usa imágenes, así que el
+// elemento más grande es texto y el LCP no depende de una descarga.
 
 // getEntry lee un archivo de datos de src/content por su nombre.
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 // Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
 // Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
-// Formatos de cifras y fechas que pide la guía de estilo.
-import { numero, porcentaje } from '../utils/formato';
+// Formatos de cifras que pide la guía de estilo.
+import { numero, pesos, porcentaje } from '../utils/formato';
 
-// Datos de la carrera, de la sección de portada y de Mi Futuro.
+// Datos de la carrera, la sección de portada, Mi Futuro, Admisión y las
+// preguntas frecuentes que se responden en la portada.
 const carrera = await getEntry('carrera', 'ingenieria-en-informatica');
 const portada = await getEntry('secciones', 'portada');
 const campo = await getEntry('campo-laboral', 'empleabilidad');
 const admision = await getEntry('admision', 'admision-2027');
+const preguntaDuracion = await getEntry('faq', '01-cuanto-dura');
+const preguntaTrabajo = await getEntry('faq', '02-hay-trabajo');
+const preguntaSueldo = await getEntry('faq', '06-cuanto-se-gana');
+const seccionAdmision = await getEntry('secciones', 'admision');
 
 // Sin estos archivos la portada no tiene contenido: se detiene el build.
-if (!carrera || !portada || !campo || !admision) {
+if (
+  !carrera ||
+  !portada ||
+  !campo ||
+  !admision ||
+  !preguntaDuracion ||
+  !preguntaTrabajo ||
+  !preguntaSueldo ||
+  !seccionAdmision
+) {
   throw new Error('Faltan datos de la portada en src/content');
 }
 
-// Atajo para leer los campos del archivo.
+// Texto de bienvenida, escrito en el cuerpo de portada.md.
+const { Content: Bienvenida } = await render(portada);
+
+// Atajos para leer los campos de cada archivo.
 const datos = carrera.data;
+const mf = campo.data;
+
+// Preguntas de la encuesta con su respuesta. La pregunta sale de la colección
+// de preguntas frecuentes o de secciones; la cifra y el período, de los datos
+// oficiales. "destino" es la sección donde está la respuesta completa.
+const respuestas: {
+  pregunta: string;
+  cifra: string;
+  detalle: string;
+  fuentes: string[];
+  destino: string;
+}[] = [
+  {
+    pregunta: preguntaDuracion.data.pregunta,
+    cifra: `${datos.duracionSemestres} semestres`,
+    // La duración real va siempre junto a la formal (guía de estilo).
+    detalle: `En la práctica, los ${mf.duracionReal.periodo} tardaron ${numero(mf.duracionReal.semestres)} en promedio.`,
+    fuentes: [datos.fuente.id, mf.fuente.id],
+    destino: '#plan-de-estudios',
+  },
+  {
+    pregunta: preguntaTrabajo.data.pregunta,
+    cifra: porcentaje(mf.empleabilidadPrimerAnio.porcentaje),
+    detalle: `de los ${mf.empleabilidadPrimerAnio.periodo} tenía ingresos al primer año.`,
+    fuentes: [mf.fuente.id],
+    destino: '#campo-laboral',
+  },
+  {
+    pregunta: preguntaSueldo.data.pregunta,
+    cifra: `${pesos(mf.ingresoCuartoAnio.desde)} a ${pesos(mf.ingresoCuartoAnio.hasta)}`,
+    detalle: `brutos mensuales al cuarto año, en promedio. Mide a los ${mf.ingresoCuartoAnio.periodo}.`,
+    fuentes: [mf.fuente.id],
+    destino: '#campo-laboral',
+  },
+  {
+    pregunta: seccionAdmision.data.pregunta,
+    cifra: `${admision.data.vacantes} vacantes`,
+    detalle: `en ${admision.data.proceso}, con un puntaje mínimo de ${admision.data.puntajeMinimo.valor} puntos.`,
+    fuentes: [admision.data.fuente.id],
+    destino: '#admision',
+  },
+];
 
 // Ficha de la carrera: nombre del dato y su valor. Los nombres son etiquetas
 // de la interfaz; los valores salen de la colección.
@@ -36,84 +96,82 @@ const ficha: { nombre: string; valor: string }[] = [
   { nombre: 'Jornada', valor: datos.jornada },
   { nombre: 'Lugar', valor: datos.sede },
 ];
-
-// Franja de datos clave (propuesta creativa de la Fase C). Cada cifra lleva
-// el período que mide y la fuente de donde sale.
-const clave: { cifra: string; descripcion: string; fuente: string }[] = [
-  {
-    cifra: `${datos.duracionSemestres} semestres`,
-    descripcion: 'duración formal del plan de estudios',
-    fuente: datos.fuente.id,
-  },
-  {
-    cifra: `${numero(campo.data.duracionReal.semestres)} semestres`,
-    descripcion: `duración real promedio de los ${campo.data.duracionReal.periodo}`,
-    fuente: campo.data.fuente.id,
-  },
-  {
-    cifra: porcentaje(campo.data.empleabilidadPrimerAnio.porcentaje),
-    descripcion: `con ingresos al 1.er año: ${campo.data.empleabilidadPrimerAnio.periodo}`,
-    fuente: campo.data.fuente.id,
-  },
-  {
-    cifra: String(admision.data.vacantes),
-    descripcion: `vacantes en ${admision.data.proceso}`,
-    fuente: admision.data.fuente.id,
-  },
-];
 ---
 
 <!-- Portada con el ancla "portada", a la que apunta el menú. -->
-<section id="portada" aria-labelledby="titulo-portada" class="scroll-mt-24 py-12 md:py-20">
-  <div class="mx-auto max-w-5xl px-4">
-    <!-- Pregunta que responde la portada, sobre el título. -->
-    <p class="text-sm font-semibold tracking-wide text-acento uppercase">{portada.data.pregunta}</p>
-    <!-- Único h1 del sitio: el nombre oficial de la carrera. -->
-    <h1 id="titulo-portada" class="mt-2 font-titulo text-4xl font-extrabold text-balance md:text-6xl">
-      {datos.nombreOficial}
-    </h1>
-    <!-- Universidad que la imparte. -->
-    <p class="mt-3 text-lg md:text-xl">{datos.institucion}</p>
+<section id="portada" aria-labelledby="titulo-portada" class="scroll-mt-24">
+  <!-- Franja azul profunda. El texto blanco tiene contraste 13,93:1. -->
+  <div class="bg-profundo text-white">
+    <!-- Dos columnas en escritorio: presentación a la izquierda y preguntas a
+         la derecha. Una sola columna en celular. -->
+    <div class="mx-auto grid max-w-6xl gap-12 px-4 py-14 md:py-20 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <div>
+        <!-- Universidad que imparte la carrera. -->
+        <p class="font-semibold text-suave">{datos.institucion}</p>
+        <!-- Único h1 del sitio: el nombre oficial de la carrera. -->
+        <h1 id="titulo-portada" class="mt-3 font-titulo text-5xl leading-[1.05] font-extrabold text-balance md:text-7xl">
+          {datos.nombreOficial}
+        </h1>
+        <!-- Bienvenida desde portada.md, en azul claro (9,80:1). -->
+        <div class="mt-6 max-w-md text-lg leading-relaxed text-suave">
+          <Bienvenida />
+        </div>
+        <!-- Llamado a la acción: amarillo con texto azul profundo (9,09:1).
+             Mide 48 px de alto, más que el mínimo de 24×24 px. -->
+        <a
+          href={datos.llamadoAccion.destino}
+          class="mt-8 inline-flex min-h-12 items-center rounded-full bg-resalte px-7 font-bold text-profundo hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-resalte"
+        >
+          {datos.llamadoAccion.texto}
+        </a>
+      </div>
 
-    <!-- Ficha con los datos que exige la pauta, como lista de definiciones.
-         Una columna en celular, tres en escritorio. -->
+      <!-- Preguntas de la encuesta, cada una con su respuesta. Es una lista
+           porque son elementos del mismo tipo. Cada fila entra con un pequeño
+           retraso (clase "entrada" de global.css). -->
+      <ol class="divide-y divide-white/15 border-y border-white/15">
+        {
+          respuestas.map((respuesta, indice) => (
+            <li class="entrada py-5" style={`--retraso: ${0.15 + indice * 0.12}s`}>
+              {/* La pregunta enlaza a la sección con la respuesta completa. */}
+              <a
+                href={respuesta.destino}
+                class="inline-flex min-h-6 items-center font-semibold text-suave underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-resalte focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-resalte"
+              >
+                {respuesta.pregunta}
+              </a>
+              {/* La cifra, en amarillo de realce y grande. */}
+              <p class="mt-1 font-titulo text-3xl font-extrabold text-resalte md:text-4xl">{respuesta.cifra}</p>
+              {/* Período que mide y sus citas, en blanco. */}
+              <p class="mt-1 text-sm leading-relaxed text-white">
+                {respuesta.detalle}{' '}
+                {respuesta.fuentes.map((fuente) => (
+                  <Cita fuente={fuente} tono="oscuro" />
+                ))}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+
+  <!-- Ficha con los datos que exige la pauta, sobre fondo claro. -->
+  <div class="mx-auto max-w-6xl px-4 py-10">
     <TipoInformacion tipo="dato_institucional">
-      <dl class="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Lista de definiciones: una columna en celular, cinco en escritorio. -->
+      <dl class="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-5">
         {
           ficha.map((item) => (
             <div>
-              <dt class="text-sm">{item.nombre}</dt>
-              <dd class="font-semibold">{item.valor}</dd>
+              <dt class="text-sm text-texto/70">{item.nombre}</dt>
+              <dd class="font-bold">{item.valor}</dd>
             </div>
           ))
         }
       </dl>
       <!-- Una sola cita para toda la ficha: todos los datos salen de la misma fuente. -->
-      <p class="mt-2 text-sm">Fuente: <Cita fuente={datos.fuente.id} /></p>
+      <p class="mt-3 text-sm">Fuente: <Cita fuente={datos.fuente.id} /></p>
     </TipoInformacion>
-
-    <!-- Llamado a la acción: un enlace con aspecto de botón que lleva a Admisión.
-         Mide más de 24×24 px y el texto blanco sobre azul tiene contraste 5,17:1. -->
-    <a
-      href={datos.llamadoAccion.destino}
-      class="mt-6 inline-flex min-h-12 items-center rounded-lg bg-acento px-6 font-semibold text-white hover:bg-texto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
-    >
-      {datos.llamadoAccion.texto}
-    </a>
-
-    <!-- Franja de datos clave: una tarjeta por cifra. Es una lista porque
-         son elementos del mismo tipo. -->
-    <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        clave.map((item) => (
-          <li class="rounded-lg border border-borde bg-white p-4">
-            <p class="font-titulo text-3xl font-bold">{item.cifra}</p>
-            <p class="mt-1 text-sm">
-              {item.descripcion} <Cita fuente={item.fuente} />
-            </p>
-          </li>
-        ))
-      }
-    </ul>
   </div>
 </section>

@@ -12,9 +12,16 @@ interface Props {
   // ID de la fuente en la matriz, por ejemplo "F05". En los datos viene en el
   // campo fuente, como dato.fuente.id.
   fuente: string;
+  // Fondo sobre el que va la cita. "oscuro" usa el azul claro, que tiene
+  // contraste 9,80:1 sobre el azul profundo de la portada. Por defecto, "claro".
+  tono?: 'claro' | 'oscuro';
 }
 
-const { fuente }: Props = Astro.props;
+const { fuente, tono = 'claro' }: Props = Astro.props;
+
+// Colores del enlace y de su contorno de foco según el fondo.
+const color: string =
+  tono === 'oscuro' ? 'text-suave focus-visible:outline-resalte' : 'text-acento focus-visible:outline-acento';
 
 // Todas las referencias, ordenadas por ID. Referencias.astro usa el mismo
 // orden, así el número de la cita coincide con el de la lista.
@@ -42,6 +49,9 @@ const numero: number = posicion + 1;
      El aria-label dice a qué lleva, porque "[3]" solo no se entiende. -->
 <a
   href={`#ref-${fuente}`}
-  class="inline-flex min-h-6 min-w-6 items-center justify-center rounded text-sm font-semibold text-acento underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
+  class:list={[
+    'inline-flex min-h-6 min-w-6 items-center justify-center rounded text-sm font-semibold underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2',
+    color,
+  ]}
   aria-label={`Fuente ${numero} en Referencias`}
 >[{numero}]</a>

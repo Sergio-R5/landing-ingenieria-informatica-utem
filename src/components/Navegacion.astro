@@ -15,17 +15,17 @@ const secciones: CollectionEntry<'secciones'>[] = (await getCollection('seccione
 ---
 
 <!-- aria-label distingue este menú de otros posibles en la página. -->
-<nav aria-label="Secciones del sitio" class="mx-auto max-w-5xl px-4">
-  <!-- Los enlaces pasan a la línea siguiente cuando no caben, así la página
-       nunca se desplaza a los lados. -->
-  <ul class="flex flex-wrap gap-x-1 gap-y-1 py-2 text-sm">
+<nav aria-label="Secciones del sitio" class="mx-auto max-w-6xl px-4">
+  <!-- En celular, los enlaces quedan en una línea que se desliza hacia el lado
+       dentro del menú, sin mover la página. En escritorio caben todos. -->
+  <ul class="-mx-4 flex gap-1 overflow-x-auto px-4 py-2 text-sm whitespace-nowrap lg:mx-0 lg:justify-center lg:px-0">
     {
       secciones.map((seccion) => (
         <li>
           {/* Cada enlace mide al menos 24 px de alto para tocarlo con el dedo. */}
           <a
             href={`#${seccion.id}`}
-            class="inline-flex min-h-8 items-center rounded px-2 font-medium hover:bg-borde focus-visible:outline-2 focus-visible:outline-acento"
+            class="inline-flex min-h-9 items-center rounded-full px-3 font-semibold hover:bg-borde focus-visible:outline-2 focus-visible:outline-acento"
           >
             {seccion.data.titulo}
           </a>

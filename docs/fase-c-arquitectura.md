@@ -45,16 +45,19 @@ Bocetos de baja fidelidad de la versión móvil y de escritorio, con el orden de
 
 Colores, tipografías e imágenes, con su contraste y su licencia (#15). Los contrastes se calcularon con la fórmula de WCAG 2.2.
 
+**Rediseño del 11 de noviembre de 2026.** La primera versión se veía muy simple. Se tomó como guía la skill pública `frontend-design` de Anthropic (licencia Apache 2.0, https://github.com/anthropics/skills): partir de lo característico del tema, que un solo elemento sea memorable y evitar el aspecto de plantilla. El elemento memorable es la portada: una franja azul profunda con las preguntas reales de la encuesta, cada una respondida con una cifra oficial. Se agregaron 3 colores y se pasó a una sola tipografía. El único movimiento es la entrada de esas preguntas al cargar la página, y se desactiva si la persona pidió reducir el movimiento.
+
 | Elemento | Decisión | Justificación | Contraste o licencia |
 |---|---|---|---|
 | Fondo | `#F8FAFC`, blanco pizarra | Fondo claro y sobrio, que no compite con los datos | Base de los contrastes de abajo |
 | Texto principal | `#0F172A`, azul pizarra casi negro | Máxima legibilidad para un público que lee en celular y computador (Fase B: 4 de 5 en computador) | 17,06:1 sobre el fondo (mínimo 4,5:1) |
 | Acento | `#2563EB`, azul | Destaca enlaces, citas y la franja de datos clave sin usar colores publicitarios | 4,94:1 sobre el fondo: sirve para texto normal |
-| Acento sobre fondo oscuro | `#2563EB` sobre `#0F172A` | Solo para íconos o texto grande | 3,45:1: **no sirve para texto normal** (mínimo 4,5:1) |
-| Botones | Fondo `#2563EB`, texto blanco, esquinas redondeadas, al menos 24×24 px | El llamado a postular debe verse claro en la portada | 5,17:1 |
+| Azul profundo | `#102A5C`, con texto blanco encima | Fondo de la portada, de la cabecera de cada semestre y del pie. Da peso a la portada sin usar fotos | 13,93:1 con texto blanco |
+| Amarillo de realce | `#FACC15`, solo sobre el azul profundo | Marca el botón para postular y las cifras de la portada: es lo primero que debe ver el postulante | 9,09:1 sobre el azul profundo |
+| Azul claro | `#BFDBFE`, solo sobre el azul profundo | Texto secundario, preguntas y citas de la portada | 9,80:1 sobre el azul profundo |
+| Botones | Postular: fondo amarillo con texto azul profundo, 48 px de alto. Filtro de la malla: borde azul profundo; el elegido, relleno | Se distinguen del texto y se tocan con facilidad (al menos 24×24 px) | 9,09:1 y 13,31:1 |
 | Tarjetas y bordes | `#E2E8F0`, gris claro, con texto `#0F172A` encima | Separa los datos sin recargar la página | 14,48:1 para el texto |
-| Títulos | Plus Jakarta Sans | Geométrica y moderna; da carácter a los títulos con forma de pregunta | SIL Open Font License 1.1; se aloja en el propio sitio |
-| Texto | Inter | Diseñada para pantallas; se lee bien en tamaños pequeños | SIL Open Font License 1.1; se aloja en el propio sitio |
+| Tipografía | Plus Jakarta Sans para títulos y texto | Geométrica y moderna; da carácter a los títulos con forma de pregunta y se lee bien en pantallas. Una sola familia da una voz más clara y descarga un archivo menos | SIL Open Font License 1.1; se aloja en el propio sitio |
 | Imagen para redes sociales | `public/og-image.png`, 1200×630 px, con los colores de la identidad visual | Es lo que se ve al compartir el enlace (#20) | Creada por el equipo; sin fotos ni logos de terceros |
 | Otras imágenes | Ninguna | En la #26 no encontramos imágenes con licencia abierta o permiso por escrito de la UTEM. Una foto o una captura de la malla sin permiso no se puede usar. Si el equipo consigue una autorización, se agrega con su crédito y texto alternativo | No aplica |
 

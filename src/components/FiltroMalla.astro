@@ -21,7 +21,7 @@ const { semestres }: Props = Astro.props;
       type="button"
       data-filtro="todos"
       aria-pressed="true"
-      class="min-h-11 min-w-11 rounded-lg border border-acento px-3 font-semibold text-acento aria-pressed:bg-acento aria-pressed:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
+      class="min-h-11 min-w-11 rounded-full border-2 border-profundo px-4 font-bold text-profundo not-aria-pressed:hover:bg-borde aria-pressed:bg-profundo aria-pressed:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
     >
       Todos
     </button>
@@ -33,7 +33,7 @@ const { semestres }: Props = Astro.props;
           data-filtro={semestre}
           aria-pressed="false"
           aria-label={`Semestre ${semestre}`}
-          class="min-h-11 min-w-11 rounded-lg border border-acento px-3 font-semibold text-acento aria-pressed:bg-acento aria-pressed:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
+          class="min-h-11 min-w-11 rounded-full border-2 border-profundo px-4 font-bold text-profundo not-aria-pressed:hover:bg-borde aria-pressed:bg-profundo aria-pressed:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
         >
           {semestre}
         </button>

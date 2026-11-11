@@ -82,9 +82,10 @@ if (!sitio) {
       Saltar al contenido principal
     </a>
 
-    <!-- Encabezado con el menú. En pantallas medianas y grandes queda fijo
-         arriba (sticky); en celulares no, para no tapar el contenido. -->
-    <header class="z-40 border-b border-borde bg-fondo md:sticky md:top-0">
+    <!-- Encabezado con el menú, fijo arriba (sticky) en todos los tamaños:
+         en celular ocupa una sola línea, así no tapa el contenido. El fondo
+         semitransparente con desenfoque deja ver que la página sigue debajo. -->
+    <header class="sticky top-0 z-40 border-b border-borde bg-fondo/90 backdrop-blur">
       <Navegacion />
     </header>
 
@@ -96,13 +97,14 @@ if (!sitio) {
     </main>
 
     <!-- Pie de página: aclara que el sitio no es oficial y enlaza al código. -->
-    <footer class="border-t border-borde py-8 text-sm">
-      <div class="mx-auto max-w-5xl space-y-2 px-4">
-        <p>{sitio.data.aviso}</p>
+    <!-- Fondo azul profundo con texto blanco (13,93:1) y enlace azul claro (9,80:1). -->
+    <footer class="bg-profundo py-12 text-sm text-white">
+      <div class="mx-auto max-w-6xl space-y-3 px-4">
+        <p class="max-w-2xl leading-relaxed">{sitio.data.aviso}</p>
         <p>
           <a
             href={sitio.data.repositorio.url}
-            class="inline-flex min-h-6 items-center text-acento underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-acento"
+            class="inline-flex min-h-6 items-center font-semibold text-suave underline underline-offset-2 hover:text-white focus-visible:outline-2 focus-visible:outline-resalte"
           >
             {sitio.data.repositorio.texto} (sitio externo)
           </a>

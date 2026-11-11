@@ -79,7 +79,7 @@ Detalle y wireframes en [docs/fase-c-arquitectura.md](docs/fase-c-arquitectura.m
 | 8 | Preguntas frecuentes | Reúne las dudas que no cupieron en otra sección |
 | 9 | Referencias | Al final, como exige la pauta; cada cita del sitio enlaza aquí |
 
-**Identidad visual.** Colores sobrios (fondo claro, texto casi negro y un azul de acento) y dos tipografías con licencia abierta: Plus Jakarta Sans para los títulos e Inter para el texto. Todos los contrastes cumplen el mínimo de WCAG 2.2, la norma internacional de accesibilidad web. No usamos fotos de terceros porque no conseguimos imágenes con permiso comprobable.
+**Identidad visual.** Fondo claro, texto casi negro y un azul de acento, más una portada en azul profundo con cifras en amarillo. Una sola tipografía con licencia abierta, Plus Jakarta Sans. El 11 de noviembre rediseñamos la interfaz, que se veía muy simple, guiándonos por la skill pública `frontend-design` de Anthropic: la portada ahora muestra las preguntas reales de la encuesta con su respuesta en cifras. Todos los contrastes cumplen el mínimo de WCAG 2.2, la norma internacional de accesibilidad web. No usamos fotos de terceros porque no conseguimos imágenes con permiso comprobable.
 
 ## 5. Redacción (Fase D)
 

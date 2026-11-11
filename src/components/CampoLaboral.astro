@@ -50,8 +50,8 @@ const indicadores: { cifra: string; descripcion: string }[] = [
     <ul class="grid gap-4 md:grid-cols-3">
       {
         indicadores.map((indicador) => (
-          <li class="rounded-lg border border-borde bg-white p-4">
-            <p class="font-titulo text-3xl font-bold">{indicador.cifra}</p>
+          <li class="rounded-xl border border-borde bg-white p-5">
+            <p class="font-titulo text-4xl font-extrabold text-profundo">{indicador.cifra}</p>
             <p class="mt-1 text-sm">
               {indicador.descripcion} <Cita fuente={datos.fuente.id} />
             </p>
