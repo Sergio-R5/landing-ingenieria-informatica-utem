@@ -1,0 +1,42 @@
+{
+  "semestre": 1,
+  "asignaturas": [
+    {
+      "numero": 11,
+      "nombre": "Habilidades de Razonamiento Lógico",
+      "sct": 4,
+      "requisito": "Ingreso"
+    },
+    {
+      "numero": 12,
+      "nombre": "Taller de Matemática",
+      "sct": 6,
+      "requisito": "Ingreso"
+    },
+    {
+      "numero": 13,
+      "nombre": "Taller de Ciencia y Tecnología",
+      "sct": 4,
+      "requisito": "Ingreso"
+    },
+    {
+      "numero": 14,
+      "nombre": "Introducción a la Ingeniería en Informática",
+      "sct": 6,
+      "requisito": "Ingreso"
+    },
+    {
+      "numero": 15,
+      "nombre": "Design Thinking",
+      "sct": 4,
+      "requisito": "Ingreso"
+    },
+    {
+      "numero": 16,
+      "nombre": "Algoritmos y Programación",
+      "sct": 6,
+      "requisito": "Ingreso"
+    }
+  ],
+  "fuente": "F02"
+}

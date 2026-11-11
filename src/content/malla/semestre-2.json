@@ -1,0 +1,42 @@
+{
+  "semestre": 2,
+  "asignaturas": [
+    {
+      "numero": 21,
+      "nombre": "Habilidades de Trabajo Académico",
+      "sct": 4,
+      "requisito": "11"
+    },
+    {
+      "numero": 22,
+      "nombre": "Cálculo Diferencial",
+      "sct": 6,
+      "requisito": "12"
+    },
+    {
+      "numero": 23,
+      "nombre": "Álgebra Clásica",
+      "sct": 6,
+      "requisito": "Sin requisito"
+    },
+    {
+      "numero": 24,
+      "nombre": "Mecánica Clásica",
+      "sct": 6,
+      "requisito": "12"
+    },
+    {
+      "numero": 25,
+      "nombre": "Estructuras de Datos",
+      "sct": 6,
+      "requisito": "16"
+    },
+    {
+      "numero": 26,
+      "nombre": "Electivo de Formación General",
+      "sct": 2,
+      "requisito": "Sin requisito"
+    }
+  ],
+  "fuente": "F02"
+}
