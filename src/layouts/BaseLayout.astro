@@ -71,10 +71,13 @@ if (!sitio) {
   </head>
   <!-- Colores de fondo y texto, y la fuente Inter, definidos en global.css. -->
   <body class="bg-fondo font-texto text-texto">
-    <!-- Enlace para saltar al contenido; aparece solo al navegar con teclado. -->
+    <!-- Enlace para saltar al contenido; aparece solo al navegar con teclado.
+         Mantiene su tamaño real (más de 24×24 px) y se esconde moviéndolo
+         sobre el borde superior; al recibir el foco baja a la vista.
+         Con sr-only medía 1×1 px y CompliaScan no lo reconocía (#34). -->
     <a
       href="#contenido-principal"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-acento focus:px-4 focus:py-2 focus:text-white"
+      class="fixed top-2 left-2 z-50 inline-flex min-h-11 -translate-y-[200%] items-center rounded-lg bg-acento px-4 font-semibold text-white focus:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-texto"
     >
       Saltar al contenido principal
     </a>
