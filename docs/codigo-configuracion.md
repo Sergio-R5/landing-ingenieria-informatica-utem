@@ -60,6 +60,9 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 | `respaldo/ingenieria-en-informatica.json` | Certificación de la carrera (F01), acreditación institucional (F08) y los datos que no encontramos: cuerpo académico y laboratorios (#24) |
 | `referencias/F06.json` y `F08.json` | Metodología de Mi Futuro y la noticia de la acreditación institucional |
 | `secciones/campo-laboral.md` y `secciones/respaldo.md` | Pregunta de cada sección, qué mide la empleabilidad y la diferencia entre certificación y acreditación |
+| `admision/admision-2027.json` | Vacantes, puntaje mínimo, ponderaciones, pasos, vías de ingreso, fechas, costos e información para el público secundario de Admisión 2027, cada uno con su fuente (#25). El próximo año basta con editar este archivo |
+| `faq/01-cuanto-dura.json` a `08-primera-opcion.json` | Las 8 primeras preguntas priorizadas de `docs/fase-b-audiencia.md`, con su respuesta, tipo de información y fuentes (#25) |
+| `secciones/admision.md` y `secciones/preguntas-frecuentes.md` | Pregunta de cada sección y de dónde salen las preguntas frecuentes |
 
 ## Prueba de los esquemas (#19)
 

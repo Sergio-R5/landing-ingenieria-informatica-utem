@@ -1,0 +1,9 @@
+{
+  "pregunta": "¿Qué tan difícil es la carrera?",
+  "respuesta": "Ninguna fuente oficial mide la dificultad. Dos datos ayudan: el 90,1 % de quienes entraron en 2024 siguió en 2025, y los titulados de 2024 tardaron 12,9 semestres en promedio.",
+  "tipoInformacion": "dato_institucional",
+  "orden": 4,
+  "fuentes": [
+    "F05"
+  ]
+}

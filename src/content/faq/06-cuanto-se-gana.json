@@ -1,0 +1,10 @@
+{
+  "pregunta": "¿Cuánto se gana?",
+  "respuesta": "Al cuarto año, los titulados de 2018 a 2020 ganaban en promedio entre $2.200.000 y $2.300.000 brutos mensuales. El promedio solo considera a quienes ganan al menos el sueldo mínimo.",
+  "tipoInformacion": "dato_institucional",
+  "orden": 6,
+  "fuentes": [
+    "F05",
+    "F06"
+  ]
+}

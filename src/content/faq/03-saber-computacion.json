@@ -1,0 +1,9 @@
+{
+  "pregunta": "¿Necesito saber de computación antes de entrar?",
+  "respuesta": "No encontramos un requisito de conocimientos previos. Las asignaturas de programación del primer semestre solo exigen haber ingresado a la carrera.",
+  "tipoInformacion": "interpretacion_equipo",
+  "orden": 3,
+  "fuentes": [
+    "F02"
+  ]
+}
