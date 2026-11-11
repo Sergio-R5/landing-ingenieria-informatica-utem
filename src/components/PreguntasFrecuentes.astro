@@ -23,7 +23,7 @@ const preguntas: CollectionEntry<'faq'>[] = (await getCollection('faq')).sort(
   <div class="max-w-3xl space-y-3">
     {
       preguntas.map((entrada) => (
-        <details class="group rounded-xl border border-borde bg-fondo open:bg-white">
+        <details class="group revelar rounded-2xl border border-borde bg-white shadow-sm open:shadow-lg open:ring-2 open:ring-(--tono)">
           {/* La pregunta es el botón que abre la respuesta. Mide más de 24 px
               de alto. Un h3 dentro mantiene el orden de los títulos. */}
           <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 focus-visible:outline-2 focus-visible:outline-acento [&::-webkit-details-marker]:hidden">
@@ -33,7 +33,7 @@ const preguntas: CollectionEntry<'faq'>[] = (await getCollection('faq')).sort(
                 movimiento. aria-hidden: el lector ya anuncia si está abierta. */}
             <span
               aria-hidden="true"
-              class="grid size-8 shrink-0 place-items-center rounded-full bg-profundo text-lg leading-none font-bold text-white group-open:rotate-45 motion-safe:transition-transform"
+              class="grid size-8 shrink-0 place-items-center rounded-full bg-(--tono) text-lg leading-none font-bold text-white group-open:rotate-45 motion-safe:transition-transform"
             >
               +
             </span>

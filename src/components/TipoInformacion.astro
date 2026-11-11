@@ -46,8 +46,9 @@ const estilos: Record<Tipo, { etiqueta: string; borde: string; insignia: string 
 const actual = estilos[tipo];
 ---
 
-<!-- Borde izquierdo grueso con el estilo del tipo y margen interno. -->
-<div class:list={['my-3 border-l-4 py-2 pl-4', actual.borde]}>
+<!-- Borde izquierdo grueso con el estilo del tipo, fondo blanco casi opaco
+     para separarse del fondo teñido de la sección, y margen interno. -->
+<div class:list={['my-4 rounded-r-xl border-l-4 bg-white/85 py-3 pr-4 pl-4 shadow-sm', actual.borde]}>
   <!-- Etiqueta visible con el tipo de información. -->
   <p class:list={['mb-2 inline-block rounded px-2 py-0.5 text-xs font-bold', actual.insignia]}>
     {actual.etiqueta}

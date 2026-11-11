@@ -32,20 +32,96 @@
   /* Azul claro para texto secundario y enlaces sobre el azul profundo: 9,80:1. */
   --color-suave: #BFDBFE;
 
+  /* Colores de sección: cada sección usa uno en su etiqueta, sus tarjetas y
+     su fondo. El texto blanco encima tiene al menos 5,18:1, y el color sobre
+     su propio fondo teñido al 7 %, al menos 4,69:1. */
+  --color-violeta: #6D28D9;
+  --color-cian: #0E7490;
+  --color-rosa: #BE185D;
+  --color-verde: #047857;
+  --color-naranja: #C2410C;
+
+  /* Versiones claras para detalles sobre el azul profundo de la portada
+     (entre 5,12:1 y 9,61:1). */
+  --color-lila: #A78BFA;
+  --color-celeste: #67E8F9;
+  --color-chicle: #F9A8D4;
+
   /* Plus Jakarta Sans para todo; si no carga, se usa una fuente del sistema. */
   --font-titulo: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
   --font-texto: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Único movimiento del sitio: las preguntas de la portada aparecen una tras
-   otra al cargar la página. Solo se aplica si la persona no pidió reducir el
-   movimiento en su sistema (WCAG 2.3.3). */
+/* Efectos de movimiento. Todos están hechos solo con CSS, sin JavaScript, y
+   solo se aplican si la persona no pidió reducir el movimiento en su sistema
+   (WCAG 2.3.3). Sin ellos, la página se ve completa y quieta. */
 @media (prefers-reduced-motion: no-preference) {
-  /* Cada pregunta parte transparente y un poco más abajo. */
+  /* Las preguntas de la portada aparecen una tras otra al cargar la página.
+     Cada una parte transparente y un poco más abajo. */
   .entrada {
     animation: entrada 0.6s ease-out both;
     /* El retraso lo fija cada pregunta con la variable --retraso. */
     animation-delay: var(--retraso, 0s);
+  }
+
+  /* Manchas de color del fondo de la portada: se desplazan lento, de ida y
+     vuelta. Son decoración y no llevan contenido. */
+  .flotar {
+    animation: flotar 18s ease-in-out infinite alternate;
+  }
+
+  /* Barra de colores bajo el título de la portada: su degradado se desliza. */
+  .brillo {
+    background-size: 200% 100%;
+    animation: brillo 6s linear infinite;
+  }
+}
+
+/* Aparición al hacer scroll: las tarjetas suben y se aclaran al entrar en la
+   pantalla. Usa animaciones ligadas al scroll de CSS (animation-timeline), así
+   que no agrega JavaScript. Los navegadores que no las conocen muestran las
+   tarjetas de inmediato. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .revelar {
+      animation: revelar linear both;
+      animation-timeline: view();
+      /* Termina cuando la tarjeta lleva un 40 % de su recorrido de entrada. */
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+/* De transparente, 24 px abajo y un poco más chica, a su lugar. Usa
+   "transform", así no choca con el "translate" del efecto al pasar el cursor. */
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Recorrido de las manchas de color: se mueven y crecen un poco. */
+@keyframes flotar {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(40px, -30px) scale(1.15);
+  }
+}
+
+/* Desliza el degradado de la barra de colores de un extremo al otro. */
+@keyframes brillo {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
   }
 }
 

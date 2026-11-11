@@ -59,10 +59,10 @@ const fuente: string = semestres[0]?.data.fuente.id ?? '';
         // Créditos del semestre; el esquema ya exige que sumen 30.
         const sct: number = semestre.data.asignaturas.reduce((suma, a) => suma + a.sct, 0);
         return (
-          <li data-semestre={semestre.data.semestre} class="overflow-hidden rounded-xl border border-borde bg-white">
+          <li data-semestre={semestre.data.semestre} class="revelar overflow-hidden rounded-2xl border border-borde bg-white shadow-sm hover:-translate-y-1 hover:shadow-xl motion-safe:transition">
             {/* Cabecera azul profundo con texto blanco (13,93:1): marca el
                 inicio de cada semestre como un tramo de la carrera. */}
-            <h3 class="flex items-baseline justify-between bg-profundo px-4 py-3 font-titulo text-lg font-bold text-white">
+            <h3 class="flex items-baseline justify-between bg-linear-to-r from-profundo to-violeta px-4 py-3 font-titulo text-lg font-bold text-white">
               Semestre {semestre.data.semestre} <span class="text-sm font-semibold text-suave">{sct} SCT</span>
             </h3>
             {/* Lista de asignaturas: el lector de pantalla anuncia cuántas hay. */}

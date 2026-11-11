@@ -27,7 +27,7 @@ const datos = perfil.data;
     <ul class="grid gap-4 md:grid-cols-2">
       {
         datos.capacidades.map((capacidad) => (
-          <li class="rounded-xl border border-borde bg-white p-5">
+          <li class="revelar rounded-2xl border border-borde border-t-4 border-t-(--tono) bg-white p-5 shadow-sm hover:-translate-y-1 hover:shadow-xl motion-safe:transition">
             <h3 class="font-titulo text-lg font-bold">{capacidad.titulo}</h3>
             <p class="mt-1">{capacidad.descripcion}</p>
           </li>
@@ -39,7 +39,7 @@ const datos = perfil.data;
 
   <!-- El texto oficial va plegado con <details>: se abre y cierra con teclado
        y sin JavaScript. Es una cita textual, por eso va en <blockquote>. -->
-  <details class="mt-6 rounded-xl border border-borde bg-white p-5">
+  <details class="mt-6 revelar rounded-2xl border border-borde border-t-4 border-t-(--tono) bg-white p-5 shadow-sm hover:-translate-y-1 hover:shadow-xl motion-safe:transition">
     <summary class="min-h-6 cursor-pointer font-semibold">Leer el perfil de egreso oficial completo</summary>
     <blockquote class="mt-3 border-l-4 border-borde pl-4 leading-relaxed">
       <p>{datos.original} <Cita fuente={datos.fuente.id} /></p>

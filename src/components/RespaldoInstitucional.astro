@@ -27,7 +27,7 @@ const { certificacionCarrera, acreditacionInstitucional, noDisponible } = respal
   <div class="grid gap-4 md:grid-cols-2">
     <TipoInformacion tipo="dato_institucional">
       <h3 class="font-titulo text-lg font-bold">Certificación de la carrera</h3>
-      <p class="mt-1 font-titulo text-4xl font-extrabold text-profundo">{certificacionCarrera.anios} años</p>
+      <p class="mt-1 font-titulo text-4xl font-extrabold text-(--tono)">{certificacionCarrera.anios} años</p>
       <p class="mt-1">
         Del {fechaLegible(certificacionCarrera.desde)} al {fechaLegible(certificacionCarrera.hasta)}.
         Agencias: {certificacionCarrera.agencias.join(' y ')}. <Cita fuente={certificacionCarrera.fuente.id} />
@@ -35,7 +35,7 @@ const { certificacionCarrera, acreditacionInstitucional, noDisponible } = respal
     </TipoInformacion>
     <TipoInformacion tipo="dato_institucional">
       <h3 class="font-titulo text-lg font-bold">Acreditación de la universidad</h3>
-      <p class="mt-1 font-titulo text-4xl font-extrabold text-profundo">{acreditacionInstitucional.anios} años</p>
+      <p class="mt-1 font-titulo text-4xl font-extrabold text-(--tono)">{acreditacionInstitucional.anios} años</p>
       <p class="mt-1">
         Nivel {acreditacionInstitucional.nivel}, {acreditacionInstitucional.vigencia}.
         <Cita fuente={acreditacionInstitucional.fuente.id} />

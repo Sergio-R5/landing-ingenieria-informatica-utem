@@ -98,7 +98,9 @@ if (!sitio) {
 
     <!-- Pie de página: aclara que el sitio no es oficial y enlaza al código. -->
     <!-- Fondo azul profundo con texto blanco (13,93:1) y enlace azul claro (9,80:1). -->
-    <footer class="bg-profundo py-12 text-sm text-white">
+    <footer class="relative bg-profundo py-12 text-sm text-white">
+      <!-- Franja superior con los colores de las secciones, decorativa. -->
+      <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-violeta via-rosa to-resalte"></div>
       <div class="mx-auto max-w-6xl space-y-3 px-4">
         <p class="max-w-2xl leading-relaxed">{sitio.data.aviso}</p>
         <p>

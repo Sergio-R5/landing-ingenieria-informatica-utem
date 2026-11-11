@@ -33,21 +33,31 @@ const idTitulo: string = `titulo-${id}`;
 
 // Fondo final: el indicado o, si no, blanco para las secciones pares.
 const fondoFinal: 'claro' | 'blanco' = fondo ?? (seccion.data.orden % 2 === 0 ? 'blanco' : 'claro');
+
+// Color de cada sección, según su orden (la 2 es la primera después de la
+// portada): da variedad sin perder la unidad. Todos tienen al menos 5,17:1
+// con texto blanco (ver global.css). Las tarjetas lo leen con var(--tono).
+const colores: string[] = ['violeta', 'verde', 'rosa', 'acento', 'cian', 'naranja', 'violeta', 'cian'];
+const tono: string = colores[(seccion.data.orden - 2 + colores.length) % colores.length] ?? 'acento';
 ---
 
 <!-- scroll-mt deja espacio para el menú fijo al saltar con un enlace.
-     aria-labelledby nombra la sección con su pregunta. -->
+     aria-labelledby nombra la sección con su pregunta. El fondo "claro" se
+     tiñe con el 7 % del color de la sección; --tono guarda ese color. -->
 <section
   id={id}
   aria-labelledby={idTitulo}
-  class:list={['scroll-mt-24 py-16 md:py-24', fondoFinal === 'blanco' ? 'bg-white' : 'bg-fondo']}
+  class:list={[
+    'scroll-mt-24 py-16 md:py-24',
+    fondoFinal === 'blanco' ? 'bg-white' : 'bg-[color-mix(in_srgb,var(--tono)_7%,white)]',
+  ]}
+  style={`--tono: var(--color-${tono})`}
 >
   <!-- Ancho máximo legible y margen lateral en celulares. -->
   <div class="mx-auto max-w-6xl px-4">
-    <!-- Nombre corto de la sección, sobre la pregunta, con una barra amarilla
-         que la une visualmente con la portada. -->
-    <p class="flex items-center gap-3 font-semibold text-acento">
-      <span class="h-1 w-8 rounded-full bg-resalte" aria-hidden="true"></span>
+    <!-- Nombre corto de la sección en una píldora de su color, con texto
+         blanco (al menos 5,17:1). -->
+    <p class="inline-flex items-center rounded-full bg-(--tono) px-4 py-1.5 text-sm font-bold text-white shadow-sm">
       {seccion.data.titulo}
     </p>
     <!-- La pregunta es el título de nivel 2 de la sección. -->
