@@ -1,0 +1,57 @@
+---
+// Envoltorio común de cada sección (#28 a #33). Lee de la colección
+// "secciones" el nombre corto y la pregunta, y muestra la pregunta como título,
+// como propone la Fase C. Así ningún componente escribe sus títulos a mano.
+
+// getEntry lee una entrada; render convierte su Markdown en HTML.
+import { getEntry, render } from 'astro:content';
+
+interface Props {
+  // Nombre del archivo en src/content/secciones, sin ".md". También es el
+  // ancla de la sección, por ejemplo "admision" para "#admision".
+  id: string;
+}
+
+const { id }: Props = Astro.props;
+
+// Si la sección no existe, el build se detiene en vez de mostrar una sección vacía.
+const seccion = await getEntry('secciones', id);
+if (seccion === undefined) {
+  throw new Error(`Falta el archivo src/content/secciones/${id}.md`);
+}
+
+// Texto introductorio de la sección, escrito en el cuerpo del Markdown.
+const { Content } = await render(seccion);
+// Algunas secciones no tienen introducción: su archivo solo trae los datos.
+const tieneIntroduccion: boolean = (seccion.body ?? '').trim() !== '';
+
+// id del título, para que la sección se anuncie con su pregunta.
+const idTitulo: string = `titulo-${id}`;
+---
+
+<!-- scroll-mt deja espacio para el menú fijo al saltar con un enlace.
+     aria-labelledby nombra la sección con su pregunta. -->
+<section id={id} aria-labelledby={idTitulo} class="scroll-mt-24 border-t border-borde py-12 md:py-16">
+  <!-- Ancho máximo legible y margen lateral en celulares. -->
+  <div class="mx-auto max-w-5xl px-4">
+    <!-- Nombre corto de la sección, sobre la pregunta. -->
+    <p class="text-sm font-semibold tracking-wide text-acento uppercase">{seccion.data.titulo}</p>
+    <!-- La pregunta es el título de nivel 2 de la sección. -->
+    <h2 id={idTitulo} class="mt-1 font-titulo text-2xl font-bold text-balance md:text-3xl">
+      {seccion.data.pregunta}
+    </h2>
+    <!-- Introducción en Markdown, solo si el archivo tiene texto bajo sus datos.
+         space-y separa los párrafos. -->
+    {
+      tieneIntroduccion && (
+        <div class="mt-4 max-w-3xl space-y-3 leading-relaxed">
+          <Content />
+        </div>
+      )
+    }
+    <!-- Contenido propio de cada sección. -->
+    <div class="mt-8">
+      <slot />
+    </div>
+  </div>
+</section>

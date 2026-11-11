@@ -1,0 +1,76 @@
+---
+// Sobre la carrera (#28): qué hace un ingeniero en informática y en qué se
+// diferencia de 2 carreras afines. La Fase B mostró que nadie sabía qué hace,
+// así que primero va el propósito oficial y luego una explicación simple.
+
+import { getEntry } from 'astro:content';
+import Seccion from './Seccion.astro';
+import Cita from './Cita.astro';
+import TipoInformacion from './TipoInformacion.astro';
+
+const carrera = await getEntry('carrera', 'ingenieria-en-informatica');
+if (!carrera) {
+  throw new Error('Falta src/content/carrera/ingenieria-en-informatica.json');
+}
+const datos = carrera.data;
+---
+
+<Seccion id="sobre-la-carrera">
+  <!-- Propósito formativo: dato institucional, resumido del perfil oficial. -->
+  <TipoInformacion tipo="dato_institucional">
+    <p class="max-w-3xl">{datos.proposito.texto} <Cita fuente={datos.proposito.fuente.id} /></p>
+  </TipoInformacion>
+
+  <!-- Explicación en palabras simples: es nuestra lectura, no un dato oficial. -->
+  <TipoInformacion tipo="interpretacion_equipo">
+    <p class="max-w-3xl">{datos.explicacionSimple}</p>
+  </TipoInformacion>
+
+  <!-- Comparación con las carreras afines. Una tabla permite comparar fila
+       por fila; caption la describe para lectores de pantalla y overflow-x
+       evita que la página se desplace a los lados en celulares. -->
+  <div class="mt-8 overflow-x-auto">
+    <table class="w-full min-w-[36rem] border-collapse text-left text-sm">
+      <caption class="mb-2 text-left font-titulo text-lg font-bold">
+        {datos.nombreOficial} y {datos.afines.length} carreras afines de la {datos.institucion}
+      </caption>
+      <thead>
+        <tr class="border-b-2 border-texto">
+          <th scope="col" class="py-2 pr-4">Carrera</th>
+          <th scope="col" class="py-2 pr-4">Duración</th>
+          <th scope="col" class="py-2 pr-4">Grado académico</th>
+          <th scope="col" class="py-2">Foco de su perfil de egreso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Primera fila: esta carrera, con los datos de la portada. -->
+        <tr class="border-b border-borde">
+          <th scope="row" class="py-2 pr-4 font-semibold">{datos.nombreOficial}</th>
+          <td class="py-2 pr-4">{datos.duracionSemestres} semestres</td>
+          <td class="py-2 pr-4">{datos.gradoAcademico}</td>
+          <td class="py-2">{datos.proposito.texto} <Cita fuente={datos.proposito.fuente.id} /></td>
+        </tr>
+        <!-- Una fila por carrera afín, cada una con su fuente. -->
+        {
+          datos.afines.map((afin) => (
+            <tr class="border-b border-borde">
+              <th scope="row" class="py-2 pr-4 font-semibold">{afin.nombre}</th>
+              <td class="py-2 pr-4">{afin.duracionSemestres} semestres</td>
+              <td class="py-2 pr-4">{afin.gradoAcademico}</td>
+              <td class="py-2">
+                {afin.foco} <Cita fuente={afin.fuente.id} />
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Lectura del equipo sobre las diferencias, marcada como interpretación. -->
+  <TipoInformacion tipo="interpretacion_equipo">
+    <ul class="max-w-3xl list-disc space-y-2 pl-5">
+      {datos.comparacion.map((punto) => <li>{punto}</li>)}
+    </ul>
+  </TipoInformacion>
+</Seccion>

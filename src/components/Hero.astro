@@ -1,0 +1,114 @@
+---
+// Portada (#28): responde "¿Qué es la carrera y cuánto dura?", la pregunta más
+// repetida en la Fase B. Muestra los datos que exige la pauta, una franja de
+// datos clave con año y cita, y el llamado a postular. No usa imágenes, así
+// que el elemento más grande es texto y el LCP no depende de una descarga.
+
+import { getEntry } from 'astro:content';
+import Cita from './Cita.astro';
+import TipoInformacion from './TipoInformacion.astro';
+import { numero, porcentaje } from '../utils/formato';
+
+// Datos de la carrera, de la sección de portada y de Mi Futuro.
+const carrera = await getEntry('carrera', 'ingenieria-en-informatica');
+const portada = await getEntry('secciones', 'portada');
+const campo = await getEntry('campo-laboral', 'empleabilidad');
+const admision = await getEntry('admision', 'admision-2027');
+
+// Sin estos archivos la portada no tiene contenido: se detiene el build.
+if (!carrera || !portada || !campo || !admision) {
+  throw new Error('Faltan datos de la portada en src/content');
+}
+
+const datos = carrera.data;
+
+// Ficha de la carrera: nombre del dato y su valor. Los nombres son etiquetas
+// de la interfaz; los valores salen de la colección.
+const ficha: { nombre: string; valor: string }[] = [
+  { nombre: 'Título profesional', valor: datos.tituloProfesional },
+  { nombre: 'Grado académico', valor: datos.gradoAcademico },
+  { nombre: 'Duración', valor: `${datos.duracionSemestres} semestres` },
+  { nombre: 'Jornada', valor: datos.jornada },
+  { nombre: 'Lugar', valor: datos.sede },
+];
+
+// Franja de datos clave (propuesta creativa de la Fase C). Cada cifra lleva
+// el período que mide y la fuente de donde sale.
+const clave: { cifra: string; descripcion: string; fuente: string }[] = [
+  {
+    cifra: `${datos.duracionSemestres} semestres`,
+    descripcion: 'duración formal del plan de estudios',
+    fuente: datos.fuente.id,
+  },
+  {
+    cifra: `${numero(campo.data.duracionReal.semestres)} semestres`,
+    descripcion: `duración real promedio de los ${campo.data.duracionReal.periodo}`,
+    fuente: campo.data.fuente.id,
+  },
+  {
+    cifra: porcentaje(campo.data.empleabilidadPrimerAnio.porcentaje),
+    descripcion: `con ingresos al 1.er año: ${campo.data.empleabilidadPrimerAnio.periodo}`,
+    fuente: campo.data.fuente.id,
+  },
+  {
+    cifra: String(admision.data.vacantes),
+    descripcion: `vacantes en ${admision.data.proceso}`,
+    fuente: admision.data.fuente.id,
+  },
+];
+---
+
+<!-- Portada con el ancla "portada", a la que apunta el menú. -->
+<section id="portada" aria-labelledby="titulo-portada" class="scroll-mt-24 py-12 md:py-20">
+  <div class="mx-auto max-w-5xl px-4">
+    <!-- Pregunta que responde la portada, sobre el título. -->
+    <p class="text-sm font-semibold tracking-wide text-acento uppercase">{portada.data.pregunta}</p>
+    <!-- Único h1 del sitio: el nombre oficial de la carrera. -->
+    <h1 id="titulo-portada" class="mt-2 font-titulo text-4xl font-extrabold text-balance md:text-6xl">
+      {datos.nombreOficial}
+    </h1>
+    <!-- Universidad que la imparte. -->
+    <p class="mt-3 text-lg md:text-xl">{datos.institucion}</p>
+
+    <!-- Ficha con los datos que exige la pauta, como lista de definiciones.
+         Una columna en celular, tres en escritorio. -->
+    <TipoInformacion tipo="dato_institucional">
+      <dl class="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          ficha.map((item) => (
+            <div>
+              <dt class="text-sm">{item.nombre}</dt>
+              <dd class="font-semibold">{item.valor}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <!-- Una sola cita para toda la ficha: todos los datos salen de la misma fuente. -->
+      <p class="mt-2 text-sm">Fuente: <Cita fuente={datos.fuente.id} /></p>
+    </TipoInformacion>
+
+    <!-- Llamado a la acción: un enlace con aspecto de botón que lleva a Admisión.
+         Mide más de 24×24 px y el texto blanco sobre azul tiene contraste 5,17:1. -->
+    <a
+      href={datos.llamadoAccion.destino}
+      class="mt-6 inline-flex min-h-12 items-center rounded-lg bg-acento px-6 font-semibold text-white hover:bg-texto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
+    >
+      {datos.llamadoAccion.texto}
+    </a>
+
+    <!-- Franja de datos clave: una tarjeta por cifra. Es una lista porque
+         son elementos del mismo tipo. -->
+    <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        clave.map((item) => (
+          <li class="rounded-lg border border-borde bg-white p-4">
+            <p class="font-titulo text-3xl font-bold">{item.cifra}</p>
+            <p class="mt-1 text-sm">
+              {item.descripcion} <Cita fuente={item.fuente} />
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
