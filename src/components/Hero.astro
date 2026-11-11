@@ -113,11 +113,14 @@ const ficha: { nombre: string; valor: string }[] = [
     <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
       <!-- Trama de puntos blancos muy tenues, hecha con un degradado de CSS. -->
       <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1px)] bg-size-[22px_22px]"></div>
-      <!-- Tres manchas de color difuminadas que flotan despacio (clase
-           "flotar" de global.css). Cada una con distinto retraso. -->
-      <div class="flotar absolute -top-24 -left-24 size-96 rounded-full bg-violeta/50 blur-3xl"></div>
-      <div class="flotar absolute top-1/3 -right-32 size-[28rem] rounded-full bg-cian/40 blur-3xl [animation-delay:-6s]"></div>
-      <div class="flotar absolute -bottom-32 left-1/3 size-80 rounded-full bg-rosa/35 blur-3xl [animation-delay:-12s]"></div>
+      <!-- Tres manchas de color (violeta arriba a la izquierda, cian a la
+           derecha y rosa abajo) hechas con degradados radiales. Son fijas y no
+           usan filtros de desenfoque: el navegador las dibuja una sola vez, así
+           que no afectan el rendimiento medido por PageSpeed. -->
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_8%_12%,rgba(109,40,217,0.55),transparent_42%),radial-gradient(circle_at_96%_50%,rgba(14,116,144,0.5),transparent_45%),radial-gradient(circle_at_45%_115%,rgba(190,24,93,0.45),transparent_42%)]"
+      >
+      </div>
     </div>
     <!-- Dos columnas en escritorio: presentación a la izquierda y preguntas a
          la derecha. Una sola columna en celular. -->
@@ -130,7 +133,7 @@ const ficha: { nombre: string; valor: string }[] = [
           {datos.nombreOficial}
         </h1>
         <!-- Barra decorativa con los colores de las secciones; su degradado se
-             desliza (clase "brillo" de global.css). -->
+             desliza una vez al cargar (clase "brillo" de global.css). -->
         <div
           aria-hidden="true"
           class="brillo mt-5 h-1.5 w-40 rounded-full bg-linear-to-r from-lila via-celeste via-50% to-resalte"
@@ -153,14 +156,14 @@ const ficha: { nombre: string; valor: string }[] = [
       <!-- Preguntas de la encuesta, cada una con su respuesta. Es una lista
            porque son elementos del mismo tipo. Cada fila entra con un pequeño
            retraso (clase "entrada" de global.css). Cada una es una tarjeta
-           translúcida que deja ver el fondo desenfocado ("vidrio"), con un
+           translúcida que deja ver el fondo de color, con un
            borde izquierdo de color distinto. Dos columnas desde 640 px. -->
       <ol class="grid gap-3 sm:grid-cols-2">
         {
           respuestas.map((respuesta, indice) => (
             <li
               class:list={[
-                'entrada rounded-2xl border-l-4 bg-white/8 p-5 ring-1 ring-white/10 backdrop-blur-sm',
+                'entrada rounded-2xl border-l-4 bg-white/8 p-5 ring-1 ring-white/10',
                 acentos[indice % acentos.length],
               ]}
               style={`--retraso: ${0.15 + indice * 0.12}s`}

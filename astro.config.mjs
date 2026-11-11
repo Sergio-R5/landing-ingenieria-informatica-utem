@@ -10,6 +10,7 @@ import { defineConfig } from 'astro/config';
 // Plugin oficial de Tailwind CSS 4 para Vite, el empaquetador que usa Astro.
 import tailwindcss from '@tailwindcss/vite';
 
+// Integración oficial que genera sitemap-index.xml al compilar (SEO básico).
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
@@ -26,5 +27,14 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
+  build: {
+    // Pone el CSS dentro del HTML en vez de en un archivo aparte. Así el
+    // navegador no espera una segunda descarga antes de dibujar la página,
+    // que PageSpeed marcaba como "solicitud de bloqueo de renderización".
+    // Conviene porque el sitio tiene una sola página.
+    inlineStylesheets: 'always',
+  },
+
+  // Activa la generación del sitemap.
   integrations: [sitemap()],
 });
