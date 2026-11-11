@@ -91,3 +91,16 @@ Sobre la versión final, el 11 de noviembre de 2026 a las 15:19.
 ### Mi Futuro (#36)
 
 `mifuturo-utem-informatica.jpg`: búsqueda en Mi Futuro de la Universidad Tecnológica Metropolitana y la carrera genérica "Ingeniería en Computación e Informática", hecha el 11 de noviembre de 2026. Muestra los valores que usa el sitio: retención 90,1 %, duración real 12,9 semestres, empleabilidad 87,1 % y 96,5 %, e ingreso al 4.° año de $2.200.000 a $2.300.000.
+
+## Rediseño de la interfaz (11 de noviembre de 2026)
+
+`rediseno-portada-1280px.jpg`: la portada nueva, con las preguntas de la encuesta y sus respuestas en cifras.
+
+Mediciones después del rediseño, a las 16:27:
+
+| Herramienta | Resultado | Enlace |
+|---|---|---|
+| PageSpeed Insights, celular | 100 en Rendimiento, Accesibilidad, Recomendaciones y SEO. Largest Contentful Paint 0,9 s y Cumulative Layout Shift 0,001 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/2o2o2uimvg?form_factor=mobile) |
+| CompliaScan | 100/100, sin problemas | [informe](https://compliascan.com/scan/fb229c4b-51b0-4fbf-a4e7-bf80c98cbfc4) |
+
+En el navegador, a 360 px: sin desplazamiento horizontal, un solo h1 y ningún enlace interno roto.

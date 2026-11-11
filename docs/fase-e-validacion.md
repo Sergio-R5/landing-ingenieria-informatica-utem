@@ -135,10 +135,10 @@ Al final, preguntar:
 
 | Herramienta | Categoría | Antes | Después | Enlace al resultado |
 |---|---|---|---|---|
-| PageSpeed (móvil) | Rendimiento | 100 | 100 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/fq2ns9naz9?form_factor=mobile) (medición final) |
+| PageSpeed (móvil) | Rendimiento | 100 | 100 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/2o2o2uimvg?form_factor=mobile) (medición final, tras el rediseño) |
 | PageSpeed (móvil) | Accesibilidad | 100 | 100 | Mismo informe |
 | PageSpeed (móvil) | Buenas prácticas | 100 | 100 | Mismo informe |
 | PageSpeed (móvil) | SEO | 100 | 100 | Mismo informe |
-| CompliaScan | Puntaje | 92 | 100 | [informe](https://compliascan.com/scan/af799077-3ec6-4054-ad03-a1bb58416517) (medición final) |
+| CompliaScan | Puntaje | 92 | 100 | [informe](https://compliascan.com/scan/fb229c4b-51b0-4fbf-a4e7-bf80c98cbfc4) (medición final, tras el rediseño) |
 
 Detalle y capturas en [evidencias/README.md](evidencias/README.md).
