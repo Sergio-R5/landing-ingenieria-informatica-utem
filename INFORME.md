@@ -140,7 +140,7 @@ Medimos el sitio publicado el 11 de noviembre de 2026. Los enlaces a cada inform
 
 Registro completo en [docs/fase-e-validacion.md](docs/fase-e-validacion.md).
 
-**Revisión cruzada.** Listamos las 38 cifras y afirmaciones del sitio y abrimos sus fuentes. Las de la página de la carrera, de Admisión UTEM y del Mineduc coinciden. Encontramos que el texto del Cupo PACE no aclaraba que el 25 % superior se mide dentro del liceo, y lo corregimos. Las cifras de Mi Futuro deben revisarse en el navegador, porque esa página carga sus datos con JavaScript.
+**Revisión cruzada.** Listamos las 38 cifras y afirmaciones del sitio y abrimos sus fuentes. Las de la página de la carrera, de Admisión UTEM y del Mineduc coinciden. Encontramos que el texto del Cupo PACE no aclaraba que el 25 % superior se mide dentro del liceo, y lo corregimos. Las cifras de Mi Futuro las revisamos en el navegador, porque esa página carga sus datos con JavaScript, y también coinciden.
 
 **Prueba con usuarios.** Pendiente: la hacen al menos 3 personas reales del público objetivo, con consentimiento, siguiendo el guion de 5 tareas del registro de validación.
 
@@ -150,8 +150,8 @@ Registro completo en [docs/fase-e-validacion.md](docs/fase-e-validacion.md).
 |---|---|
 | Enlace para saltar al contenido que no reconocía la auditoría | Corregido |
 | Requisito del Cupo PACE impreciso | Corregido |
-| Cifras de Mi Futuro sin revisar por una persona | Pendiente |
-| Requisitos "Nivel 5, 6 y 7 aprobado", que son nuestra lectura de la malla | Pendiente de confirmar |
+| Cifras de Mi Futuro: se abrieron en el navegador y coinciden | Corregido |
+| Requisitos "Nivel 5, 6 y 7 aprobado": el sitio aclara que son nuestra lectura | Corregido |
 
 ## 9. Conclusiones
 

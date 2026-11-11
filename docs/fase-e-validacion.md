@@ -32,12 +32,12 @@ Cada afirmación la revisa una persona que no la escribió, abriendo la fuente (
 
 | N.° | Afirmación en el sitio | Fuente | Escribió | Prechequeo (agente, 11-nov) | Revisó | Resultado | Corrección |
 |---|---|---|---|---|---|---|---|
-| B01 | 87,1 % con ingresos al 1.er año (titulados 2021 a 2023) | F05, F06 | Sergio | **No se pudo leer:** Mi Futuro carga los datos con JavaScript. Revisar en el navegador | | | |
-| B02 | 96,5 % con ingresos al 2.° año (titulados 2020 a 2022) | F05, F06 | Sergio | No se pudo leer. Revisar en el navegador | | | |
-| B03 | Ingreso de $2.200.000 a $2.300.000 al 4.° año (titulados 2018 a 2020) | F05, F06 | Sergio | No se pudo leer. Revisar en el navegador | | | |
-| B04 | Retención de 1.er año: 90,1 % | F05 | Sergio | No se pudo leer. Revisar en el navegador | | | |
-| B05 | Duración real: 12,9 semestres (titulados 2024) | F05 | Sergio | No se pudo leer. Revisar en el navegador | | | |
-| B06 | Empleabilidad = titulados con ingresos iguales o superiores al sueldo mínimo | F06 | Sergio | No se pudo leer el PDF. Revisar a mano | | | |
+| B01 | 87,1 % con ingresos al 1.er año (titulados 2021 a 2023) | F05, F06 | Sergio | Coincide: Mi Futuro, abierto en el navegador (`evidencias/mifuturo-utem-informatica.jpg`) | | | |
+| B02 | 96,5 % con ingresos al 2.° año (titulados 2020 a 2022) | F05, F06 | Sergio | Coincide: Mi Futuro, abierto en el navegador | | | |
+| B03 | Ingreso de $2.200.000 a $2.300.000 al 4.° año (titulados 2018 a 2020) | F05, F06 | Sergio | Coincide: "De $2 millones 200 mil a $2 millones 300 mil" | | | |
+| B04 | Retención de 1.er año: 90,1 % | F05 | Sergio | Coincide | | | |
+| B05 | Duración real: 12,9 semestres (titulados 2024) | F05 | Sergio | Coincide. Mi Futuro la lista como carrera genérica "Ingeniería en Computación e Informática" | | | |
+| B06 | Empleabilidad = titulados con ingresos iguales o superiores al sueldo mínimo; períodos de cada cifra | F06 | Sergio | El PDF no se pudo leer como texto. Se tomó de la Fase A (3 de noviembre). Revisar a mano | | | |
 | B07 | Áreas de desempeño y funciones | F01 | Sergio | Coincide con "Campo de Desarrollo Profesional" | | | |
 
 ### Perfil de egreso y Plan de estudios
@@ -48,7 +48,7 @@ Cada afirmación la revisa una persona que no la escribió, abriendo la fuente (
 | C02 | 4 capacidades en lenguaje claro | F01 | Sergio | Resumen sin agregar ideas; revisar que no cambie el sentido | | | |
 | C03 | 44 asignaturas, créditos y requisitos | F02 | Fabián / Sergio | Copiado de la Fase A. Antes sumaba 236 SCT: corregido en #23 | | | |
 | C04 | 30 SCT por semestre y 240 en total | F02 | Sergio | El build lo comprueba en cada compilación | | | |
-| C05 | Requisitos "Nivel 5, 6 y 7 aprobado" | F02 | Sergio | **Es nuestra lectura de "N5a", "N6a" y "N7a"**, que la resolución no define. Confirmar con la Escuela o marcar como interpretación | | | |
+| C05 | Requisitos "Nivel 5, 6 y 7 aprobado" | F02 | Sergio | Es nuestra lectura de "N5a", "N6a" y "N7a", que la resolución no define. El sitio ya lo dice en Plan de estudios (H05) | | | |
 
 ### Respaldo
 
@@ -128,8 +128,8 @@ Al final, preguntar:
 | H01 | El enlace para saltar al contenido medía 1×1 px y CompliaScan no lo reconocía | CompliaScan (#34) | Alta | Conserva su tamaño y apunta a `#main` | Corregido | |
 | H02 | La zona táctil del mismo enlace era menor a 24×24 px | CompliaScan (#34) | Media | La misma de H01 | Corregido | |
 | H03 | El Cupo PACE no aclaraba que el 25 % superior se mide dentro del liceo | Revisión cruzada (#36) | Media | Se precisó el texto en `admision-2027.json` | Corregido | |
-| H04 | Las cifras de Mi Futuro no pudieron prechequearse automáticamente | Revisión cruzada (#36) | Alta | Una persona debe abrirlas en el navegador | Pendiente | |
-| H05 | Los requisitos "Nivel 5, 6 y 7 aprobado" son nuestra lectura de N5a, N6a y N7a | Revisión cruzada (#36) | Media | Confirmar con la Escuela o marcar como interpretación | Pendiente | |
+| H04 | Las cifras de Mi Futuro no pudieron leerse automáticamente | Revisión cruzada (#36) | Alta | Se abrieron en Chrome y las 5 coinciden. Falta la metodología (B06), que es un PDF | Corregido en parte | El PDF de la metodología no se pudo leer como texto |
+| H05 | Los requisitos "Nivel 5, 6 y 7 aprobado" son nuestra lectura de N5a, N6a y N7a | Revisión cruzada (#36) | Media | La sección Plan de estudios aclara que es nuestra lectura | Corregido | No hubo tiempo de consultar a la Escuela antes de la entrega |
 
 ## Métricas finales
 
