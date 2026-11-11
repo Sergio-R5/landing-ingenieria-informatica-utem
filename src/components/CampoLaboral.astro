@@ -1,0 +1,65 @@
+---
+// Campo laboral (#31): dónde trabajan los titulados y qué dicen los datos de
+// empleabilidad e ingresos. Cada cifra muestra el período que mide y su cita.
+// No usa gráficos: las cifras van como texto, así no hace falta una alternativa.
+
+import { getEntry } from 'astro:content';
+import Seccion from './Seccion.astro';
+import Cita from './Cita.astro';
+import TipoInformacion from './TipoInformacion.astro';
+import { pesos, porcentaje } from '../utils/formato';
+
+const areas = await getEntry('areas-desempeno', 'ingenieria-en-informatica');
+const campo = await getEntry('campo-laboral', 'empleabilidad');
+if (!areas || !campo) {
+  throw new Error('Faltan los datos de Campo laboral en src/content');
+}
+const datos = campo.data;
+
+// Indicadores de Mi Futuro. Las descripciones son etiquetas; las cifras y los
+// períodos salen de la colección.
+const indicadores: { cifra: string; descripcion: string }[] = [
+  {
+    cifra: porcentaje(datos.empleabilidadPrimerAnio.porcentaje),
+    descripcion: `de los titulados tiene ingresos al 1.er año. Mide a los ${datos.empleabilidadPrimerAnio.periodo}.`,
+  },
+  {
+    cifra: porcentaje(datos.empleabilidadSegundoAnio.porcentaje),
+    descripcion: `de los titulados tiene ingresos al 2.° año. Mide a los ${datos.empleabilidadSegundoAnio.periodo}.`,
+  },
+  {
+    cifra: `${pesos(datos.ingresoCuartoAnio.desde)} a ${pesos(datos.ingresoCuartoAnio.hasta)}`,
+    descripcion: `ingreso bruto mensual promedio al 4.° año. Mide a los ${datos.ingresoCuartoAnio.periodo}.`,
+  },
+];
+---
+
+<Seccion id="campo-laboral">
+  <!-- Explicación de cómo se mide, con la metodología como fuente. -->
+  <p class="mb-6 text-sm">Definiciones según la metodología de Mi Futuro <Cita fuente={datos.metodologia.id} /></p>
+
+  <!-- Cifras en tarjetas: una columna en celular y tres en escritorio. -->
+  <TipoInformacion tipo="dato_institucional">
+    <ul class="grid gap-4 md:grid-cols-3">
+      {
+        indicadores.map((indicador) => (
+          <li class="rounded-lg border border-borde bg-white p-4">
+            <p class="font-titulo text-3xl font-bold">{indicador.cifra}</p>
+            <p class="mt-1 text-sm">
+              {indicador.descripcion} <Cita fuente={datos.fuente.id} />
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </TipoInformacion>
+
+  <!-- Dónde y en qué trabajan, según la página oficial de la carrera. -->
+  <h3 class="mt-10 font-titulo text-xl font-bold">¿Dónde puede trabajar?</h3>
+  <TipoInformacion tipo="dato_institucional">
+    <p>{areas.data.lugares} <Cita fuente={areas.data.fuente.id} /></p>
+    <ul class="mt-3 list-disc space-y-1 pl-5">
+      {areas.data.funciones.map((funcion) => <li>{funcion}</li>)}
+    </ul>
+  </TipoInformacion>
+</Seccion>
