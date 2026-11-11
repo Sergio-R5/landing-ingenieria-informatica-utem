@@ -143,3 +143,23 @@ Correcciones: las manchas pasaron a ser degradados fijos, la barra brilla una so
 | Después, 19:08 | 100 | 100 | 100 | 100 | 0,9 s | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/k5weostlma?form_factor=mobile) |
 
 Quedan dos avisos informativos que no restan puntaje: "Usa tiempos de almacenamiento en caché eficientes", que depende de GitHub Pages (fija 10 minutos y no se puede cambiar), y "Reprocesamiento forzado", que es mínimo y viene del filtro de la malla.
+
+### Causa real del 89: el salto de la tipografía
+
+Sergio volvió a medir 89. Su captura mostraba la sección Admisión, señal de que la dirección analizada terminaba en `#admision`. Repetimos la medición con esa dirección y dio **80**, con un **Cumulative Layout Shift de 0,475** (el máximo aceptable es 0,1).
+
+**Causa.** La fuente se cargaba con `font-display: swap`: la página se dibujaba primero con la fuente del sistema y después cambiaba a Plus Jakarta Sans. Como tienen otro ancho, los textos de arriba cambiaban de altura y todo lo visible saltaba.
+
+**Corrección.**
+
+- La fuente se declara en `global.css` con `font-display: optional`: si no llega en los primeros instantes, se queda la del sistema y nada se mueve.
+- `BaseLayout.astro` precarga el archivo de la fuente, así que casi siempre llega a tiempo. En el navegador se comprobó que la página sí la usa.
+- Solo se carga el subconjunto latino, que incluye tildes, ñ y ü.
+- Las animaciones de aparición ya no parten invisibles, solo se desplazan.
+
+| Dirección analizada | Rendimiento | Accesibilidad | Recomendaciones | SEO | CLS | Enlace |
+|---|---|---|---|---|---|---|
+| `#admision`, antes | 80 | 100 | 100 | 100 | 0,475 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/8zf6h12aat?form_factor=mobile) |
+| `#admision`, después | 100 | 100 | 100 | 100 | 0 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/c5bl3gjakf?form_factor=mobile) |
+| Portada, después | 100 | 100 | 100 | 100 | 0 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/t5yf46pdhw?form_factor=mobile) |
+| `#plan-de-estudios`, después | 100 | 100 | 100 | 100 | 0 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/1h6jdigdt9?form_factor=mobile) |

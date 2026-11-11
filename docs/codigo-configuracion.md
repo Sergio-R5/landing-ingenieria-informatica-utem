@@ -36,7 +36,7 @@ Git no guarda carpetas vacías. Estos archivos vacíos mantienen en el repositor
 
 | Paquete | Qué hace y por qué |
 |---|---|
-| `@fontsource-variable/plus-jakarta-sans` | Aloja la fuente Plus Jakarta Sans, usada en todo el sitio, sin depender de Google Fonts. Licencia SIL Open Font License 1.1 |
+| `@fontsource-variable/plus-jakarta-sans` | Aporta el archivo de la fuente Plus Jakarta Sans, usada en todo el sitio, sin depender de Google Fonts. `global.css` lo declara con font-display: optional y el layout lo precarga, para que el texto no salte al cargar. Licencia SIL Open Font License 1.1 |
 | `@astrojs/sitemap` | Genera `sitemap-index.xml` al compilar. Además, `src/pages/sitemap.xml.ts` crea `sitemap.xml`, el nombre exacto que pide la pauta en SEO básico |
 
 ## Archivos de datos (src/content)

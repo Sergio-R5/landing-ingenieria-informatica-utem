@@ -130,13 +130,13 @@ Al final, preguntar:
 | H03 | El Cupo PACE no aclaraba que el 25 % superior se mide dentro del liceo | Revisión cruzada (#36) | Media | Se precisó el texto en `admision-2027.json` | Corregido | |
 | H04 | Las cifras de Mi Futuro no pudieron leerse automáticamente | Revisión cruzada (#36) | Alta | Se abrieron en Chrome y las 5 coinciden. Falta la metodología (B06), que es un PDF | Corregido en parte | El PDF de la metodología no se pudo leer como texto |
 | H05 | Los requisitos "Nivel 5, 6 y 7 aprobado" son nuestra lectura de N5a, N6a y N7a | Revisión cruzada (#36) | Media | La sección Plan de estudios aclara que es nuestra lectura | Corregido | No hubo tiempo de consultar a la Escuela antes de la entrega |
-| H06 | Una medición de PageSpeed en celular dio 89 en Rendimiento | PageSpeed Insights (Sergio) | Alta | Animaciones sin fin y filtros de desenfoque quitados; CSS dentro del HTML. Nueva medición: 100 | Corregido | |
+| H06 | Una medición de PageSpeed en celular dio 89 en Rendimiento; al abrir la página en #admision, 80, por un salto del texto al cargar la fuente (CLS 0,475) | PageSpeed Insights (Sergio) | Alta | Fuente con font-display: optional y precarga; animaciones sin fin, filtros de desenfoque y opacidad 0 quitados; CSS dentro del HTML. Nueva medición: 100 en portada, #admision y #plan-de-estudios, con CLS 0 | Corregido | |
 
 ## Métricas finales
 
 | Herramienta | Categoría | Antes | Después | Enlace al resultado |
 |---|---|---|---|---|
-| PageSpeed (móvil) | Rendimiento | 100 | 100 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/k5weostlma?form_factor=mobile) (medición final, 11-nov 19:08) |
+| PageSpeed (móvil) | Rendimiento | 100 | 100 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/t5yf46pdhw?form_factor=mobile) (medición final, 11-nov 19:24) |
 | PageSpeed (móvil) | Accesibilidad | 100 | 100 | Mismo informe |
 | PageSpeed (móvil) | Buenas prácticas | 100 | 100 | Mismo informe |
 | PageSpeed (móvil) | SEO | 100 | 100 | Mismo informe |
