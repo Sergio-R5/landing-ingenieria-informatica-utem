@@ -129,6 +129,45 @@ const campoLaboral = defineCollection({
     }),
 });
 
+// Áreas de desempeño: dónde y en qué trabajan los titulados, según la UTEM (#24).
+const areasDesempeno = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/areas-desempeno' }),
+  schema: z.object({
+    // Tipos de organizaciones donde puede trabajar.
+    lugares: z.string().min(1),
+    // Funciones que la UTEM declara, resumidas sin cambiar su sentido.
+    funciones: z.array(z.string().min(1)).min(1),
+    fuente: reference('referencias'),
+  }),
+});
+
+// Respaldo institucional: certificación de la carrera, acreditación de la
+// universidad y los datos que no encontramos (#24).
+const respaldo = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/respaldo' }),
+  schema: z.object({
+    // La carrera está certificada por agencias; no es acreditación de CNA.
+    certificacionCarrera: z.object({
+      anios: z.number().int().positive(),
+      desde: fecha,
+      hasta: fecha,
+      agencias: z.array(z.string().min(1)).min(1),
+      fuente: reference('referencias'),
+    }),
+    // La acreditación de la CNA es de toda la universidad, no de la carrera.
+    acreditacionInstitucional: z.object({
+      anios: z.number().int().positive(),
+      nivel: z.string().min(1),
+      // La fuente solo informa mes y año, por ejemplo "octubre de 2031".
+      vigencia: z.string().min(1),
+      fuente: reference('referencias'),
+    }),
+    // Datos que la pauta pide y que no aparecen en las fuentes. Se declaran
+    // en el sitio en vez de inventarlos.
+    noDisponible: z.array(z.string().min(1)),
+  }),
+});
+
 // Malla: un archivo por semestre, con sus asignaturas oficiales.
 const malla = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/malla' }),
@@ -195,6 +234,8 @@ export const collections = {
   carrera,
   'perfil-egreso': perfilEgreso,
   'campo-laboral': campoLaboral,
+  'areas-desempeno': areasDesempeno,
+  respaldo,
   malla,
   faq,
   secciones,
