@@ -1,0 +1,22 @@
+{
+  "original": "El(La) Ingeniero(a) en Informática de la Universidad Tecnológica Metropolitana es un(a) profesional con sólida formación en ingeniería aplicada e informática, capacitado(a) para diseñar, desarrollar e integrar soluciones de software y sistemas de información, gestionar redes y recursos computacionales, y administrar tecnologías de la información, considerando criterios de seguridad, confiabilidad, calidad y eficiencia. Puede desempeñarse en organizaciones públicas, privadas y del tercer sector, contribuyendo al desarrollo tecnológico y organizacional mediante el uso de metodologías, herramientas y tecnologías vigentes. Complementa su formación disciplinar con competencias genéricas orientadas al aprendizaje continuo, la comunicación efectiva, el trabajo colaborativo, el emprendimiento, la innovación y el ejercicio profesional con responsabilidad social.",
+  "capacidades": [
+    {
+      "titulo": "Crear software y sistemas de información",
+      "descripcion": "Diseña, desarrolla e integra programas y sistemas que guardan y procesan la información de una organización."
+    },
+    {
+      "titulo": "Gestionar redes y equipos",
+      "descripcion": "Administra las redes y los recursos computacionales, como servidores y equipos, para que funcionen bien."
+    },
+    {
+      "titulo": "Administrar la tecnología de una organización",
+      "descripcion": "Decide y gestiona las tecnologías de la información que usa una organización, con criterios de seguridad, confiabilidad, calidad y eficiencia."
+    },
+    {
+      "titulo": "Trabajar con otras personas",
+      "descripcion": "Se comunica con claridad, trabaja en equipo, sigue aprendiendo, emprende e innova con responsabilidad social."
+    }
+  ],
+  "fuente": "F01"
+}

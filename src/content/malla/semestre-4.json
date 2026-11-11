@@ -1,0 +1,42 @@
+{
+  "semestre": 4,
+  "asignaturas": [
+    {
+      "numero": 41,
+      "nombre": "Estadística y Probabilidad",
+      "sct": 4,
+      "requisito": "31"
+    },
+    {
+      "numero": 42,
+      "nombre": "Ingeniería Ambiental",
+      "sct": 4,
+      "requisito": "Sin requisito"
+    },
+    {
+      "numero": 43,
+      "nombre": "Taller de Principios de Sustentabilidad",
+      "sct": 4,
+      "requisito": "Sin requisito"
+    },
+    {
+      "numero": 44,
+      "nombre": "Grafos y Lenguajes Formales",
+      "sct": 6,
+      "requisito": "35"
+    },
+    {
+      "numero": 45,
+      "nombre": "Sistemas de Información",
+      "sct": 6,
+      "requisito": "34"
+    },
+    {
+      "numero": 46,
+      "nombre": "Arquitectura de Computadores",
+      "sct": 6,
+      "requisito": "Sin requisito"
+    }
+  ],
+  "fuente": "F02"
+}

@@ -1,0 +1,24 @@
+{
+  "semestre": 8,
+  "asignaturas": [
+    {
+      "numero": 81,
+      "nombre": "Taller de Innovación y Emprendimiento",
+      "sct": 4,
+      "requisito": "Sin requisito"
+    },
+    {
+      "numero": 82,
+      "nombre": "Trabajo de Título II",
+      "sct": 4,
+      "requisito": "76"
+    },
+    {
+      "numero": 83,
+      "nombre": "Práctica Profesional",
+      "sct": 22,
+      "requisito": "Nivel 7 aprobado"
+    }
+  ],
+  "fuente": "F02"
+}

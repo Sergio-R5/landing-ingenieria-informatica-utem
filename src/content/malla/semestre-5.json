@@ -1,0 +1,42 @@
+{
+  "semestre": 5,
+  "asignaturas": [
+    {
+      "numero": 51,
+      "nombre": "Circuitos Eléctricos",
+      "sct": 4,
+      "requisito": "33"
+    },
+    {
+      "numero": 52,
+      "nombre": "Principios de Economía",
+      "sct": 4,
+      "requisito": "42"
+    },
+    {
+      "numero": 53,
+      "nombre": "Inglés I",
+      "sct": 4,
+      "requisito": "Sin requisito"
+    },
+    {
+      "numero": 54,
+      "nombre": "Desarrollo Ágil",
+      "sct": 6,
+      "requisito": "45"
+    },
+    {
+      "numero": 55,
+      "nombre": "Sistemas Operativos",
+      "sct": 6,
+      "requisito": "Sin requisito"
+    },
+    {
+      "numero": 56,
+      "nombre": "Análisis de Algoritmos",
+      "sct": 6,
+      "requisito": "44"
+    }
+  ],
+  "fuente": "F02"
+}
