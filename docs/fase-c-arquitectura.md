@@ -56,7 +56,7 @@ Colores, tipografías e imágenes, con su contraste y su licencia (#15). Los con
 | Títulos | Plus Jakarta Sans | Geométrica y moderna; da carácter a los títulos con forma de pregunta | SIL Open Font License 1.1; se aloja en el propio sitio |
 | Texto | Inter | Diseñada para pantallas; se lee bien en tamaños pequeños | SIL Open Font License 1.1; se aloja en el propio sitio |
 | Imagen para redes sociales | `public/og-image.png`, 1200×630 px, con los colores de la identidad visual | Es lo que se ve al compartir el enlace (#20) | Creada por el equipo; sin fotos ni logos de terceros |
-| Otras imágenes | Por ahora, ninguna | Las imágenes autorizadas se eligen en la #26 | Cada imagen deberá indicar autor y licencia o permiso |
+| Otras imágenes | Ninguna | En la #26 no encontramos imágenes con licencia abierta o permiso por escrito de la UTEM. Una foto o una captura de la malla sin permiso no se puede usar. Si el equipo consigue una autorización, se agrega con su crédito y texto alternativo | No aplica |
 
 ## Secciones sin fuente suficiente
 
