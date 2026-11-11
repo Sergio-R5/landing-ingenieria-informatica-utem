@@ -7,6 +7,9 @@
 import '../styles/global.css';
 // Menú de anclas, que lee las secciones de la colección (#33).
 import Navegacion from '../components/Navegacion.astro';
+// Dirección final del archivo de la fuente (con su nombre y la ruta base que
+// le pone Astro al compilar). "?url" pide solo la dirección, no el contenido.
+import fuente from '../../node_modules/@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url';
 // getEntry lee el aviso del pie de página desde src/content/sitio.
 import { getEntry } from 'astro:content';
 
@@ -68,6 +71,10 @@ if (!sitio) {
     <link rel="sitemap" href={`${base}sitemap.xml`} />
     <!-- Ícono de la pestaña, guardado en public/favicon.svg. -->
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <!-- Precarga la fuente para que llegue antes del primer dibujo. Así
+         font-display: optional (global.css) casi siempre puede usarla, sin que
+         el texto salte. crossorigin es obligatorio para precargar fuentes. -->
+    <link rel="preload" href={fuente} as="font" type="font/woff2" crossorigin />
   </head>
   <!-- Colores de fondo y texto, y la fuente Inter, definidos en global.css. -->
   <body class="bg-fondo font-texto text-texto">
