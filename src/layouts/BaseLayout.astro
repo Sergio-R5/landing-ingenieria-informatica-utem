@@ -76,7 +76,7 @@ if (!sitio) {
          sobre el borde superior; al recibir el foco baja a la vista.
          Con sr-only medía 1×1 px y CompliaScan no lo reconocía (#34). -->
     <a
-      href="#contenido-principal"
+      href="#main"
       class="fixed top-2 left-2 z-50 inline-flex min-h-11 -translate-y-[200%] items-center rounded-lg bg-acento px-4 font-semibold text-white focus:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-texto"
     >
       Saltar al contenido principal
@@ -90,7 +90,7 @@ if (!sitio) {
 
     <!-- Contenido de cada página. tabindex="-1" permite recibir el foco al
          usar el enlace para saltar al contenido. -->
-    <main id="contenido-principal" tabindex="-1" class="focus:outline-none">
+    <main id="main" tabindex="-1" class="focus:outline-none">
       <!-- Aquí se inserta lo que la página pone dentro de <BaseLayout>. -->
       <slot />
     </main>
