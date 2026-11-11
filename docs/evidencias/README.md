@@ -63,4 +63,18 @@ Hechas en Chrome sobre el sitio publicado, usando solo el teclado.
 | Zonas táctiles | Ningún control fuera del texto mide menos de 24 px de alto |
 | Movimiento | No hay animaciones; nada depende de `prefers-reduced-motion` |
 
-**Lector de pantalla: pendiente.** Requiere que una persona escuche la página con NVDA o con el Narrador de Windows (Ctrl + Windows + Enter). Hay que comprobar que se lean el menú, los títulos con forma de pregunta, las etiquetas "Dato institucional" e "Interpretación del equipo", las citas ("Fuente 3 en Referencias") y el mensaje del filtro.
+El resultado de la prueba con lector de pantalla está en la sección siguiente.
+
+### Prueba con lector de pantalla (#34)
+
+Hecha por Sergio Rubio Gutiérrez el 11 de noviembre de 2026, con el Narrador de Windows en Chrome, sobre el sitio publicado. Resultado: **todo funcionó**.
+
+| Prueba | Resultado |
+|---|---|
+| Primer Tab | Lee "Saltar al contenido principal, vínculo" |
+| Menú | Lee el nombre de cada sección |
+| Títulos | Lee el h1 con el nombre de la carrera y las preguntas de cada sección como encabezados |
+| Citas | Lee "Fuente N en Referencias" |
+| Bloques de datos | Lee "Dato institucional" o "Interpretación del equipo" antes del texto |
+| Filtro de la malla | Lee el botón como presionado y anuncia "Mostrando solo el semestre 5." |
+| Preguntas frecuentes | Indica si están contraídas o expandidas y lee la respuesta |

@@ -61,7 +61,7 @@ Medimos el sitio publicado el 11 de noviembre de 2026. Los enlaces a cada inform
 
 **Qué corregimos.** CompliaScan encontró 2 problemas en el enlace "Saltar al contenido principal", que sirve a quienes navegan con teclado. Estaba oculto de una forma que lo dejaba de 1×1 px, y su destino no era reconocible. Lo arreglamos y el puntaje subió a 100.
 
-**Pruebas manuales.** Recorrimos la página solo con el teclado: el enlace para saltar aparece al primer Tab, las preguntas frecuentes se abren con Enter y el filtro funciona con la barra espaciadora. Falta la prueba con un lector de pantalla, que debe hacer una persona.
+**Pruebas manuales.** Recorrimos la página solo con el teclado: el enlace para saltar aparece al primer Tab, las preguntas frecuentes se abren con Enter y el filtro funciona con la barra espaciadora. Sergio también la recorrió con el Narrador de Windows, el lector de pantalla del sistema, y todo se leyó correctamente.
 
 ## 8. Validación (Fase E)
 
