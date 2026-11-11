@@ -1,0 +1,42 @@
+{
+  "semestre": 7,
+  "asignaturas": [
+    {
+      "numero": 71,
+      "nombre": "Gestión de Proyectos Informáticos",
+      "sct": 6,
+      "requisito": "64"
+    },
+    {
+      "numero": 72,
+      "nombre": "Computación en la Nube",
+      "sct": 6,
+      "requisito": "66"
+    },
+    {
+      "numero": 73,
+      "nombre": "Computación Web y Móvil",
+      "sct": 6,
+      "requisito": "65"
+    },
+    {
+      "numero": 74,
+      "nombre": "Electivo de Formación Especializada I",
+      "sct": 4,
+      "requisito": "Nivel 5 aprobado"
+    },
+    {
+      "numero": 75,
+      "nombre": "Electivo de Formación Especializada II",
+      "sct": 4,
+      "requisito": "Nivel 5 aprobado"
+    },
+    {
+      "numero": 76,
+      "nombre": "Trabajo de Título I",
+      "sct": 4,
+      "requisito": "Nivel 6 aprobado"
+    }
+  ],
+  "fuente": "F02"
+}

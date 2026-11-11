@@ -51,6 +51,10 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 | `referencias/F01.json`, `F12.json` y `F13.json` | Páginas oficiales de la carrera y de las 2 carreras afines, que citan la Portada y Sobre la carrera |
 | `carrera/ingenieria-en-informatica.json` | Datos de la Portada (nombre, título, grado, duración, jornada y sede), el llamado a la acción, el propósito formativo, las 2 carreras afines y la comparación del equipo (#22). Cada dato sale de la sección "Datos base" y "Carreras afines" de `docs/fase-a-datos.md` |
 | `secciones/portada.md` y `secciones/sobre-la-carrera.md` | Nombre para el menú, pregunta que se usa como título y posición de cada sección |
+| `malla/semestre-1.json` a `semestre-8.json` | Las 44 asignaturas oficiales, con su número, nombre, créditos SCT y requisito, copiadas de la malla de la Resolución Exenta 03838 (F02) que está en `docs/fase-a-datos.md`. El esquema comprueba que cada semestre sume 30 SCT, y en total suman 240 (#23) |
+| `referencias/F02.json` | La resolución que aprueba el plan de estudios vigente |
+| `perfil-egreso/ingenieria-en-informatica.json` | El perfil de egreso oficial, literal, y sus capacidades en lenguaje claro (#23) |
+| `secciones/perfil-de-egreso.md` y `secciones/plan-de-estudios.md` | Pregunta de cada sección y la explicación de SCT y de los requisitos |
 
 ## Prueba de los esquemas (#19)
 

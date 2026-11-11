@@ -83,6 +83,28 @@ const carrera = defineCollection({
   }),
 });
 
+// Perfil de egreso: el texto oficial y su versión en lenguaje claro (#23).
+const perfilEgreso = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/perfil-egreso' }),
+  schema: z.object({
+    // Texto literal del perfil oficial. Se conserva para que cualquiera pueda
+    // comparar la versión en lenguaje claro con el original.
+    original: z.string().min(1),
+    // Capacidades del perfil, reescritas sin cambiar su sentido. Cada una
+    // tiene un nombre corto y su explicación.
+    capacidades: z
+      .array(
+        z.object({
+          titulo: z.string().min(1),
+          descripcion: z.string().min(1),
+        }),
+      )
+      .min(1),
+    // Página oficial de donde sale el perfil.
+    fuente: reference('referencias'),
+  }),
+});
+
 // Campo laboral: indicadores de empleabilidad e ingresos con su período y fuente.
 const campoLaboral = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/campo-laboral' }),
@@ -171,6 +193,7 @@ const secciones = defineCollection({
 export const collections = {
   referencias,
   carrera,
+  'perfil-egreso': perfilEgreso,
   'campo-laboral': campoLaboral,
   malla,
   faq,

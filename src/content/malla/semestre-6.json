@@ -1,0 +1,42 @@
+{
+  "semestre": 6,
+  "asignaturas": [
+    {
+      "numero": 61,
+      "nombre": "Inglés II",
+      "sct": 4,
+      "requisito": "53"
+    },
+    {
+      "numero": 62,
+      "nombre": "Fundamentos de Data Science",
+      "sct": 6,
+      "requisito": "45"
+    },
+    {
+      "numero": 63,
+      "nombre": "Ciberseguridad",
+      "sct": 4,
+      "requisito": "55"
+    },
+    {
+      "numero": 64,
+      "nombre": "Evaluación de Proyectos Informáticos",
+      "sct": 4,
+      "requisito": "42"
+    },
+    {
+      "numero": 65,
+      "nombre": "Ingeniería de Software",
+      "sct": 6,
+      "requisito": "54"
+    },
+    {
+      "numero": 66,
+      "nombre": "Redes y Comunicación de Datos",
+      "sct": 6,
+      "requisito": "46"
+    }
+  ],
+  "fuente": "F02"
+}

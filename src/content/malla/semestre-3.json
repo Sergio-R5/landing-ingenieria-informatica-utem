@@ -1,0 +1,36 @@
+{
+  "semestre": 3,
+  "asignaturas": [
+    {
+      "numero": 31,
+      "nombre": "Cálculo Integral",
+      "sct": 6,
+      "requisito": "22"
+    },
+    {
+      "numero": 32,
+      "nombre": "Álgebra Superior",
+      "sct": 6,
+      "requisito": "23"
+    },
+    {
+      "numero": 33,
+      "nombre": "Electromagnetismo",
+      "sct": 6,
+      "requisito": "24"
+    },
+    {
+      "numero": 34,
+      "nombre": "Base de Datos",
+      "sct": 6,
+      "requisito": "Sin requisito"
+    },
+    {
+      "numero": 35,
+      "nombre": "Lenguajes de Programación",
+      "sct": 6,
+      "requisito": "25"
+    }
+  ],
+  "fuente": "F02"
+}
