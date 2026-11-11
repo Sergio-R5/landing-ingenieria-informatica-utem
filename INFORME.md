@@ -50,7 +50,18 @@ Por qué elegimos cada herramienta y cómo separamos contenido, presentación y 
 
 ## 7. Calidad: accesibilidad y rendimiento
 
-Resultados de PageSpeed Insights y CompliaScan, con su evidencia.
+Medimos el sitio publicado el 11 de noviembre de 2026. Los enlaces a cada informe y las capturas están en [docs/evidencias/](docs/evidencias/README.md).
+
+| Herramienta | Resultado | Mínimo exigido |
+|---|---|---|
+| PageSpeed Insights, celular | 100 en Rendimiento, Accesibilidad, Recomendaciones y SEO | 90 en cada una |
+| CompliaScan | 100/100, sin problemas (antes: 92/100) | 90/100 |
+
+**Por qué el sitio es rápido.** No tiene fotos, aloja sus propias fuentes y Astro entrega HTML ya armado. El único JavaScript es el filtro de la malla. La página muestra su contenido principal en 0,9 segundos en un celular simulado.
+
+**Qué corregimos.** CompliaScan encontró 2 problemas en el enlace "Saltar al contenido principal", que sirve a quienes navegan con teclado. Estaba oculto de una forma que lo dejaba de 1×1 px, y su destino no era reconocible. Lo arreglamos y el puntaje subió a 100.
+
+**Pruebas manuales.** Recorrimos la página solo con el teclado: el enlace para saltar aparece al primer Tab, las preguntas frecuentes se abren con Enter y el filtro funciona con la barra espaciadora. Falta la prueba con un lector de pantalla, que debe hacer una persona.
 
 ## 8. Validación (Fase E)
 
