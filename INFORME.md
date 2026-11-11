@@ -40,7 +40,13 @@ Por qué elegimos cada herramienta y cómo separamos contenido, presentación y 
 
 ### Isla interactiva
 
-Qué hace, por qué existe y cuánto JavaScript agrega.
+**Qué hace.** El plan de estudios tiene 44 asignaturas en 8 semestres. Un filtro con un botón por semestre permite ver uno a la vez (`src/components/FiltroMalla.astro`).
+
+**Por qué existe.** En la Fase B, 2 de 5 personas preguntaron qué se aprende en la carrera. En un celular, la malla completa es una lista muy larga. El filtro ayuda a revisarla por partes, sin salir de la página.
+
+**Cuánto JavaScript agrega.** Es un script pequeño de Astro, sin bibliotecas ni frameworks, y es el único del sitio. Sin JavaScript, el filtro no aparece y se ve la malla completa, así que nadie pierde información.
+
+**Accesibilidad.** Los botones son nativos: funcionan con el teclado e indican cuál está activo (`aria-pressed`). El resultado se anuncia al lector de pantalla con una zona de estado (`role="status"`).
 
 ## 7. Calidad: accesibilidad y rendimiento
 

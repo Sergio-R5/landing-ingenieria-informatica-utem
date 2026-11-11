@@ -1,0 +1,86 @@
+---
+// Filtro de la malla por semestre (#30). Es la única isla interactiva del
+// sitio: un script pequeño de Astro, sin framework, que muestra un semestre a
+// la vez. Sin JavaScript el filtro no aparece y se ve la malla completa.
+
+interface Props {
+  // Números de los semestres, por ejemplo [1, 2, ..., 8].
+  semestres: number[];
+}
+
+const { semestres }: Props = Astro.props;
+---
+
+<!-- hidden: el filtro empieza oculto. El script lo muestra, así nadie ve
+     botones que no funcionan si JavaScript está desactivado. -->
+<div id="filtro-malla" hidden class="mb-6">
+  <!-- Grupo de botones con nombre, para que el lector de pantalla lo anuncie. -->
+  <div role="group" aria-label="Filtrar la malla por semestre" class="flex flex-wrap gap-2">
+    <!-- Botón para ver todos los semestres. aria-pressed indica cuál está activo. -->
+    <button
+      type="button"
+      data-filtro="todos"
+      aria-pressed="true"
+      class="min-h-11 min-w-11 rounded-lg border border-acento px-3 font-semibold text-acento aria-pressed:bg-acento aria-pressed:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
+    >
+      Todos
+    </button>
+    <!-- Un botón por semestre, con al menos 44×44 px para tocarlo con el dedo. -->
+    {
+      semestres.map((semestre) => (
+        <button
+          type="button"
+          data-filtro={semestre}
+          aria-pressed="false"
+          aria-label={`Semestre ${semestre}`}
+          class="min-h-11 min-w-11 rounded-lg border border-acento px-3 font-semibold text-acento aria-pressed:bg-acento aria-pressed:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acento"
+        >
+          {semestre}
+        </button>
+      ))
+    }
+  </div>
+  <!-- Zona que anuncia el resultado del filtro. role="status" hace que el
+       lector de pantalla lo lea sin mover el foco. -->
+  <p id="filtro-malla-estado" role="status" class="mt-2 text-sm"></p>
+</div>
+
+<script>
+  // Astro agrupa y minimiza este script, y lo carga como módulo: se ejecuta
+  // después de que la página termina de cargar.
+
+  // Elementos del filtro y de la malla.
+  const filtro = document.getElementById('filtro-malla');
+  const estado = document.getElementById('filtro-malla-estado');
+  const botones = Array.from(document.querySelectorAll<HTMLButtonElement>('#filtro-malla [data-filtro]'));
+  const bloques = Array.from(document.querySelectorAll<HTMLElement>('#malla-semestres > [data-semestre]'));
+
+  // Solo se activa si existen todas las piezas; si falta una, la malla queda
+  // completa y sin filtro, igual que sin JavaScript.
+  if (filtro !== null && estado !== null && botones.length > 0 && bloques.length > 0) {
+    // Hay JavaScript: se muestra el filtro.
+    filtro.hidden = false;
+
+    // Muestra el semestre elegido, o todos, y anuncia el resultado.
+    const aplicar = (valor: string): void => {
+      // Cada bloque se oculta si no corresponde al semestre elegido.
+      for (const bloque of bloques) {
+        bloque.hidden = valor !== 'todos' && bloque.dataset.semestre !== valor;
+      }
+      // Solo el botón elegido queda marcado como presionado.
+      for (const boton of botones) {
+        boton.setAttribute('aria-pressed', String(boton.dataset.filtro === valor));
+      }
+      // Mensaje para el lector de pantalla y para quien mira la página.
+      estado.textContent =
+        valor === 'todos'
+          ? `Mostrando los ${bloques.length} semestres.`
+          : `Mostrando solo el semestre ${valor}.`;
+    };
+
+    // Cada botón aplica su filtro al hacer clic, o con Enter o Espacio en el teclado.
+    for (const boton of botones) {
+      boton.addEventListener('click', () => aplicar(boton.dataset.filtro ?? 'todos'));
+    }
+  }
+</script>
