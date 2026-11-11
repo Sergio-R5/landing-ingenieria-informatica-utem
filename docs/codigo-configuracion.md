@@ -55,6 +55,10 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 | `referencias/F02.json` | La resolución que aprueba el plan de estudios vigente |
 | `perfil-egreso/ingenieria-en-informatica.json` | El perfil de egreso oficial, literal, y sus capacidades en lenguaje claro (#23) |
 | `secciones/perfil-de-egreso.md` y `secciones/plan-de-estudios.md` | Pregunta de cada sección y la explicación de SCT y de los requisitos |
+| `areas-desempeno/ingenieria-en-informatica.json` | Dónde trabajan los titulados y qué funciones cumplen, según el "Campo de Desarrollo Profesional" de F01 (#24) |
+| `respaldo/ingenieria-en-informatica.json` | Certificación de la carrera (F01), acreditación institucional (F08) y los datos que no encontramos: cuerpo académico y laboratorios (#24) |
+| `referencias/F06.json` y `F08.json` | Metodología de Mi Futuro y la noticia de la acreditación institucional |
+| `secciones/campo-laboral.md` y `secciones/respaldo.md` | Pregunta de cada sección, qué mide la empleabilidad y la diferencia entre certificación y acreditación |
 
 ## Prueba de los esquemas (#19)
 

@@ -1,0 +1,22 @@
+{
+  "certificacionCarrera": {
+    "anios": 5,
+    "desde": "2025-06-16",
+    "hasta": "2030-06-16",
+    "agencias": [
+      "Agencia Acreditadora de Chile",
+      "Consejo de Acreditación en Informática y Computación A.C. (CONAIC), de México"
+    ],
+    "fuente": "F01"
+  },
+  "acreditacionInstitucional": {
+    "anios": 5,
+    "nivel": "Avanzado",
+    "vigencia": "hasta octubre de 2031",
+    "fuente": "F08"
+  },
+  "noDisponible": [
+    "Cuerpo académico: las fuentes consultadas no informan cuántos académicos tiene la carrera ni sus grados.",
+    "Laboratorios: las fuentes consultadas no describen laboratorios propios de la carrera."
+  ]
+}
