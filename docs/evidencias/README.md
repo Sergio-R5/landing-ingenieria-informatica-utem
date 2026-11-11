@@ -104,3 +104,26 @@ Mediciones después del rediseño, a las 16:27:
 | CompliaScan | 100/100, sin problemas | [informe](https://compliascan.com/scan/fb229c4b-51b0-4fbf-a4e7-bf80c98cbfc4) |
 
 En el navegador, a 360 px: sin desplazamiento horizontal, un solo h1 y ningún enlace interno roto.
+
+## Colores por sección y efectos (11 de noviembre de 2026)
+
+Mediciones a las 17:12, con los colores por sección y los efectos ya publicados:
+
+| Herramienta | Resultado | Enlace o detalle |
+|---|---|---|
+| PageSpeed Insights, celular | 100 en Rendimiento, Accesibilidad, Recomendaciones y SEO. Largest Contentful Paint 1,0 s y Cumulative Layout Shift 0,007 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/6ijdxgn3dv?form_factor=mobile) |
+| axe-core 4.10.2, el motor que usa CompliaScan | 0 violaciones y 50 reglas aprobadas (WCAG 2.0, 2.1 y 2.2 A y AA, y buenas prácticas) | Ejecutado en el navegador sobre el sitio publicado |
+
+**Por qué axe y no CompliaScan.** CompliaScan alcanzó su límite de análisis gratuitos sin cuenta. Su último resultado, de 100/100, es del rediseño anterior a los colores por sección.
+
+**Contrastes que axe no puede calcular solo.** axe marcó 36 textos "por revisar": están sobre degradados (las cabeceras de los semestres) o sobre las manchas de color de la portada. Los calculamos a mano en el peor caso, con el fondo más claro posible bajo cada texto:
+
+| Texto | Peor fondo posible | Contraste |
+|---|---|---|
+| Blanco en la portada | Azul profundo con 40 % de cian y la tarjeta translúcida | 7,71:1 |
+| Azul claro (`#BFDBFE`) en la portada | El mismo | 5,43:1 |
+| Amarillo (`#FACC15`) en la portada | El mismo | 5,04:1 |
+| Blanco en la cabecera de un semestre | Violeta `#6D28D9`, el extremo más claro del degradado | 7,10:1 |
+| Azul claro en la cabecera de un semestre | El mismo | 5,00:1 |
+
+Todos superan el mínimo de 4,5:1. A 360 px, la página mide exactamente 360 px de ancho: no hay desplazamiento horizontal.

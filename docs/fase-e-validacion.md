@@ -135,7 +135,7 @@ Al final, preguntar:
 
 | Herramienta | Categoría | Antes | Después | Enlace al resultado |
 |---|---|---|---|---|
-| PageSpeed (móvil) | Rendimiento | 100 | 100 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/2o2o2uimvg?form_factor=mobile) (medición final, tras el rediseño) |
+| PageSpeed (móvil) | Rendimiento | 100 | 100 | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/6ijdxgn3dv?form_factor=mobile) (medición final, con colores y efectos) |
 | PageSpeed (móvil) | Accesibilidad | 100 | 100 | Mismo informe |
 | PageSpeed (móvil) | Buenas prácticas | 100 | 100 | Mismo informe |
 | PageSpeed (móvil) | SEO | 100 | 100 | Mismo informe |
