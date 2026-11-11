@@ -127,3 +127,19 @@ Mediciones a las 17:12, con los colores por sección y los efectos ya publicados
 | Azul claro en la cabecera de un semestre | El mismo | 5,00:1 |
 
 Todos superan el mínimo de 4,5:1. A 360 px, la página mide exactamente 360 px de ancho: no hay desplazamiento horizontal.
+
+## Estabilización del rendimiento (11 de noviembre de 2026)
+
+Una medición de PageSpeed Insights en celular hecha por Sergio dio **89** en Rendimiento (las otras tres categorías, 100). Las mediciones de Lighthouse varían entre ejecuciones, y la página tenía dos puntos débiles:
+
+- Las manchas de color de la portada eran filtros de desenfoque animados sin fin, y la barra de colores también se animaba sin parar. La página nunca quedaba quieta, lo que empeora el índice de velocidad.
+- El CSS se descargaba en un archivo aparte que bloqueaba el primer dibujo.
+
+Correcciones: las manchas pasaron a ser degradados fijos, la barra brilla una sola vez y el CSS va dentro del HTML (`inlineStylesheets: 'always'` en `astro.config.mjs`).
+
+| Medición | Rendimiento | Accesibilidad | Recomendaciones | SEO | Speed Index | Enlace |
+|---|---|---|---|---|---|---|
+| Antes (Sergio) | 89 | 100 | 100 | 100 | No registrado | Captura enviada por Sergio |
+| Después, 19:08 | 100 | 100 | 100 | 100 | 0,9 s | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/k5weostlma?form_factor=mobile) |
+
+Quedan dos avisos informativos que no restan puntaje: "Usa tiempos de almacenamiento en caché eficientes", que depende de GitHub Pages (fija 10 minutos y no se puede cambiar), y "Reprocesamiento forzado", que es mínimo y viene del filtro de la malla.
