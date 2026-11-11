@@ -64,8 +64,8 @@ if (!sitio) {
     <!-- La imagen solo se declara si existe, para no enlazar un archivo vacío. -->
     {imageURL && <meta property="og:image" content={imageURL} />}
 
-    <!-- Índice del sitemap que genera @astrojs/sitemap dentro de la ruta base. -->
-    <link rel="sitemap" href={`${base}sitemap-index.xml`} />
+    <!-- Sitemap con el nombre que pide la pauta (src/pages/sitemap.xml.ts). -->
+    <link rel="sitemap" href={`${base}sitemap.xml`} />
     <!-- Ícono de la pestaña, guardado en public/favicon.svg. -->
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
   </head>
