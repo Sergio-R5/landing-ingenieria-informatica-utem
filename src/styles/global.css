@@ -60,7 +60,7 @@
    (WCAG 2.3.3). Sin ellos, la página se ve completa y quieta. */
 @media (prefers-reduced-motion: no-preference) {
   /* Las preguntas de la portada aparecen una tras otra al cargar la página.
-     Cada una parte transparente y un poco más abajo. */
+     Cada una parte un poco más abajo y sube a su lugar. */
   .entrada {
     animation: entrada 0.6s ease-out both;
     /* El retraso lo fija cada pregunta con la variable --retraso. */
@@ -76,7 +76,7 @@
   }
 }
 
-/* Aparición al hacer scroll: las tarjetas suben y se aclaran al entrar en la
+/* Aparición al hacer scroll: las tarjetas suben a su lugar al entrar en la
    pantalla. Usa animaciones ligadas al scroll de CSS (animation-timeline), así
    que no agrega JavaScript. Los navegadores que no las conocen muestran las
    tarjetas de inmediato. */
@@ -91,15 +91,16 @@
   }
 }
 
-/* De transparente, 24 px abajo y un poco más chica, a su lugar. Usa
-   "transform", así no choca con el "translate" del efecto al pasar el cursor. */
+/* De 24 px abajo y un poco más chica a su lugar. No cambia la opacidad: si la
+   tarjeta partiera invisible, PageSpeed no la contaría como pintada hasta
+   terminar la animación, y al abrir la página en una sección (por ejemplo,
+   con #admision) el rendimiento bajaba de 90. Usa "transform", así no choca
+   con el "translate" del efecto al pasar el cursor. */
 @keyframes revelar {
   from {
-    opacity: 0;
     transform: translateY(24px) scale(0.98);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }
@@ -114,14 +115,13 @@
   }
 }
 
-/* La animación: de invisible y 12 px abajo a visible en su lugar. */
+/* La animación: de 16 px abajo a su lugar. Sin cambiar la opacidad, por la
+   misma razón que "revelar": el texto queda pintado desde el inicio. */
 @keyframes entrada {
   from {
-    opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }
