@@ -1,0 +1,34 @@
+---
+// Menú de navegación por anclas (#33). Lee las secciones en su orden, así que
+// si se agrega o se mueve una sección, el menú se actualiza solo. Funciona sin
+// JavaScript: cada enlace salta a su sección.
+
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+// Secciones ordenadas del 1 al 9, según docs/fase-c-arquitectura.md.
+const secciones: CollectionEntry<'secciones'>[] = (await getCollection('secciones')).sort(
+  (a, b) => a.data.orden - b.data.orden,
+);
+---
+
+<!-- aria-label distingue este menú de otros posibles en la página. -->
+<nav aria-label="Secciones del sitio" class="mx-auto max-w-5xl px-4">
+  <!-- Los enlaces pasan a la línea siguiente cuando no caben, así la página
+       nunca se desplaza a los lados. -->
+  <ul class="flex flex-wrap gap-x-1 gap-y-1 py-2 text-sm">
+    {
+      secciones.map((seccion) => (
+        <li>
+          {/* Cada enlace mide al menos 24 px de alto para tocarlo con el dedo. */}
+          <a
+            href={`#${seccion.id}`}
+            class="inline-flex min-h-8 items-center rounded px-2 font-medium hover:bg-borde focus-visible:outline-2 focus-visible:outline-acento"
+          >
+            {seccion.data.titulo}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

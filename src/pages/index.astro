@@ -1,12 +1,22 @@
 ---
-// Página única del sitio. Por ahora es provisional: comprueba que el layout,
-// los estilos y la publicación funcionan. Las secciones reales llegan en las
-// issues #28 a #33.
+// Página única del sitio (#33). Ordena las 9 secciones como justifica
+// docs/fase-c-arquitectura.md: primero lo que más preguntó la Fase B.
 
-// Layout base con el <head>, los metadatos, los estilos y la estructura común (#20).
+// Layout base con el <head>, el menú y el pie de página.
 import BaseLayout from '../layouts/BaseLayout.astro';
+// Una sección por componente; cada uno lee su contenido de src/content.
+import Hero from '../components/Hero.astro';
+import SobreCarrera from '../components/SobreCarrera.astro';
+import CampoLaboral from '../components/CampoLaboral.astro';
+import PerfilEgreso from '../components/PerfilEgreso.astro';
+import Malla from '../components/Malla.astro';
+import RespaldoInstitucional from '../components/RespaldoInstitucional.astro';
+import Admision from '../components/Admision.astro';
+import PreguntasFrecuentes from '../components/PreguntasFrecuentes.astro';
+import Seccion from '../components/Seccion.astro';
+import Referencias from '../components/Referencias.astro';
 
-// Título de la página. Se define una vez y se usa en <title> y en el <h1>.
+// Título de la pestaña y de las redes sociales.
 const titulo: string = 'Ingeniería en Informática UTEM';
 
 // Descripción única de la página para buscadores y redes sociales.
@@ -17,11 +27,24 @@ const descripcion: string =
 <!-- La página entrega su título, su descripción y la imagen para redes
      sociales (public/og-image.png, de 1200×630 px) al layout. -->
 <BaseLayout title={titulo} description={descripcion} image="og-image.png">
-  <!-- Margen interno provisional mientras no existan las secciones. -->
-  <div class="p-4">
-    <!-- Único encabezado de nivel 1, con la fuente de títulos. -->
-    <h1 class="font-titulo text-2xl font-bold">{titulo}</h1>
-    <!-- Aviso de que el sitio todavía no tiene contenido. -->
-    <p>Sitio en construcción.</p>
-  </div>
+  <!-- 1. Portada: qué es y cuánto dura. -->
+  <Hero />
+  <!-- 2. Sobre la carrera: qué hace y en qué se diferencia. -->
+  <SobreCarrera />
+  <!-- 3. Campo laboral: sube al tercer lugar por la Fase B. -->
+  <CampoLaboral />
+  <!-- 4. Perfil de egreso: qué podrá hacer. -->
+  <PerfilEgreso />
+  <!-- 5. Plan de estudios: la malla, con el filtro por semestre. -->
+  <Malla />
+  <!-- 6. Respaldo: certificación y acreditación. -->
+  <RespaldoInstitucional />
+  <!-- 7. Admisión: la acción final. -->
+  <Admision />
+  <!-- 8. Preguntas frecuentes de la Fase B. -->
+  <PreguntasFrecuentes />
+  <!-- 9. Referencias: al final, como exige la pauta. Cada cita enlaza aquí. -->
+  <Seccion id="referencias">
+    <Referencias />
+  </Seccion>
 </BaseLayout>

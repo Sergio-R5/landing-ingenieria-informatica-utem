@@ -5,6 +5,10 @@
 // Estilos globales: Tailwind CSS, colores y tipografías de la identidad visual (#15).
 // Se importan aquí para que toda página que use este layout los reciba.
 import '../styles/global.css';
+// Menú de anclas, que lee las secciones de la colección (#33).
+import Navegacion from '../components/Navegacion.astro';
+// getEntry lee el aviso del pie de página desde src/content/sitio.
+import { getEntry } from 'astro:content';
 
 // Props que debe recibir el layout. Los tipos son explícitos, como pide la pauta.
 interface Props {
@@ -29,6 +33,12 @@ const canonicalURL: URL = new URL(Astro.url.pathname, Astro.site);
 
 // Dirección absoluta de la imagen para redes sociales, solo si se entregó una.
 const imageURL: URL | undefined = image ? new URL(`${base}${image}`, Astro.site) : undefined;
+
+// Aviso y enlace del pie de página. Si falta el archivo, se detiene el build.
+const sitio = await getEntry('sitio', 'sitio');
+if (!sitio) {
+  throw new Error('Falta src/content/sitio/sitio.json');
+}
 ---
 
 <!doctype html>
@@ -69,8 +79,11 @@ const imageURL: URL | undefined = image ? new URL(`${base}${image}`, Astro.site)
       Saltar al contenido principal
     </a>
 
-    <!-- Encabezado común. El menú de navegación se agrega en la issue #33. -->
-    <header></header>
+    <!-- Encabezado con el menú. En pantallas medianas y grandes queda fijo
+         arriba (sticky); en celulares no, para no tapar el contenido. -->
+    <header class="z-40 border-b border-borde bg-fondo md:sticky md:top-0">
+      <Navegacion />
+    </header>
 
     <!-- Contenido de cada página. tabindex="-1" permite recibir el foco al
          usar el enlace para saltar al contenido. -->
@@ -79,7 +92,19 @@ const imageURL: URL | undefined = image ? new URL(`${base}${image}`, Astro.site)
       <slot />
     </main>
 
-    <!-- Pie de página común. Su contenido se agrega en la issue #33. -->
-    <footer></footer>
+    <!-- Pie de página: aclara que el sitio no es oficial y enlaza al código. -->
+    <footer class="border-t border-borde py-8 text-sm">
+      <div class="mx-auto max-w-5xl space-y-2 px-4">
+        <p>{sitio.data.aviso}</p>
+        <p>
+          <a
+            href={sitio.data.repositorio.url}
+            class="inline-flex min-h-6 items-center text-acento underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-acento"
+          >
+            {sitio.data.repositorio.texto} (sitio externo)
+          </a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
