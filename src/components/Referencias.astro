@@ -31,11 +31,12 @@ function fechaLegible(fecha: string): string {
 <!-- Lista ordenada: el navegador numera cada fuente desde 1.
      Cada elemento tiene el ancla "ref-F05", a la que apuntan las citas.
      scroll-mt deja espacio arriba para que el menú fijo no tape la
-     referencia al saltar. -->
+     referencia al saltar. overflow-wrap:anywhere corta las direcciones web
+     largas del texto APA para que no se salgan de la pantalla en celulares. -->
 <ol class="list-decimal space-y-4 pl-6">
   {
     referencias.map((referencia) => (
-      <li id={`ref-${referencia.id}`} class="scroll-mt-24 leading-relaxed">
+      <li id={`ref-${referencia.id}`} class="scroll-mt-24 leading-relaxed [overflow-wrap:anywhere]">
         {/* Referencia completa en APA 7, tal como está en la matriz. */}
         <p>{referencia.data.apa}</p>
         <p class="mt-1 text-sm">
