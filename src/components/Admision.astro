@@ -1,0 +1,140 @@
+---
+// Admisión (#32): cómo postular, con vías de ingreso, requisitos,
+// ponderaciones, fechas y costos. Todo sale de un archivo por proceso, así
+// que el próximo año basta con editar src/content/admision.
+
+import { getEntry } from 'astro:content';
+import Seccion from './Seccion.astro';
+import Cita from './Cita.astro';
+import TipoInformacion from './TipoInformacion.astro';
+import { pesos, rangoFechas } from '../utils/formato';
+
+const admision = await getEntry('admision', 'admision-2027');
+if (!admision) {
+  throw new Error('Falta src/content/admision/admision-2027.json');
+}
+const datos = admision.data;
+
+// Clases comunes de las celdas de las tablas.
+const celda: string = 'border-b border-borde py-2 pr-4 align-top';
+---
+
+<Seccion id="admision">
+  <!-- Pasos para postular, en orden: lista numerada. -->
+  <h3 class="font-titulo text-xl font-bold">Pasos para postular en {datos.proceso}</h3>
+  <ol class="mt-3 max-w-3xl list-decimal space-y-2 pl-5">
+    {datos.pasos.map((paso) => <li>{paso}</li>)}
+  </ol>
+
+  <!-- Vacantes y puntaje mínimo, en tarjetas. -->
+  <TipoInformacion tipo="dato_institucional">
+    <ul class="grid gap-4 sm:grid-cols-2">
+      <li class="rounded-lg border border-borde bg-white p-4">
+        <p class="font-titulo text-3xl font-bold">{datos.vacantes}</p>
+        <p class="text-sm">vacantes en {datos.proceso} <Cita fuente={datos.fuente.id} /></p>
+      </li>
+      <li class="rounded-lg border border-borde bg-white p-4">
+        <p class="font-titulo text-3xl font-bold">{datos.puntajeMinimo.valor} puntos</p>
+        <p class="text-sm">
+          puntaje mínimo para postular. {datos.puntajeMinimo.detalle} <Cita fuente={datos.fuente.id} />
+        </p>
+      </li>
+    </ul>
+  </TipoInformacion>
+
+  <!-- Vías de ingreso, cada una con su fuente. -->
+  <h3 class="mt-10 font-titulo text-xl font-bold">Vías de ingreso</h3>
+  <TipoInformacion tipo="dato_institucional">
+    <dl class="space-y-3">
+      {
+        datos.vias.map((via) => (
+          <div>
+            <dt class="font-semibold">{via.nombre}</dt>
+            <dd>
+              {via.paraQuien} <Cita fuente={via.fuente.id} />
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </TipoInformacion>
+  <!-- Información para personas de 20 años o más y para quienes cambian de carrera. -->
+  <TipoInformacion tipo="dato_institucional">
+    <p>{datos.publicoSecundario.texto} <Cita fuente={datos.publicoSecundario.fuente.id} /></p>
+  </TipoInformacion>
+
+  <!-- Las tablas tienen caption y encabezados con scope, para que un lector de
+       pantalla asocie cada valor con su columna. overflow-x-auto evita que la
+       página se desplace a los lados en celulares. -->
+  <div class="mt-10 grid gap-8 lg:grid-cols-2">
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-left text-sm">
+        <caption class="mb-2 text-left font-titulo text-lg font-bold">Ponderaciones de {datos.proceso}</caption>
+        <thead>
+          <tr class="border-b-2 border-texto">
+            <th scope="col" class="py-2 pr-4">Componente</th>
+            <th scope="col" class="py-2 text-right">Peso</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            datos.ponderaciones.map((fila) => (
+              <tr>
+                <th scope="row" class:list={[celda, 'font-normal']}>{fila.componente}</th>
+                <td class:list={[celda, 'text-right font-semibold']}>{fila.porcentaje} %</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <p class="mt-2 text-sm">Fuente: <Cita fuente={datos.fuente.id} /></p>
+      <!-- Cómo se leen los porcentajes: es nuestra lectura, por eso se marca. -->
+      <TipoInformacion tipo="interpretacion_equipo">
+        <p class="text-sm">{datos.notaPonderaciones}</p>
+      </TipoInformacion>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-left text-sm">
+        <caption class="mb-2 text-left font-titulo text-lg font-bold">Fechas de {datos.proceso}</caption>
+        <thead>
+          <tr class="border-b-2 border-texto">
+            <th scope="col" class="py-2 pr-4">Etapa</th>
+            <th scope="col" class="py-2">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            datos.fechas.map((fila) => (
+              <tr>
+                <th scope="row" class:list={[celda, 'font-normal']}>{fila.etapa}</th>
+                <td class={celda}>
+                  {rangoFechas(fila.desde, fila.hasta)} <Cita fuente={fila.fuente.id} />
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Costos con el año al que corresponden. -->
+  <h3 class="mt-10 font-titulo text-xl font-bold">Costos</h3>
+  <TipoInformacion tipo="dato_institucional">
+    <dl class="grid gap-4 sm:grid-cols-2">
+      {
+        datos.costos.map((costo) => (
+          <div>
+            <dt class="text-sm">
+              {costo.concepto} ({costo.anio})
+            </dt>
+            <dd class="font-titulo text-2xl font-bold">
+              {pesos(costo.monto)} <Cita fuente={costo.fuente.id} />
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </TipoInformacion>
+</Seccion>

@@ -1,0 +1,42 @@
+---
+// Preguntas frecuentes (#32): las 8 preguntas más repetidas en la Fase B.
+// Cada una usa <details>, que se abre y cierra con teclado y sin JavaScript.
+
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Seccion from './Seccion.astro';
+import Cita from './Cita.astro';
+import TipoInformacion from './TipoInformacion.astro';
+
+// Preguntas en el orden de prioridad de la Fase B.
+const preguntas: CollectionEntry<'faq'>[] = (await getCollection('faq')).sort(
+  (a, b) => a.data.orden - b.data.orden,
+);
+---
+
+<Seccion id="preguntas-frecuentes">
+  <div class="max-w-3xl space-y-3">
+    {
+      preguntas.map((entrada) => (
+        <details class="group rounded-lg border border-borde bg-white">
+          {/* La pregunta es el botón que abre la respuesta. Mide más de 24 px
+              de alto. Un h3 dentro mantiene el orden de los títulos. */}
+          <summary class="flex min-h-12 cursor-pointer items-center px-4 py-3 focus-visible:outline-2 focus-visible:outline-acento">
+            <h3 class="font-semibold">{entrada.data.pregunta}</h3>
+          </summary>
+          <div class="px-4 pb-4">
+            {/* Respuesta con su tipo de información y sus fuentes. */}
+            <TipoInformacion tipo={entrada.data.tipoInformacion}>
+              <p>
+                {entrada.data.respuesta}{' '}
+                {entrada.data.fuentes.map((fuente) => (
+                  <Cita fuente={fuente.id} />
+                ))}
+              </p>
+            </TipoInformacion>
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</Seccion>
