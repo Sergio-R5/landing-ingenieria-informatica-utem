@@ -181,7 +181,7 @@ El registro completo, con fecha, integrante, herramienta, tarea, instrucción y 
 - **Ningún dato tiene como fuente una herramienta de IA.** Cada cifra se tomó de una fuente oficial, y la IA nunca se cita como fuente.
 - **La IA no inventó personas.** Las respuestas de la encuesta, la prueba con lector de pantalla y la prueba con usuarios son de personas reales.
 - **El código generado está documentado línea a línea** con comentarios que explican qué hace y por qué.
-- **Lo que hizo la IA, lo revisó una persona.** Varias filas del registro todavía dicen "Pendiente de revisión": antes de la entrega, cada integrante debe revisar y poder explicar una parte que no escribió.
+- **Lo que hizo la IA, lo revisó una persona.** Sergio Rubio Gutiérrez revisó cada fila del registro el 11 de noviembre de 2026.
 
 ### Anexo C: anexos técnicos
 
