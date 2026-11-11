@@ -78,3 +78,16 @@ Hecha por Sergio Rubio Gutiérrez el 11 de noviembre de 2026, con el Narrador de
 | Bloques de datos | Lee "Dato institucional" o "Interpretación del equipo" antes del texto |
 | Filtro de la malla | Lee el botón como presionado y anuncia "Mostrando solo el semestre 5." |
 | Preguntas frecuentes | Indica si están contraídas o expandidas y lee la respuesta |
+
+### Medición final (#42)
+
+Sobre la versión final, el 11 de noviembre de 2026 a las 15:19.
+
+| Herramienta | Resultado | Enlace |
+|---|---|---|
+| PageSpeed Insights, celular | 100 en Rendimiento, Accesibilidad, Recomendaciones y SEO | [informe](https://pagespeed.web.dev/analysis/https-sergio-r5-github-io-landing-ingenieria-informatica-utem/fq2ns9naz9?form_factor=mobile) |
+| CompliaScan | 100/100, sin problemas | [informe](https://compliascan.com/scan/af799077-3ec6-4054-ad03-a1bb58416517) |
+
+### Mi Futuro (#36)
+
+`mifuturo-utem-informatica.jpg`: búsqueda en Mi Futuro de la Universidad Tecnológica Metropolitana y la carrera genérica "Ingeniería en Computación e Informática", hecha el 11 de noviembre de 2026. Muestra los valores que usa el sitio: retención 90,1 %, duración real 12,9 semestres, empleabilidad 87,1 % y 96,5 %, e ingreso al 4.° año de $2.200.000 a $2.300.000.
