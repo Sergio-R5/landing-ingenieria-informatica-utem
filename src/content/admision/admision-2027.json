@@ -1,0 +1,119 @@
+{
+  "proceso": "Admisión 2027",
+  "vacantes": 150,
+  "puntajeMinimo": {
+    "valor": 458,
+    "detalle": "Promedio entre Competencia Lectora y Competencia Matemática 1 (M1)."
+  },
+  "ponderaciones": [
+    {
+      "componente": "NEM (Notas de Enseñanza Media)",
+      "porcentaje": 10
+    },
+    {
+      "componente": "Ranking de notas",
+      "porcentaje": 25
+    },
+    {
+      "componente": "Competencia Lectora",
+      "porcentaje": 20
+    },
+    {
+      "componente": "Competencia Matemática 1 (M1)",
+      "porcentaje": 30
+    },
+    {
+      "componente": "Competencia Matemática 2 (M2)",
+      "porcentaje": 5
+    },
+    {
+      "componente": "Electiva de Ciencias",
+      "porcentaje": 10
+    },
+    {
+      "componente": "Electiva de Historia y Ciencias Sociales",
+      "porcentaje": 10
+    }
+  ],
+  "notaPonderaciones": "Solo cuenta una de las dos electivas, así que los porcentajes suman 100. Esta lectura es del equipo y debe confirmarse en el sitio del DEMRE (Departamento de Evaluación, Medición y Registro Educacional).",
+  "fuente": "F01",
+  "pasos": [
+    "Inscríbete para rendir la PAES (Prueba de Acceso a la Educación Superior).",
+    "Rinde la PAES. Si también rendiste la PAES de invierno, se usa automáticamente tu mejor puntaje vigente.",
+    "Postula hasta a 20 carreras, en orden de preferencia.",
+    "Revisa los resultados de la postulación.",
+    "Si quedas seleccionado, matricúlate dentro del plazo."
+  ],
+  "vias": [
+    {
+      "nombre": "PAES",
+      "paraQuien": "Egresados de enseñanza media que rindieron la PAES, y extranjeros con estudios secundarios reconocidos en Chile.",
+      "fuente": "F10"
+    },
+    {
+      "nombre": "Cupo PACE (Programa de Acceso a la Educación Superior)",
+      "paraQuien": "Estudiantes de liceos PACE en el 25 % superior de su ranking, o con ranking de 851 puntos o más. Hay 21 cupos. No considera el puntaje PAES, pero exige rendirla.",
+      "fuente": "F11"
+    },
+    {
+      "nombre": "Propedéutico UTEM",
+      "paraQuien": "Estudiantes destacados de los liceos que participan del programa.",
+      "fuente": "F11"
+    }
+  ],
+  "fechas": [
+    {
+      "etapa": "Inscripción a la PAES Regular (cerrada)",
+      "desde": "2026-06-01",
+      "hasta": "2026-07-22",
+      "fuente": "F09"
+    },
+    {
+      "etapa": "Rendición de la PAES Regular",
+      "desde": "2026-11-30",
+      "hasta": "2026-12-02",
+      "fuente": "F09"
+    },
+    {
+      "etapa": "Postulación",
+      "desde": "2027-01-04",
+      "hasta": "2027-01-07",
+      "fuente": "F11"
+    },
+    {
+      "etapa": "Resultados de la postulación",
+      "desde": "2027-01-18",
+      "fuente": "F11"
+    },
+    {
+      "etapa": "Primer período de matrícula",
+      "desde": "2027-01-19",
+      "hasta": "2027-01-21",
+      "fuente": "F11"
+    },
+    {
+      "etapa": "Segundo período de matrícula",
+      "desde": "2027-01-22",
+      "hasta": "2027-01-28",
+      "fuente": "F11"
+    }
+  ],
+  "costos": [
+    {
+      "concepto": "Arancel anual",
+      "monto": 4763300,
+      "anio": "2026",
+      "fuente": "F01"
+    },
+    {
+      "concepto": "Matrícula (derecho básico)",
+      "monto": 90000,
+      "anio": "Admisión 2027",
+      "fuente": "F01"
+    }
+  ],
+  "publicoSecundario": {
+    "texto": "La UTEM no publica una vía especial para personas de 20 años o más ni para quienes quieren cambiarse de carrera. Pueden postular por PAES si cumplen sus requisitos.",
+    "fuente": "F10"
+  }
+}

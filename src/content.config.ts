@@ -196,6 +196,53 @@ const malla = defineCollection({
     }),
 });
 
+// Admisión: datos de un proceso de admisión, en un archivo por proceso (#25).
+// El próximo año basta con crear o editar este archivo.
+const admision = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/admision' }),
+  schema: z.object({
+    // Nombre del proceso, por ejemplo "Admisión 2027".
+    proceso: z.string().min(1),
+    vacantes: z.number().int().positive(),
+    // Puntaje mínimo para postular y qué pruebas promedia.
+    puntajeMinimo: z.object({
+      valor: z.number().int().positive(),
+      detalle: z.string().min(1),
+    }),
+    // Peso de cada componente en el puntaje de postulación, en porcentaje.
+    ponderaciones: z
+      .array(z.object({ componente: z.string().min(1), porcentaje: z.number().min(0).max(100) }))
+      .min(1),
+    // Aclaración de cómo se leen las ponderaciones.
+    notaPonderaciones: z.string().min(1),
+    // Fuente de vacantes, puntaje mínimo y ponderaciones.
+    fuente: reference('referencias'),
+    // Pasos para postular, en orden.
+    pasos: z.array(z.string().min(1)).min(1),
+    // Vías de ingreso, cada una con su fuente.
+    vias: z
+      .array(z.object({ nombre: z.string().min(1), paraQuien: z.string().min(1), fuente: reference('referencias') }))
+      .min(1),
+    // Fechas del proceso. "hasta" se omite cuando la etapa dura un día.
+    fechas: z
+      .array(
+        z.object({
+          etapa: z.string().min(1),
+          desde: fecha,
+          hasta: fecha.optional(),
+          fuente: reference('referencias'),
+        }),
+      )
+      .min(1),
+    // Costos en pesos chilenos, con el año al que corresponden.
+    costos: z
+      .array(z.object({ concepto: z.string().min(1), monto: z.number().int().positive(), anio: z.string().min(1), fuente: reference('referencias') }))
+      .min(1),
+    // Información para personas de 20 años o más y para quienes cambian de carrera.
+    publicoSecundario: z.object({ texto: z.string().min(1), fuente: reference('referencias') }),
+  }),
+});
+
 // Preguntas frecuentes: preguntas reales de la Fase B con su respuesta.
 const faq = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/faq' }),
@@ -207,10 +254,12 @@ const faq = defineCollection({
       tipoInformacion: z.enum(['dato_institucional', 'interpretacion_equipo', 'testimonio']),
       // Orden en que aparece, según la prioridad de la Fase B.
       orden: z.number().int().positive(),
-      fuente: reference('referencias').optional(),
+      // Una respuesta puede usar varias fuentes, por ejemplo la duración formal
+      // (F01) y la real (F05). Una interpretación puede no tener fuente.
+      fuentes: z.array(reference('referencias')).default([]),
     })
-    // Un dato institucional siempre debe citar su fuente.
-    .refine((dato) => dato.tipoInformacion !== 'dato_institucional' || dato.fuente !== undefined, {
+    // Un dato institucional siempre debe citar al menos una fuente.
+    .refine((dato) => dato.tipoInformacion !== 'dato_institucional' || dato.fuentes.length > 0, {
       message: 'Un dato institucional debe tener fuente',
     }),
 });
@@ -237,6 +286,7 @@ export const collections = {
   'areas-desempeno': areasDesempeno,
   respaldo,
   malla,
+  admision,
   faq,
   secciones,
 };

@@ -1,0 +1,10 @@
+{
+  "pregunta": "¿Cuánto dura la carrera?",
+  "respuesta": "Dura 8 semestres. En la práctica, los titulados de 2024 tardaron en promedio 12,9 semestres.",
+  "tipoInformacion": "dato_institucional",
+  "orden": 1,
+  "fuentes": [
+    "F01",
+    "F05"
+  ]
+}
