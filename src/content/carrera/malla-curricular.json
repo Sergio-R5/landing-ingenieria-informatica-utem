@@ -1,0 +1,94 @@
+{
+  "carrera": "Ingeniería en Informática",
+  "institucion": "Universidad Tecnológica Metropolitana (UTEM)",
+  "sistemaCreditos": "SCT (Sistema de Créditos Transferibles)",
+  "explicacionSCT": "El SCT es una medida del tiempo total de trabajo que requiere un estudiante para lograr los objetivos de un curso.",
+  "totalCreditosSCT": 236,
+  "fuenteOficialAnio": 2024,
+  "semestres": [
+    {
+      "numero": 1,
+      "asignaturas": [
+        { "codigo": "NIVB9010", "nombre": "HABILIDADES DE RAZONAMIENTO LOGICO", "creditosSCT": 4, "requisitos": [] },
+        { "codigo": "PPSB0004", "nombre": "TALLER DE CIENCIA Y TECNOLOGIA", "creditosSCT": 4, "requisitos": [] },
+        { "codigo": "INFB6010", "nombre": "INTRODUCCIÓN A LA INGENIERÍA EN INFORMÁTICA", "creditosSCT": 6, "requisitos": [] },
+        { "codigo": "INFB6020", "nombre": "ALGORITMOS Y PROGRAMACION", "creditosSCT": 6, "requisitos": [] },
+        { "codigo": "MATC8010", "nombre": "TALLER DE MATEMATICA", "creditosSCT": 6, "requisitos": [] },
+        { "codigo": "INFO8004", "nombre": "DESIGN THINKING", "creditosSCT": 4, "requisitos": [] }
+      ]
+    },
+    {
+      "numero": 2,
+      "asignaturas": [
+        { "codigo": "PPSEXXXX", "nombre": "ELECTIVO DE FORMACION GENERAL I", "creditosSCT": 2, "requisitos": [] },
+        { "codigo": "NIVB9020", "nombre": "HABILIDADES DE TRABAJO ACADEMICO", "creditosSCT": 4, "requisitos": [HABILIDADES DE RAZONAMIENTO LOGICO] },
+        { "codigo": "MATC8021", "nombre": "CALCULO DIFERENCIAL", "creditosSCT": 4, "requisitos": [TALLER DE MATEMATICA] },
+        { "codigo": "INFB6030", "nombre": "ESTRUCTURAS DE DATOS", "creditosSCT": 6, "requisitos": [ALGORITMOS Y PROGRAMACION] },
+        { "codigo": "FISCT001", "nombre": "MECANICA CLASICA", "creditosSCT": 6, "requisitos": [TALLER DE MATEMATICA] },
+        { "codigo": "MATC8020", "nombre": "ALGEBRA CLASICA", "creditosSCT": 6, "requisitos": [] }
+      ]
+    },
+    {
+      "numero": 3,
+      "asignaturas": [
+        { "codigo": "FISCT002", "nombre": "ELECTROMAGNETISMO", "creditosSCT": 6, "requisitos": [MECANICA CLASICA] },
+        { "codigo": "INFB6051", "nombre": "BASES DE DATOS", "creditosSCT": 6, "requisitos": [] },
+        { "codigo": "INFB6040", "nombre": "LENGUAJES DE PROGRAMACIÓN", "creditosSCT": 6, "requisitos": [ESTRUCTURAS DE DATOS] },
+        { "codigo": "MATC8031", "nombre": "CALCULO INTEGRAL", "creditosSCT": 6, "requisitos": [CALCULO DIFERENCIAL] },
+        { "codigo": "MATC8030", "nombre": "ALGEBRA SUPERIOR", "creditosSCT": 6, "requisitos": [ALGEBRA CLASICA] }
+      ]
+    },
+    {
+      "numero": 4,
+      "asignaturas": [
+        { "codigo": "INFB6071", "nombre": "ARQUITECTURA DE COMPUTADORES", "creditosSCT": 6, "requisitos": [] },
+        { "codigo": "INDB8082", "nombre": "INGENIERIA AMBIENTAL", "creditosSCT": 4, "requisitos": [] },
+        { "codigo": "INFB8061", "nombre": "GRAFOS Y LENGUAJES FORMALES", "creditosSCT": 6, "requisitos": [LENGUAJES DE PROGRAMACIÓN] },
+        { "codigo": "INFB6062", "nombre": "SISTEMAS DE INFORMACIÓN", "creditosSCT": 4, "requisitos": [BASES DE DATOS] },
+        { "codigo": "ESTC001", "nombre": "ESTADISTICA Y PROBABILIDAD", "creditosSCT": 4, "requisitos": [CALCULO INTEGRAL] },
+        { "codigo": "PPSB0005", "nombre": "TALLER DE PRINCIPIOS DE SUSTENTABILIDAD", "creditosSCT": 4, "requisitos": [] }
+      ]
+    },
+    {
+      "numero": 5,
+      "asignaturas": [
+        { "codigo": "INFB6080", "nombre": "SISTEMAS OPERATIVOS", "creditosSCT": 6, "requisitos": [] },
+        { "codigo": "ELEC8040", "nombre": "CIRCUITOS ELECTRICOS", "creditosSCT": 4, "requisitos": [ELECTROMAGNETISMO] },
+        { "codigo": "INDT002", "nombre": "PRINCIPIOS DE ECONOMIA", "creditosSCT": 4, "requisitos": [INGENIERIA AMBIENTAL] },
+        { "codigo": "INFE8001", "nombre": "DESARROLLO AGIL", "creditosSCT": 6, "requisitos": [SISTEMAS DE INFORMACIÓN] },
+        { "codigo": "INFB6061", "nombre": "ANÁLISIS DE ALGORITMOS", "creditosSCT": 6, "requisitos": [GRAFOS Y LENGUAJES FORMALES] },
+        { "codigo": "HUMC8020", "nombre": "INGLES I", "creditosSCT": 4, "requisitos": [] }
+      ]
+    },
+    {
+      "numero": 6,
+      "asignaturas": [
+        { "codigo": "INFB8080", "nombre": "REDES Y COMUNICACION DE DATOS", "creditosSCT": 6, "requisitos": [ARQUITECTURA DE COMPUTADORES] },
+        { "codigo": "INFO8001", "nombre": "CIBERSEGURIDAD", "creditosSCT": 4, "requisitos": [SISTEMAS OPERATIVOS] },
+        { "codigo": "HUMC8030", "nombre": "INGLES II", "creditosSCT": 4, "requisitos": [INGLES I] },
+        { "codigo": "INFO8005", "nombre": "FUNDAMENTOS DE DATA SCIENCE", "creditosSCT": 6, "requisitos": [SISTEMAS DE INFORMACIÓN] },
+        { "codigo": "INFB8083", "nombre": "EVALUACION DE PROYECTOS INFORMATICOS", "creditosSCT": 4, "requisitos": [INGENIERIA AMBIENTAL] },
+        { "codigo": "INFB6072", "nombre": "INGENIERÍA DE SOFTWARE", "creditosSCT": 6, "requisitos": [DESARROLLO AGIL] }
+      ]
+    },
+    {
+      "numero": 7,
+      "asignaturas": [
+        { "codigo": "INFBXXX1", "nombre": "ELECTIVO DE FORMACION ESPECIALIZADA I", "creditosSCT": 4, "requisitos": [CIRCUITOS ELECTRICOS, PRINCIPIOS DE ECONOMIA, INGLES I, DESARROLLO AGIL, SISTEMAS OPERATIVOS y ANÁLISIS DE ALGORITMOS] },
+        { "codigo": "INFBXXX2", "nombre": "ELECTIVO DE FORMACION ESPECIALIZADA II", "creditosSCT": 4, "requisitos": [CIRCUITOS ELECTRICOS, PRINCIPIOS DE ECONOMIA, INGLES I, DESARROLLO AGIL, SISTEMAS OPERATIVOS y ANÁLISIS DE ALGORITMOS] },
+        { "codigo": "INFB698", "nombre": "TRABAJO DE TITULO I", "creditosSCT": 4, "requisitos": [INGLES II, CIBERSEGURIDAD, FUNDAMENTOS DE DATA SCIENCE, EVALUACION DE PROYECTOS INFORMATICOS, INGENIERÍA DE SOFTWARE y REDES Y COMUNICACION DE DATOS] },
+        { "codigo": "INFB8103", "nombre": "GESTION DE PROYECTOS INFORMATICOS", "creditosSCT": 6, "requisitos": [EVALUACION DE PROYECTOS INFORMATICOS] },
+        { "codigo": "INFO8002", "nombre": "COMPUTACION EN LA NUBE", "creditosSCT": 6, "requisitos": [REDES Y COMUNICACION DE DATOS] },
+        { "codigo": "INFO8003", "nombre": "COMPUTACION WEB Y MOVIL", "creditosSCT": 6, "requisitos": [INGENIERÍA DE SOFTWARE] }
+      ]
+    },
+    {
+      "numero": 8,
+      "asignaturas": [
+        { "codigo": "INFB699", "nombre": "TRABAJO DE TITULO II", "creditosSCT": 4, "requisitos": [TRABAJO DE TITULO I] },
+        { "codigo": "INFB900", "nombre": "PRACTICA PROFESIONAL", "creditosSCT": 22, "requisitos": [GESTION DE PROYECTOS INFORMATICOS, COMPUTACION EN LA NUBE, COMPUTACION WEB Y MOVIL y TRABAJO DE TITULO I] },
+        { "codigo": "PPSB0006", "nombre": "TALLER DE INNOVACION Y EMPRENDIMIENTO", "creditosSCT": 4, "requisitos": [] }
+      ]
+    }
+  ]
+}
