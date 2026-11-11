@@ -1,6 +1,6 @@
 ---
 titulo: "Empleabilidad, Ingresos y Respaldo Institucional"
-carrera: "Ingeniería en Informática"
+carrera: "Ingeniería en Informática" 
 institucion: "Universidad Tecnológica Metropolitana (UTEM)"
 ---
 
