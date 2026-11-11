@@ -4,9 +4,13 @@
 // datos clave con año y cita, y el llamado a postular. No usa imágenes, así
 // que el elemento más grande es texto y el LCP no depende de una descarga.
 
+// getEntry lee un archivo de datos de src/content por su nombre.
 import { getEntry } from 'astro:content';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
+// Formatos de cifras y fechas que pide la guía de estilo.
 import { numero, porcentaje } from '../utils/formato';
 
 // Datos de la carrera, de la sección de portada y de Mi Futuro.
@@ -20,6 +24,7 @@ if (!carrera || !portada || !campo || !admision) {
   throw new Error('Faltan datos de la portada en src/content');
 }
 
+// Atajo para leer los campos del archivo.
 const datos = carrera.data;
 
 // Ficha de la carrera: nombre del dato y su valor. Los nombres son etiquetas

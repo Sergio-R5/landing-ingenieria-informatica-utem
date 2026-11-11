@@ -3,16 +3,23 @@
 // ponderaciones, fechas y costos. Todo sale de un archivo por proceso, así
 // que el próximo año basta con editar src/content/admision.
 
+// getEntry lee un archivo de datos de src/content por su nombre.
 import { getEntry } from 'astro:content';
+// Envoltorio común: título en forma de pregunta e introducción de la sección.
 import Seccion from './Seccion.astro';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
+// Formatos de cifras y fechas que pide la guía de estilo.
 import { pesos, rangoFechas } from '../utils/formato';
 
 const admision = await getEntry('admision', 'admision-2027');
+// Si falta el archivo de datos, el build se detiene en vez de mostrar una sección vacía.
 if (!admision) {
   throw new Error('Falta src/content/admision/admision-2027.json');
 }
+// Atajo para leer los campos del archivo.
 const datos = admision.data;
 
 // Clases comunes de las celdas de las tablas.

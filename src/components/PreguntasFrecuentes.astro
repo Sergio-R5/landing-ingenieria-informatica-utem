@@ -2,10 +2,15 @@
 // Preguntas frecuentes (#32): las 8 preguntas más repetidas en la Fase B.
 // Cada una usa <details>, que se abre y cierra con teclado y sin JavaScript.
 
+// getCollection lee todos los archivos de una colección.
 import { getCollection } from 'astro:content';
+// Tipo de una entrada de colección, para tipar las listas sin usar any.
 import type { CollectionEntry } from 'astro:content';
+// Envoltorio común: título en forma de pregunta e introducción de la sección.
 import Seccion from './Seccion.astro';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
 
 // Preguntas en el orden de prioridad de la Fase B.

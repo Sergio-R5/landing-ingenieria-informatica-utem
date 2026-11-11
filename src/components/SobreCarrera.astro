@@ -3,15 +3,21 @@
 // diferencia de 2 carreras afines. La Fase B mostró que nadie sabía qué hace,
 // así que primero va el propósito oficial y luego una explicación simple.
 
+// getEntry lee un archivo de datos de src/content por su nombre.
 import { getEntry } from 'astro:content';
+// Envoltorio común: título en forma de pregunta e introducción de la sección.
 import Seccion from './Seccion.astro';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
 
 const carrera = await getEntry('carrera', 'ingenieria-en-informatica');
+// Si falta el archivo de datos, el build se detiene en vez de mostrar una sección vacía.
 if (!carrera) {
   throw new Error('Falta src/content/carrera/ingenieria-en-informatica.json');
 }
+// Atajo para leer los campos del archivo.
 const datos = carrera.data;
 ---
 

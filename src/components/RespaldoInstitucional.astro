@@ -3,13 +3,19 @@
 // acreditación de la universidad, separadas porque no son lo mismo, y los
 // datos que no encontramos, declarados en vez de inventarlos.
 
+// getEntry lee un archivo de datos de src/content por su nombre.
 import { getEntry } from 'astro:content';
+// Envoltorio común: título en forma de pregunta e introducción de la sección.
 import Seccion from './Seccion.astro';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
+// Formatos de cifras y fechas que pide la guía de estilo.
 import { fechaLegible } from '../utils/formato';
 
 const respaldo = await getEntry('respaldo', 'ingenieria-en-informatica');
+// Si falta el archivo de datos, el build se detiene en vez de mostrar una sección vacía.
 if (!respaldo) {
   throw new Error('Falta src/content/respaldo/ingenieria-en-informatica.json');
 }

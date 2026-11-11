@@ -3,17 +3,24 @@
 // empleabilidad e ingresos. Cada cifra muestra el período que mide y su cita.
 // No usa gráficos: las cifras van como texto, así no hace falta una alternativa.
 
+// getEntry lee un archivo de datos de src/content por su nombre.
 import { getEntry } from 'astro:content';
+// Envoltorio común: título en forma de pregunta e introducción de la sección.
 import Seccion from './Seccion.astro';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
+// Formatos de cifras y fechas que pide la guía de estilo.
 import { pesos, porcentaje } from '../utils/formato';
 
 const areas = await getEntry('areas-desempeno', 'ingenieria-en-informatica');
 const campo = await getEntry('campo-laboral', 'empleabilidad');
+// Si falta el archivo de datos, el build se detiene en vez de mostrar una sección vacía.
 if (!areas || !campo) {
   throw new Error('Faltan los datos de Campo laboral en src/content');
 }
+// Atajo para leer los campos del archivo.
 const datos = campo.data;
 
 // Indicadores de Mi Futuro. Las descripciones son etiquetas; las cifras y los

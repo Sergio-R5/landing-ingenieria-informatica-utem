@@ -3,10 +3,15 @@
 // semestre, con sus créditos SCT y su requisito. Sin JavaScript se ve la malla
 // completa; con JavaScript aparece un filtro por semestre (la única isla).
 
+// getCollection lee todos los archivos de una colección.
 import { getCollection } from 'astro:content';
+// Tipo de una entrada de colección, para tipar las listas sin usar any.
 import type { CollectionEntry } from 'astro:content';
+// Envoltorio común: título en forma de pregunta e introducción de la sección.
 import Seccion from './Seccion.astro';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Filtro por semestre, la única isla interactiva del sitio.
 import FiltroMalla from './FiltroMalla.astro';
 
 // Semestres ordenados del 1 al 8.

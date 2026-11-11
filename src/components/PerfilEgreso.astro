@@ -3,15 +3,21 @@
 // capacidades en lenguaje claro y, debajo, el texto oficial completo para
 // que cualquiera compare que no cambió su sentido.
 
+// getEntry lee un archivo de datos de src/content por su nombre.
 import { getEntry } from 'astro:content';
+// Envoltorio común: título en forma de pregunta e introducción de la sección.
 import Seccion from './Seccion.astro';
+// Número de cita que enlaza a la fuente en Referencias.
 import Cita from './Cita.astro';
+// Etiqueta visible: dato institucional o interpretación del equipo.
 import TipoInformacion from './TipoInformacion.astro';
 
 const perfil = await getEntry('perfil-egreso', 'ingenieria-en-informatica');
+// Si falta el archivo de datos, el build se detiene en vez de mostrar una sección vacía.
 if (!perfil) {
   throw new Error('Falta src/content/perfil-egreso/ingenieria-en-informatica.json');
 }
+// Atajo para leer los campos del archivo.
 const datos = perfil.data;
 ---
 

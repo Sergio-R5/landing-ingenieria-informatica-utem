@@ -3,7 +3,9 @@
 // si se agrega o se mueve una sección, el menú se actualiza solo. Funciona sin
 // JavaScript: cada enlace salta a su sección.
 
+// getCollection lee todos los archivos de una colección.
 import { getCollection } from 'astro:content';
+// Tipo de una entrada de colección, para tipar las listas sin usar any.
 import type { CollectionEntry } from 'astro:content';
 
 // Secciones ordenadas del 1 al 9, según docs/fase-c-arquitectura.md.
