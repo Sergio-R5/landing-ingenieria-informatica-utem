@@ -12,9 +12,12 @@
 
 /* Colores y tipografía de la identidad visual (#15, rediseño del 11 de
    noviembre de 2026). @theme crea utilidades de Tailwind con estos nombres,
-   por ejemplo bg-fondo, text-texto o font-titulo. Los contrastes están
-   calculados con la fórmula de WCAG 2.2 en docs/fase-c-arquitectura.md. */
-@theme {
+   por ejemplo bg-fondo, text-texto o font-titulo. "static" hace que todas
+   las variables queden en el CSS final aunque ninguna clase las use:
+   Seccion.astro arma var(--color-...) con el nombre del color de cada
+   sección, y Tailwind no puede detectarlo. Los contrastes están calculados
+   con la fórmula de WCAG 2.2 en docs/fase-c-arquitectura.md. */
+@theme static {
   /* Fondo de la página: blanco pizarra. */
   --color-fondo: #F8FAFC;
   /* Texto principal: 17,06:1 sobre el fondo. */
