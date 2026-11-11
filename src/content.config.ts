@@ -54,6 +54,8 @@ const carrera = defineCollection({
   schema: z.object({
     // Datos que exige la pauta para la Portada. Son datos institucionales.
     nombreOficial: z.string().min(1),
+    // Universidad que imparte la carrera, con su sigla.
+    institucion: z.string().min(1),
     tituloProfesional: z.string().min(1),
     gradoAcademico: z.string().min(1),
     duracionSemestres: z.number().int().positive(),
@@ -105,23 +107,39 @@ const perfilEgreso = defineCollection({
   }),
 });
 
-// Campo laboral: indicadores de empleabilidad e ingresos con su período y fuente.
+// Campo laboral: indicadores de Mi Futuro, cada uno con el período que mide.
+// La pauta exige que toda cifra muestre su año.
+const indicador = z.object({
+  // Valor en porcentaje, de 0 a 100.
+  porcentaje: z.number().min(0).max(100),
+  // Qué titulados o estudiantes y qué años mide.
+  periodo: z.string().min(1),
+});
+
 const campoLaboral = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/campo-laboral' }),
   schema: z
     .object({
-      // Porcentaje de titulados con ingresos al primer y al segundo año (0 a 100).
-      empleabilidadPrimerAnio: z.number().min(0).max(100),
-      empleabilidadSegundoAnio: z.number().min(0).max(100),
+      // Titulados con ingresos iguales o superiores al sueldo mínimo.
+      empleabilidadPrimerAnio: indicador,
+      empleabilidadSegundoAnio: indicador,
       // Mi Futuro informa el ingreso como tramo, no como un número exacto.
       ingresoCuartoAnio: z.object({
         desde: z.number().int().positive(),
         hasta: z.number().int().positive(),
+        periodo: z.string().min(1),
       }),
-      // Qué titulados y años mide cada indicador; la pauta exige el año del dato.
-      periodo: z.string().min(1),
-      // ID de la referencia de donde sale el dato; debe existir.
+      // Estudiantes de 1.er año que siguen en la carrera al año siguiente.
+      retencionPrimerAnio: indicador,
+      // Semestres que tardaron en promedio los titulados.
+      duracionReal: z.object({
+        semestres: z.number().positive(),
+        periodo: z.string().min(1),
+      }),
+      // ID de la referencia de donde salen los datos; debe existir.
       fuente: reference('referencias'),
+      // Metodología que define cómo se mide cada indicador.
+      metodologia: reference('referencias'),
     })
     // El tramo de ingreso debe ir de menor a mayor.
     .refine((dato) => dato.ingresoCuartoAnio.desde <= dato.ingresoCuartoAnio.hasta, {
@@ -277,6 +295,18 @@ const secciones = defineCollection({
   }),
 });
 
+// Datos del sitio que no son de la carrera: el aviso de que el sitio no es
+// oficial y el enlace al repositorio (#33).
+const sitio = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/sitio' }),
+  schema: z.object({
+    // Aviso del pie de página. Evita que se confunda con un sitio de la UTEM.
+    aviso: z.string().min(1),
+    // Texto y dirección del enlace al código del sitio.
+    repositorio: z.object({ texto: z.string().min(1), url: z.url() }),
+  }),
+});
+
 // Colecciones disponibles para getCollection() en las páginas.
 export const collections = {
   referencias,
@@ -289,4 +319,5 @@ export const collections = {
   admision,
   faq,
   secciones,
+  sitio,
 };

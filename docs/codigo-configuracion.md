@@ -48,7 +48,7 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 |---|---|
 | `referencias/F05.json` | La fuente F05 de la matriz (Mi Futuro). El nombre del archivo es el ID que usan las citas |
 | `referencias/F01.json` a `F13.json` | Las 11 fuentes que usa el sitio, con el mismo ID, texto APA, tipo y fecha de consulta de la matriz (#26). F03 y F04 no se cargan porque la matriz indica que no se usan |
-| `campo-laboral/empleabilidad.json` | Empleabilidad e ingresos de Mi Futuro, con su período, tal como están en `docs/fase-a-datos.md` |
+| `campo-laboral/empleabilidad.json` | Empleabilidad, ingresos, retención y duración real de Mi Futuro (F05), cada cifra con el período que mide, tal como están en `docs/fase-a-datos.md`. `metodologia` apunta a F06, que define cómo se miden (#31) |
 | `referencias/F01.json`, `F12.json` y `F13.json` | Páginas oficiales de la carrera y de las 2 carreras afines, que citan la Portada y Sobre la carrera |
 | `carrera/ingenieria-en-informatica.json` | Datos de la Portada (nombre, título, grado, duración, jornada y sede), el llamado a la acción, el propósito formativo, las 2 carreras afines y la comparación del equipo (#22). Cada dato sale de la sección "Datos base" y "Carreras afines" de `docs/fase-a-datos.md` |
 | `secciones/portada.md` y `secciones/sobre-la-carrera.md` | Nombre para el menú, pregunta que se usa como título y posición de cada sección |
@@ -63,6 +63,9 @@ Son JSON, así que no admiten comentarios. Sus reglas están explicadas línea a
 | `admision/admision-2027.json` | Vacantes, puntaje mínimo, ponderaciones, pasos, vías de ingreso, fechas, costos e información para el público secundario de Admisión 2027, cada uno con su fuente (#25). El próximo año basta con editar este archivo |
 | `faq/01-cuanto-dura.json` a `08-primera-opcion.json` | Las 8 primeras preguntas priorizadas de `docs/fase-b-audiencia.md`, con su respuesta, tipo de información y fuentes (#25) |
 | `secciones/admision.md` y `secciones/preguntas-frecuentes.md` | Pregunta de cada sección y de dónde salen las preguntas frecuentes |
+| `secciones/referencias.md` | Pregunta de la sección Referencias y cómo usar las citas (#33) |
+| `sitio/sitio.json` | Aviso del pie de página, que aclara que el sitio no es oficial de la UTEM, y el enlace al repositorio (#33) |
+| `carrera/ingenieria-en-informatica.json` → `institucion` | Nombre de la universidad que muestra la portada (#28) |
 
 ## Prueba de los esquemas (#19)
 
