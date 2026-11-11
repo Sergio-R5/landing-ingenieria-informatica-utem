@@ -1,0 +1,42 @@
+---
+// Perfil de egreso (#29): qué podrá hacer quien se titule. Muestra las
+// capacidades en lenguaje claro y, debajo, el texto oficial completo para
+// que cualquiera compare que no cambió su sentido.
+
+import { getEntry } from 'astro:content';
+import Seccion from './Seccion.astro';
+import Cita from './Cita.astro';
+import TipoInformacion from './TipoInformacion.astro';
+
+const perfil = await getEntry('perfil-egreso', 'ingenieria-en-informatica');
+if (!perfil) {
+  throw new Error('Falta src/content/perfil-egreso/ingenieria-en-informatica.json');
+}
+const datos = perfil.data;
+---
+
+<Seccion id="perfil-de-egreso">
+  <TipoInformacion tipo="dato_institucional">
+    <!-- Capacidades en tarjetas: una columna en celular, dos en escritorio. -->
+    <ul class="grid gap-4 md:grid-cols-2">
+      {
+        datos.capacidades.map((capacidad) => (
+          <li class="rounded-lg border border-borde bg-white p-4">
+            <h3 class="font-titulo text-lg font-bold">{capacidad.titulo}</h3>
+            <p class="mt-1">{capacidad.descripcion}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-3 text-sm">Resumen del perfil de egreso oficial <Cita fuente={datos.fuente.id} /></p>
+  </TipoInformacion>
+
+  <!-- El texto oficial va plegado con <details>: se abre y cierra con teclado
+       y sin JavaScript. Es una cita textual, por eso va en <blockquote>. -->
+  <details class="mt-6 rounded-lg border border-borde bg-white p-4">
+    <summary class="min-h-6 cursor-pointer font-semibold">Leer el perfil de egreso oficial completo</summary>
+    <blockquote class="mt-3 border-l-4 border-borde pl-4 leading-relaxed">
+      <p>{datos.original} <Cita fuente={datos.fuente.id} /></p>
+    </blockquote>
+  </details>
+</Seccion>
