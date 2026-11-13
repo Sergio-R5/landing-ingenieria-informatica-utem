@@ -142,7 +142,13 @@ Registro completo en [docs/fase-e-validacion.md](docs/fase-e-validacion.md).
 
 **Revisión cruzada.** Listamos las 38 cifras y afirmaciones del sitio y abrimos sus fuentes. Las de la página de la carrera, de Admisión UTEM y del Mineduc coinciden. Encontramos que el texto del Cupo PACE no aclaraba que el 25 % superior se mide dentro del liceo, y lo corregimos. Las cifras de Mi Futuro las revisamos en el navegador, porque esa página carga sus datos con JavaScript, y también coinciden.
 
-**Prueba con usuarios.** Pendiente: la hacen al menos 3 personas reales del público objetivo, con consentimiento, siguiendo el guion de 5 tareas del registro de validación.
+**Prueba con usuarios.** El 12 de noviembre de 2026, 3 personas usaron el sitio publicado y realizaron 5 tareas: encontrar la duración, las asignaturas del semestre 3, la certificación, el puntaje mínimo y la fuente de la empleabilidad. Todas dieron su consentimiento, que el equipo guarda fuera del repositorio. Las 3 encontraron respuesta a sus dudas. De 15 tareas, 13 se completaron sin ayuda.
+
+Sus comentarios nos llevaron a 3 correcciones:
+
+- Una persona no entendió el número "12,9 reales". Ahora la portada dice que son semestres hasta titularse y que es la duración real que mide Mi Futuro.
+- Otra buscaba "malla curricular" y necesitó ayuda. Ahora la sección se llama así en el menú.
+- Otra necesitó ayuda para llegar a la fuente de la empleabilidad. Ahora la portada y Campo laboral explican que cada número entre corchetes lleva a su fuente.
 
 **Hallazgos.**
 
@@ -152,6 +158,10 @@ Registro completo en [docs/fase-e-validacion.md](docs/fase-e-validacion.md).
 | Requisito del Cupo PACE impreciso | Corregido |
 | Cifras de Mi Futuro: se abrieron en el navegador y coinciden | Corregido |
 | Requisitos "Nivel 5, 6 y 7 aprobado": el sitio aclara que son nuestra lectura | Corregido |
+| Rendimiento de 89 en PageSpeed por un salto del texto al cargar la fuente | Corregido: 100 |
+| "12,9 reales" confuso (prueba con usuarios) | Corregido |
+| Se buscaba "malla curricular" (prueba con usuarios) | Corregido |
+| Costaba llegar a la fuente de la empleabilidad (prueba con usuarios) | Corregido |
 
 ## 9. Conclusiones
 

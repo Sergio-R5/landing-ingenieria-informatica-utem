@@ -117,9 +117,13 @@ Al final, preguntar:
 
 | Código | Público | Fecha | T1 | T2 | T3 | T4 | T5 | ¿Encontró respuesta a sus dudas? | Comentarios |
 |---|---|---|---|---|---|---|---|---|---|
-| U1 | | | | | | | | | |
-| U2 | | | | | | | | | |
-| U3 | | | | | | | | | |
+| U1 | No registrado | 2026-11-12 | Sola | Sola | Sola | Sola | Sola | Sí, sobre todo la duración y el puntaje | Le confundió la diferencia entre los 8 semestres y los "12,9 reales": no entendió a qué se refería ese número |
+| U2 | No registrado | 2026-11-12 | Sola | Con ayuda | Sola | Sola | Sola | Sí, ahora sabe qué asignaturas hay en cada semestre | Habría preferido que la sección se llamara "malla curricular" en vez de "plan de estudios" |
+| U3 | No registrado | 2026-11-12 | Sola | Sola | Sola | Sola | Con ayuda | Sí, tiene más información sobre la empleabilidad | Le costó encontrar la fuente de la empleabilidad en Referencias |
+
+**Cómo se registró.** El equipo aplicó la prueba a 3 personas el 12 de noviembre de 2026, con el guion de arriba, y anotó los resultados. Las 3 dieron su consentimiento. Los consentimientos y el registro con sus nombres los guarda el equipo fuera del repositorio. El registro no indica si cada persona es estudiante o familiar, por eso la columna Público dice "No registrado".
+
+**Resumen.** Las 3 personas encontraron respuesta a sus dudas. De 15 tareas, 13 se completaron sin ayuda y 2 con ayuda: encontrar las asignaturas del semestre 3 (U2) y encontrar la fuente de la empleabilidad (U3).
 
 ## Hallazgos y correcciones
 
@@ -131,6 +135,9 @@ Al final, preguntar:
 | H04 | Las cifras de Mi Futuro no pudieron leerse automáticamente | Revisión cruzada (#36) | Alta | Se abrieron en Chrome y las 5 coinciden. Falta la metodología (B06), que es un PDF | Corregido en parte | El PDF de la metodología no se pudo leer como texto |
 | H05 | Los requisitos "Nivel 5, 6 y 7 aprobado" son nuestra lectura de N5a, N6a y N7a | Revisión cruzada (#36) | Media | La sección Plan de estudios aclara que es nuestra lectura | Corregido | No hubo tiempo de consultar a la Escuela antes de la entrega |
 | H06 | Una medición de PageSpeed en celular dio 89 en Rendimiento; al abrir la página en #admision, 80, por un salto del texto al cargar la fuente (CLS 0,475) | PageSpeed Insights (Sergio) | Alta | Fuente con font-display: optional y precarga; animaciones sin fin, filtros de desenfoque y opacidad 0 quitados; CSS dentro del HTML. Nueva medición: 100 en portada, #admision y #plan-de-estudios, con CLS 0 | Corregido | |
+| H07 | U1 no entendió a qué se refería "12,9 reales" junto a los 8 semestres | Prueba con usuarios (#37) | Alta | La portada ahora dice "12,9 semestres en promedio en titularse" y aclara que es la duración real que mide Mi Futuro | Corregido | |
+| H08 | U2 necesitó ayuda para encontrar las asignaturas y buscaba "malla curricular" | Prueba con usuarios (#37) | Media | La sección se llama "Malla curricular" en el menú y en su etiqueta; su introducción aclara que es el plan de estudios | Corregido | |
+| H09 | U3 necesitó ayuda para llegar a la fuente de la empleabilidad | Prueba con usuarios (#37) | Media | La portada y Campo laboral explican que cada número entre corchetes, como [3], lleva a la fuente en Referencias | Corregido | |
 
 ## Métricas finales
 

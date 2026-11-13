@@ -59,8 +59,10 @@ const respuestas: {
   {
     pregunta: preguntaDuracion.data.pregunta,
     cifra: `${datos.duracionSemestres} semestres`,
-    // La duración real va siempre junto a la formal (guía de estilo).
-    detalle: `En la práctica, los ${mf.duracionReal.periodo} tardaron ${numero(mf.duracionReal.semestres)} en promedio.`,
+    // La duración real va siempre junto a la formal (guía de estilo). En la
+    // prueba con usuarios, una persona no entendió "12,9" solo: por eso se
+    // dice que son semestres hasta titularse y que es la duración real (H07).
+    detalle: `Es la duración del plan. En la práctica, los ${mf.duracionReal.periodo} tardaron ${numero(mf.duracionReal.semestres)} semestres en promedio en titularse: es la duración real que mide Mi Futuro.`,
     fuentes: [datos.fuente.id, mf.fuente.id],
     destino: '#plan-de-estudios',
   },
